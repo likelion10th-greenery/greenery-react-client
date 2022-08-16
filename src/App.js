@@ -1,6 +1,9 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 import Nav from './components/nav';
+import Category from './components/shop/category';
+import Shop from './components/shop';
+import Search from './components/shop/search/index';
 
 const GlobalStyle = createGlobalStyle`
 	${reset}
@@ -11,6 +14,14 @@ const GlobalStyle = createGlobalStyle`
 		height: 100vh;
 		padding: 0 140px;
 		margin: 0;
+	}
+
+	input {
+		outline: none;
+	}
+
+	button {
+		outline: none;
 	}
 `;
 
@@ -24,6 +35,9 @@ function App() {
 			<GlobalStyle />
 			<RootDiv>
 				<Nav />
+				<Search />
+				<Category />
+				<Shop />
 			</RootDiv>
 		</>
 	);
