@@ -1,9 +1,8 @@
 import styled, { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 import Nav from './components/nav';
-import Category from './components/shop/category';
-import Shop from './components/shop';
-import Search from './components/shop/search/index';
+import Footer from './components/footer';
+import Routes from './routes/Routes';
 
 const GlobalStyle = createGlobalStyle`
 	${reset}
@@ -26,7 +25,9 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const RootDiv = styled.div`
-	height: 100vh;
+	min-height: 100vh;
+	padding-bottom: 120px; // footer 공간 마련
+	position: relative;
 `;
 
 function App() {
@@ -35,9 +36,8 @@ function App() {
 			<GlobalStyle />
 			<RootDiv>
 				<Nav />
-				<Search />
-				<Category />
-				<Shop />
+				<Routes />
+				<Footer />
 			</RootDiv>
 		</>
 	);
