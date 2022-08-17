@@ -130,11 +130,11 @@ const SalesPost = () => {
 								<RadioBtn>
 									<input
 										type="radio"
-										id="broad"
+										id="abroad"
 										{...register('origin', { required: true })}
 										value="수입산"
 									/>
-									<label htmlFor="broad">수입산</label>
+									<label htmlFor="abroad">수입산</label>
 								</RadioBtn>
 								<RadioBtn>
 									<input
@@ -156,7 +156,7 @@ const SalesPost = () => {
 										</SizeInput>
 										<SizeInput>
 											<span>세로 |</span>
-											<input {...register('length')} type="number" min={0} />
+											<input {...register('vertical')} type="number" min={0} />
 										</SizeInput>
 										<SizeInput>
 											<span>높이 |</span>
