@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 	align-items: flex-start;
 `;
 export const Title = styled.h3`
-	font-size: 18px;
+	font-size: 20px;
 	font-weight: 600;
 	margin-bottom: 20px;
 `;
@@ -30,11 +30,12 @@ export const InputWrapper = styled.div`
 	justify-content: center;
 	align-items: flex-start;
 	label {
-		margin-bottom: 5px;
+		margin-bottom: 10px;
 	}
 	input,
 	select,
-	option {
+	option,
+	textarea {
 		min-width: 220px;
 		padding: 3px 5px;
 		outline: none;
@@ -53,6 +54,8 @@ export const ImageWrapper = styled.div`
 	input {
 		display: none;
 	}
+	border-top: 1px solid rgba(0, 0, 0, 0.3);
+	padding-top: 5px;
 `;
 export const ImageAdder = styled.div`
 	min-width: 100px;
@@ -61,6 +64,7 @@ export const ImageAdder = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	background-color: rgba(225, 225, 225, 0.3);
 	font-size: 24px;
 	border: 1px solid gray;
 	cursor: pointer;
@@ -78,6 +82,7 @@ export const ImageAdder = styled.div`
 `;
 export const Image = styled.div`
 	min-width: 100px;
+	max-width: 100px;
 	height: 100px;
 	margin-left: 10px;
 	position: relative;
@@ -85,8 +90,15 @@ export const Image = styled.div`
 		width: 100%;
 		height: 100%;
 	}
+	&:hover {
+		span {
+			opacity: 1;
+		}
+	}
 	span {
 		position: absolute;
+		opacity: 0;
+		cursor: pointer;
 	}
 	.del {
 		top: 5px;
@@ -107,12 +119,18 @@ export const InputBox = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: flex-start;
+	min-width: 270px;
 	margin: 10px;
+	border-radius: 5px;
+	background-color: white;
+	padding: 10px;
 `;
 export const InputDetailWrapper = styled.div`
 	background-color: white;
 	width: calc(${props => props.innerWidth * 0.5}px);
 	padding-top: 15px;
+	border-top: 1px solid rgba(0, 0, 0, 0.3);
+	padding-top: 5px;
 	${InputBox} {
 		flex-direction: row;
 		justify-content: flex-start;
@@ -182,4 +200,12 @@ export const Textarea = styled.textarea`
 export const Button = styled.button`
 	position: absolute;
 	bottom: -40px;
+	background-color: #2bb601;
+	color: whitesmoke;
+	border: none;
+	border-radius: 5px;
+	padding: 7px 15px;
+	&:hover {
+		background-color: #2bc401;
+	}
 `;
