@@ -77,7 +77,7 @@ export const ImageAdder = styled.div`
 	}
 `;
 export const Image = styled.div`
-	width: 100px;
+	min-width: 100px;
 	height: 100px;
 	margin-left: 10px;
 	position: relative;
@@ -127,7 +127,7 @@ export const InputDetailWrapper = styled.div`
 	}
 `;
 export const RadioBtn = styled.div`
-	input {
+	input[type='radio'] {
 		display: none;
 	}
 	input[type='radio']:checked + label {
@@ -164,7 +164,7 @@ export const SizeInput = styled.div`
 		text-align: center;
 		position: absolute;
 		left: 3px;
-		top: 1px;
+		top: 4px;
 	}
 	input {
 		font-size: 15px;

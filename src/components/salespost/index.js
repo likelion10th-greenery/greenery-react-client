@@ -24,6 +24,9 @@ const SalesPost = () => {
 		formState: { errors },
 	} = useForm();
 	const onValid = data => {
+		// 주소 합치기
+		//const address = data.address1 + data.address2 + data.address3;
+
 		// data.image (=FileList) 덮어쓰기 필요
 		const dataTransfer = new DataTransfer();
 
@@ -39,6 +42,8 @@ const SalesPost = () => {
 	window.addEventListener('resize', () => {
 		setInnerWidth(window.innerWidth);
 	});
+
+	const [showSelector, setShowSelector] = useState(false);
 	const [imgFiles, setImgFiles] = useState([]); // 업로드 된 파일 정보 배열
 	const [imgFilesUrl, setImgFilesUrl] = useState([]); // 미리보기용 이미지 파일 경로 배열
 	const imgInput = useRef();
@@ -178,7 +183,9 @@ const SalesPost = () => {
 										{...register('transport', { required: true })}
 										value="택배"
 									/>
-									<label htmlFor="delivery">택배</label>
+									<label htmlFor="delivery" onClick={() => setShowSelector(false)}>
+										택배
+									</label>
 								</RadioBtn>
 								<RadioBtn>
 									<input
@@ -187,9 +194,24 @@ const SalesPost = () => {
 										{...register('transport', { required: true })}
 										value="직거래"
 									/>
-									<label htmlFor="meet">직거래</label>
+									<label htmlFor="meet" onClick={() => setShowSelector(true)}>
+										직거래
+									</label>
 								</RadioBtn>
 							</InputBox>
+							{showSelector ? (
+								<InputBox>
+									<select {...register('address1')}>
+										<option>시/도</option>
+									</select>
+									<select {...register('address2')}>
+										<option>시/군/구</option>
+									</select>
+									<select {...register('address3')}>
+										<option>읍/면/동</option>
+									</select>
+								</InputBox>
+							) : null}
 						</InputDetailWrapper>
 					</InputBox>
 					<InputBox>
