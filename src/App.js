@@ -22,6 +22,11 @@ const GlobalStyle = createGlobalStyle`
 	button {
 		outline: none;
 	}
+
+	a {
+		text-decoration: none;
+		color: #000;
+	}
 `;
 
 const RootDiv = styled.div`
