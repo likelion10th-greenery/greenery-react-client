@@ -75,7 +75,7 @@ export const Image = styled.div`
 		border-radius: 5px;
 		padding: 2px 5px;
 		&:hover {
-			background-color: #2bb601;
+			background-color: #2da000aa;
 		}
 	}
 	.isRep {

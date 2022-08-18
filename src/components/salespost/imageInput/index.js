@@ -30,7 +30,13 @@ const ImageInput = ({ register, innerWidth }) => {
 		const tempList = [];
 		for (let i = 0; i < imgList.length; i += 1) {
 			const id = new Date().getTime() + imgList[i].lastModified;
-			tempList.push({ file: imgList[i], objUrl: URL.createObjectURL(imgList[i]), id: id });
+			const repValue = imgFiles.length + i === 0 ? true : false; // 0번 인덱스 -> 대표사진
+			tempList.push({
+				file: imgList[i], // input에서 넘어온 File 데이터
+				objUrl: URL.createObjectURL(imgList[i]), // 상대 경로
+				id: id, // 이미지 id
+				isRep: repValue, // 대표 이미지 식별값
+			});
 		}
 		imgList = tempList;
 
@@ -40,8 +46,31 @@ const ImageInput = ({ register, innerWidth }) => {
 	const onDelete = id => {
 		setImgFiles(prev => {
 			const copied = [...prev];
-			return copied.filter(file => file.id !== id);
+			const tempList = copied.filter(file => file.id !== id);
+			if (copied[0].id === id) {
+				// 삭제한 이미지가 대표사진이면
+				const nextRep = tempList.splice(0, 1);
+				tempList.splice(0, 0, { ...nextRep[0], isRep: true }); // 대표 넘겨주기
+			}
+			return tempList;
 		});
+	};
+	const onRepClick = id => {
+		let index = 0;
+		setImgFiles(prev => {
+			const tempList = [...prev].map((img, idx) => {
+				if (img.id === id) {
+					index = idx;
+					return { ...img, isRep: true };
+				} else {
+					return { ...img, isRep: false };
+				}
+			});
+			const target = tempList.splice(index, 1);
+			tempList.splice(0, 0, target[0]);
+			return tempList;
+		});
+		//alert('대표 이미지가 변경되었습니다.');
 	};
 	return (
 		<InputBox>
@@ -64,7 +93,9 @@ const ImageInput = ({ register, innerWidth }) => {
 						<span className="del" onClick={() => onDelete(img.id)}>
 							❌
 						</span>
-						<span className="rep">대표</span>
+						<span onClick={() => onRepClick(img.id)} className={img.isRep ? 'rep isRep' : 'rep'}>
+							대표
+						</span>
 					</Image>
 				))}
 			</ImageWrapper>

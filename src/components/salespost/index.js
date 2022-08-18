@@ -42,7 +42,7 @@ const SalesPost = () => {
 		data.image = dataTransfer.files; // -> Filelist
 
 		//data.image = imgFiles.map(img => img.file); // -> array of File
-
+		console.log(imgFiles);
 		console.log(data);
 	};
 	const inValid = data => {
