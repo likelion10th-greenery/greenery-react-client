@@ -7,8 +7,9 @@ export const Wrapper = styled.nav`
 	align-items: center;
 `;
 
-export const Title = styled.h2`
-	font-size: 32px;
+export const Title = styled.img`
+	width: auto;
+	height: 50px;
 	color: green;
 	cursor: pointer;
 `;
