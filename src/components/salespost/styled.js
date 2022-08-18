@@ -19,7 +19,7 @@ export const Form = styled.form`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: #d6d6d66b;
+	background-color: whitesmoke;
 	position: relative;
 `;
 export const InputWrapper = styled.div`
@@ -86,31 +86,41 @@ export const Image = styled.div`
 	height: 100px;
 	margin-left: 10px;
 	position: relative;
+	transition: all 0.3s ease-in-out;
 	img {
 		width: 100%;
 		height: 100%;
 	}
 	&:hover {
 		span {
-			opacity: 1;
+			visibility: visible;
 		}
 	}
 	span {
 		position: absolute;
-		opacity: 0;
+		visibility: hidden;
 		cursor: pointer;
 	}
 	.del {
 		top: 5px;
 		right: 5px;
 	}
-	.main {
+	.rep {
 		bottom: 5px;
 		left: 5px;
 		font-size: 14px;
 		color: white;
+		background-color: rgba(225, 225, 225, 0.8);
 		border: 1px soild white;
+		border-radius: 5px;
 		padding: 2px 5px;
+		&:hover {
+			background-color: #2bb601;
+		}
+	}
+	.isRep {
+		visibility: visible;
+		background-color: #2bb601;
 	}
 `;
 

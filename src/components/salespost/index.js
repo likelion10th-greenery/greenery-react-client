@@ -17,6 +17,13 @@ import {
 	Button,
 } from './styled';
 
+// const duplicationCheck = (arr, x) => {
+// 	for (var i = 0; i < arr.length; i += 1) {
+// 		if (arr[i] === x) return true;
+// 	}
+// 	return false;
+// };
+
 const SalesPost = () => {
 	const {
 		register,
@@ -30,8 +37,10 @@ const SalesPost = () => {
 		// data.image (=FileList) 덮어쓰기 필요
 		const dataTransfer = new DataTransfer();
 
-		Array.from(imgFiles).forEach(file => dataTransfer.items.add(file));
-		data.image = dataTransfer.files;
+		Array.from(imgFiles).forEach(file => dataTransfer.items.add(file.file));
+		data.image = dataTransfer.files; // -> Filelist
+
+		//data.image = imgFiles.map(img => img.file); // -> array of File
 
 		console.log(data);
 	};
@@ -43,34 +52,49 @@ const SalesPost = () => {
 		setInnerWidth(window.innerWidth);
 	});
 
-	const [showSelector, setShowSelector] = useState(false);
+	const [showAddress, setShowAddress] = useState(false);
 	const [imgFiles, setImgFiles] = useState([]); // 업로드 된 파일 정보 배열
-	const [imgFilesUrl, setImgFilesUrl] = useState([]); // 미리보기용 이미지 파일 경로 배열
 	const imgInput = useRef();
 	const onImgInputClick = () => {
 		if (imgFiles.length >= 10) {
 			alert('파일은 최대 10개까지 업로드 가능합니다.');
-			setImgFiles(prev => [...prev].splice(0, 10));
 			return;
 		}
 		imgInput.current.click();
 	};
 	const onChange = () => {
-		const imgList = imgInput.current.files;
-		setImgFiles(prev => [...prev, ...imgList]);
-		setImgFilesUrl(prev => {
-			const imgUrlList = [...prev];
-			for (let i = 0; i < imgList.length; i += 1) {
-				// 미리보기용 상대경로
-				const imgUrl = URL.createObjectURL(imgList[i]);
-				imgUrlList.push(imgUrl);
+		let imgList = imgInput.current.files; // 사용자가 입력한 FileList
+
+		// 업로드 개수 제한
+		const canUpload = 10 - imgFiles.length; // 현재 업로드할 수 있는 최대 개수
+		if (canUpload < imgList.length) {
+			const tempList = [];
+			for (let i = 0; i < canUpload; i += 1) {
+				tempList.push(imgList[i]);
 			}
-			return imgUrlList;
+			imgList = tempList;
+		}
+
+		// 미리보기용 상대경로 / 이미지 id 생성
+		const tempList = [];
+		for (let i = 0; i < imgList.length; i += 1) {
+			const id = new Date().getTime() + imgList[i].lastModified;
+			tempList.push({ file: imgList[i], objUrl: URL.createObjectURL(imgList[i]), id: id });
+		}
+		imgList = tempList;
+
+		// 입력 파일데이터 리스트에 저장
+		setImgFiles(prev => [...prev, ...imgList]);
+	};
+	const onDelete = id => {
+		setImgFiles(prev => {
+			const copied = [...prev];
+			return copied.filter(file => file.id !== id);
 		});
 	};
 	return (
 		<Wrapper>
-			<Title>판매글 등록하기</Title>
+			<Title>상품 등록</Title>
 			<Form onSubmit={handleSubmit(onValid, inValid)} enctype="multipart/form-data">
 				<InputWrapper>
 					<InputBox>
@@ -99,7 +123,7 @@ const SalesPost = () => {
 						<label>상품 이미지</label>
 						<ImageWrapper innerWidth={innerWidth}>
 							<ImageAdder onClick={onImgInputClick}>
-								➕<span>{`${imgFilesUrl.length}/10`}</span>
+								➕<span>{`${imgFiles.length}/10`}</span>
 							</ImageAdder>
 							<input
 								{...register('image')}
@@ -109,11 +133,13 @@ const SalesPost = () => {
 								multiple
 								accept="image/*"
 							/>
-							{imgFilesUrl.map((file, idx) => (
-								<Image key={idx}>
-									<img src={file} alt="img" />
-									<span className="del">❌</span>
-									<span className="main">대표</span>
+							{imgFiles.map(img => (
+								<Image key={img.id}>
+									<img src={img.objUrl} alt="img" />
+									<span className="del" onClick={() => onDelete(img.id)}>
+										❌
+									</span>
+									<span className="rep">대표</span>
 								</Image>
 							))}
 						</ImageWrapper>
@@ -183,7 +209,7 @@ const SalesPost = () => {
 										{...register('transport', { required: true })}
 										value="택배"
 									/>
-									<label htmlFor="delivery" onClick={() => setShowSelector(false)}>
+									<label htmlFor="delivery" onClick={() => setShowAddress(false)}>
 										택배
 									</label>
 								</RadioBtn>
@@ -194,12 +220,12 @@ const SalesPost = () => {
 										{...register('transport', { required: true })}
 										value="직거래"
 									/>
-									<label htmlFor="meet" onClick={() => setShowSelector(true)}>
+									<label htmlFor="meet" onClick={() => setShowAddress(true)}>
 										직거래
 									</label>
 								</RadioBtn>
 							</InputBox>
-							{showSelector ? (
+							{showAddress ? (
 								<InputBox>
 									<select {...register('address1')}>
 										<option>시/도</option>
