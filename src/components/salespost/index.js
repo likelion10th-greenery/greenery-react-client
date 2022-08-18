@@ -1,14 +1,15 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useRecoilValue } from 'recoil';
+import AddressSelector from './address';
+import { imageFiles } from './atoms';
+import ImageInput from './imageInput';
 import {
 	Wrapper,
 	Title,
 	Form,
 	InputWrapper,
 	InputBox,
-	ImageWrapper,
-	ImageAdder,
-	Image,
 	InputDetailWrapper,
 	RadioBtn,
 	SizeInputWrapper,
@@ -17,14 +18,14 @@ import {
 	Button,
 } from './styled';
 
-// const duplicationCheck = (arr, x) => {
-// 	for (var i = 0; i < arr.length; i += 1) {
-// 		if (arr[i] === x) return true;
-// 	}
-// 	return false;
-// };
-
 const SalesPost = () => {
+	const [innerWidth, setInnerWidth] = useState(window.innerWidth);
+	window.addEventListener('resize', () => {
+		setInnerWidth(window.innerWidth);
+	});
+	const [showAddress, setShowAddress] = useState(false);
+	const imgFiles = useRecoilValue(imageFiles);
+
 	const {
 		register,
 		handleSubmit,
@@ -47,51 +48,7 @@ const SalesPost = () => {
 	const inValid = data => {
 		console.log(errors);
 	};
-	const [innerWidth, setInnerWidth] = useState(window.innerWidth);
-	window.addEventListener('resize', () => {
-		setInnerWidth(window.innerWidth);
-	});
 
-	const [showAddress, setShowAddress] = useState(false);
-	const [imgFiles, setImgFiles] = useState([]); // 업로드 된 파일 정보 배열
-	const imgInput = useRef();
-	const onImgInputClick = () => {
-		if (imgFiles.length >= 10) {
-			alert('파일은 최대 10개까지 업로드 가능합니다.');
-			return;
-		}
-		imgInput.current.click();
-	};
-	const onChange = () => {
-		let imgList = imgInput.current.files; // 사용자가 입력한 FileList
-
-		// 업로드 개수 제한
-		const canUpload = 10 - imgFiles.length; // 현재 업로드할 수 있는 최대 개수
-		if (canUpload < imgList.length) {
-			const tempList = [];
-			for (let i = 0; i < canUpload; i += 1) {
-				tempList.push(imgList[i]);
-			}
-			imgList = tempList;
-		}
-
-		// 미리보기용 상대경로 / 이미지 id 생성
-		const tempList = [];
-		for (let i = 0; i < imgList.length; i += 1) {
-			const id = new Date().getTime() + imgList[i].lastModified;
-			tempList.push({ file: imgList[i], objUrl: URL.createObjectURL(imgList[i]), id: id });
-		}
-		imgList = tempList;
-
-		// 입력 파일데이터 리스트에 저장
-		setImgFiles(prev => [...prev, ...imgList]);
-	};
-	const onDelete = id => {
-		setImgFiles(prev => {
-			const copied = [...prev];
-			return copied.filter(file => file.id !== id);
-		});
-	};
 	return (
 		<Wrapper>
 			<Title>상품 등록</Title>
@@ -119,31 +76,7 @@ const SalesPost = () => {
 							<input {...register('price', { required: true })} type="number" min={0} />원
 						</div>
 					</InputBox>
-					<InputBox>
-						<label>상품 이미지</label>
-						<ImageWrapper innerWidth={innerWidth}>
-							<ImageAdder onClick={onImgInputClick}>
-								➕<span>{`${imgFiles.length}/10`}</span>
-							</ImageAdder>
-							<input
-								{...register('image')}
-								ref={imgInput}
-								onChange={onChange}
-								type="file"
-								multiple
-								accept="image/*"
-							/>
-							{imgFiles.map(img => (
-								<Image key={img.id}>
-									<img src={img.objUrl} alt="img" />
-									<span className="del" onClick={() => onDelete(img.id)}>
-										❌
-									</span>
-									<span className="rep">대표</span>
-								</Image>
-							))}
-						</ImageWrapper>
-					</InputBox>
+					<ImageInput register={register} innerWidth={innerWidth} />
 					<InputBox>
 						<label>상품 주요 정보</label>
 						<InputDetailWrapper innerWidth={innerWidth}>
@@ -225,19 +158,7 @@ const SalesPost = () => {
 									</label>
 								</RadioBtn>
 							</InputBox>
-							{showAddress ? (
-								<InputBox>
-									<select {...register('address1')}>
-										<option>시/도</option>
-									</select>
-									<select {...register('address2')}>
-										<option>시/군/구</option>
-									</select>
-									<select {...register('address3')}>
-										<option>읍/면/동</option>
-									</select>
-								</InputBox>
-							) : null}
+							{showAddress ? <AddressSelector register={register} /> : null}
 						</InputDetailWrapper>
 					</InputBox>
 					<InputBox>
