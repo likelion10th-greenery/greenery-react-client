@@ -1,17 +1,18 @@
 import { Link } from 'react-router-dom';
 import { Category, RightBox, Title, Wrapper } from './styled';
+import LOGO_IMG from '../../assets/imgs/Greenery LOGO.png';
 
 const Nav = () => {
 	return (
 		<Wrapper>
 			<Link to="/">
-				<Title>Greenery</Title>
+				<Title src={LOGO_IMG} />
 			</Link>
 			<RightBox>
 				<Link to="/">
 					<Category>Home</Category>
 				</Link>
-				<Link to="/shop">
+				<Link to="/shop/view-all">
 					<Category>Shop</Category>
 				</Link>
 

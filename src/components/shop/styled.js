@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.section`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: cneter;
+`;
+
+export const DataList = styled.div`
 	display: grid;
 	grid-template: auto / repeat(4, 1fr);
-	gap: 50px;
+	gap: 10px;
 
 	padding: 50px 0;
 `;
