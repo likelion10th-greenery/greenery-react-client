@@ -1,15 +1,16 @@
+import Search from '../search';
+import Category from '../category';
 import Counter from './Counter';
 import './index.css';
 
 function DetailPage() {
 	return (
 		<div className="App">
+			<div className="Search">
+				<Search />
+			</div>
 			<div className="Category">
-				<p>메뉴</p>
-				<p>-</p>
-				<p>대분류</p>
-				<p>-</p>
-				<p>소분류</p>
+				<Category />
 			</div>
 			<div>
 				<p>상품사진</p>

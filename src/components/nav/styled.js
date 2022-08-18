@@ -7,8 +7,9 @@ export const Wrapper = styled.nav`
 	align-items: center;
 `;
 
-export const Title = styled.h2`
-	font-size: 32px;
+export const Logo = styled.img`
+	width: auto;
+	height: 50px;
 	color: green;
 	cursor: pointer;
 `;
@@ -29,4 +30,11 @@ export const Category = styled.span`
 	&:hover {
 		border-bottom: 1px solid green;
 	}
+`;
+
+export const IconBox = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
 `;
