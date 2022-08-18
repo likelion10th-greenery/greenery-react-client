@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { COLOR } from './../../../utils/color';
 
 export const ImageWrapper = styled.div`
 	width: calc(${props => props.innerWidth * 0.5}px);
@@ -23,7 +24,7 @@ export const ImageAdder = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: rgba(225, 225, 225, 0.3);
+	background-color: ${COLOR.gray};
 	font-size: 24px;
 	border: 1px solid gray;
 	cursor: pointer;
@@ -31,7 +32,7 @@ export const ImageAdder = styled.div`
 	transition: background-color 0.2s ease-in-out;
 	&:hover,
 	&:active {
-		background-color: aliceblue;
+		background-color: ${COLOR.lightGreen};
 	}
 	span {
 		position: absolute;
