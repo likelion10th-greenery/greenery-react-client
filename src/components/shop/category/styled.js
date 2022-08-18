@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { COLOR } from './../../../utils/color';
 
 export const Wrapper = styled.div`
 	display: flex;
@@ -47,7 +48,7 @@ export const Img = styled.img`
 	height: 5rem;
 	border: 1px solid transparent;
 	border-radius: 50%;
-	background-color: #f2f2f2;
+	background-color: ${COLOR.gray};
 `;
 
 export const Title = styled.p`
