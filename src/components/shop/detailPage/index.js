@@ -2,6 +2,7 @@ import Search from '../search';
 import Category from '../category';
 import Counter from './Counter';
 import './index.css';
+import Carousel from './Carousel';
 
 function DetailPage() {
 	return (
@@ -12,8 +13,8 @@ function DetailPage() {
 			<div className="Category">
 				<Category />
 			</div>
-			<div>
-				<p>상품사진</p>
+			<div className="PlantPicture" style={{ width: '30%' }}>
+				<Carousel />
 			</div>
 			<div className="PlantExplain">
 				<h2>제품명</h2>
