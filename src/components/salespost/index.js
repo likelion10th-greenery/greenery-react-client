@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRecoilValue } from 'recoil';
 import AddressSelector from './address';
@@ -14,9 +14,10 @@ import {
 	RadioBtn,
 	SizeInputWrapper,
 	SizeInput,
-	Textarea,
 	Button,
 } from './styled';
+import { Editor } from '@toast-ui/react-editor';
+import WebEditor from './WebEditor';
 
 const SalesPost = () => {
 	const [innerWidth, setInnerWidth] = useState(window.innerWidth);
@@ -40,15 +41,20 @@ const SalesPost = () => {
 		const dataTransfer = new DataTransfer();
 
 		Array.from(imgFiles).forEach(file => dataTransfer.items.add(file.file));
-		data.image = dataTransfer.files; // -> Filelist
 
 		//data.image = imgFiles.map(img => img.file); // -> array of File
-		console.log(imgFiles);
-		console.log(data);
+		const detail = editorRef.current.getInstance().getHTML();
+		const parsedData = { ...data, detail: detail, image: dataTransfer.files };
+
+		console.log(parsedData);
+
+		return parsedData;
 	};
-	const inValid = data => {
+	const inValid = errors => {
 		console.log(errors);
 	};
+
+	const editorRef = useRef();
 
 	return (
 		<Wrapper>
@@ -149,7 +155,24 @@ const SalesPost = () => {
 					</InputBox>
 					<InputBox>
 						<label>상세 설명</label>
-						<Textarea {...register('detail')} innerWidth={innerWidth} />
+						{/* <Textarea {...register('detail')} innerWidth={innerWidth} /> */}
+
+						<Editor
+							ref={editorRef}
+							initialValue="."
+							placeholder="내용을 입력해주세요."
+							previewStyle="vertical"
+							height="500px"
+							initialEditType="wysiwyg"
+							toolbarItems={[
+								['heading', 'bold', 'italic', 'strike'],
+								['hr', 'quote'],
+								['ul', 'ol', 'task', 'indent', 'outdent'],
+								['table', 'image', 'link'],
+								['code', 'codeblock'],
+							]}
+							useCommandShortcut={false}
+						/>
 					</InputBox>
 				</InputWrapper>
 				<Button>판매글 등록하기</Button>
