@@ -29,7 +29,8 @@ const SalesPost = () => {
 	const imgFiles = useRecoilValue(imageFiles);
 
 	const postData = async input => {
-		const { data } = await axios.post(`http://127.0.0.1:8000/shop/register/`, { input });
+		console.log(input);
+		const { data } = await axios.post(`http://127.0.0.1:8000/shop/register/`, input);
 
 		console.log(data);
 	};
@@ -41,19 +42,39 @@ const SalesPost = () => {
 		setValue,
 	} = useForm();
 	const onValid = data => {
+		// const newObj = []...imgFiles],
+
 		// 주소 합치기
 		//const address = data.address1 + data.address2 + data.address3;
 
 		// data.image (=FileList) 덮어쓰기 필요
-		const dataTransfer = new DataTransfer();
+		// const dataTransfer = new DataTransfer();
 
-		Array.from(imgFiles).forEach(file => dataTransfer.items.add(file.file));
+		// Array.from(imgFiles).forEach(file => dataTransfer.items.add(file.file));
 
-		//data.image = imgFiles.map(img => img.file); // -> array of File
+		// console.log(dataTransfer.files);
+
 		const detail = editorRef.current.getInstance().getHTML();
-		const parsedData = { ...data, detail: detail, plant_images: dataTransfer.files };
+		const parsedData = {
+			...data,
+			plant_detail: detail,
+			plant_images: imgFiles.map((img, idx) => {
+				const plant_images = { image_url: img.objUrl, image_number: idx };
 
-		console.log(parsedData);
+				return plant_images;
+			}),
+
+			plant_height: Number(data.plant_height),
+			price: Number(data.price),
+			stock: Number(data.stock),
+			plant_width: Number(data.plant_width),
+			plant_vertical: Number(data.plant_vertical),
+			// address: `${data.address1}, ${data.address2}, ${data.address3}`,
+		};
+		// console.log(parsedData);
+
+		const formData = new FormData();
+		formData.append('file', parsedData);
 
 		postData(parsedData);
 	};
@@ -64,13 +85,13 @@ const SalesPost = () => {
 	const editorRef = useRef();
 
 	/*
-	{
+{
     "plant_type":"[식물이름]",
     "price":1,
-    "category":"FLOWER",
+    "category":"flower",
     "stock":1,
-    "origin":"DOMESTIC",
-    "deliver_type":"COURIER",
+    "origin":"domestic",
+    "deliver_type":"courier",
     "address":"[판매자 주소]",
     "plant_images":[
         {
@@ -85,6 +106,23 @@ const SalesPost = () => {
 }
 */
 
+	/*{
+  "category": "flower",
+  "deliver_type": "courier",
+  "detail": "<p>.gkdl</p>",
+  "height": 1,
+  "origin": "domestic",
+  "plant_images": [{"image_url: 'blob:http://localhost:3000/688ed76f-47f9-4131-98d8-5e81854280a1", "image_number": 0}
+}, {"image_url": "blob:http://localhost:3000/688ed76f-47f9-4131-98d8-5e81854280a1", "image_number": 0}
+],
+  "plant_type": "test",
+  "pot": "11",
+  "price": 11,
+  "stock": 11,
+  "vertical": 1,
+  "width": 1
+}*/
+
 	return (
 		<Wrapper>
 			<Title>상품 등록</Title>
@@ -93,14 +131,18 @@ const SalesPost = () => {
 					<InputBox>
 						<label>카테고리</label>
 						<select {...register('category', { required: true })}>
-							<option>꽃</option>
-							<option>관엽/공기정화</option>
-							<option>다육식물</option>
-							<option>야생화/분재</option>
-							<option>동/서양란</option>
-							<option>묘목/씨앗</option>
-							<option>기타</option>
+							<option value="flower">꽃</option>
+							<option value="foliage">관엽/공기정화</option>
+							<option value="succulence">다육식물</option>
+							<option value="wild">야생화/분재</option>
+							<option value="orchid">동/서양란</option>
+							<option value="seed">묘목/씨앗</option>
+							<option value="else">기타</option>
 						</select>
+					</InputBox>
+					<InputBox>
+						<label>제목</label>
+						<input {...register('feed_title', { required: true })} type="text" />
 					</InputBox>
 					<InputBox>
 						<label>상품명</label>
@@ -112,6 +154,13 @@ const SalesPost = () => {
 							<input {...register('price', { required: true })} type="number" min={0} />원
 						</div>
 					</InputBox>
+					<InputBox>
+						<label>재고</label>
+						<div>
+							<input {...register('stock', { required: true })} type="number" min={0} />개
+						</div>
+					</InputBox>
+
 					<ImageInput register={register} innerWidth={innerWidth} />
 					<InputBox>
 						<label>상품 주요 정보</label>
@@ -119,11 +168,11 @@ const SalesPost = () => {
 							<InputBox>
 								<label>원산지</label>
 								<RadioBtn>
-									<input type="radio" id="native" {...register('origin')} value="국산" />
+									<input type="radio" id="native" {...register('origin')} value="domestic" />
 									<label htmlFor="native">국산</label>
 								</RadioBtn>
 								<RadioBtn>
-									<input type="radio" id="abroad" {...register('origin')} value="수입산" />
+									<input type="radio" id="abroad" {...register('origin')} value="import" />
 									<label htmlFor="abroad">수입산</label>
 								</RadioBtn>
 								<RadioBtn>
@@ -131,7 +180,7 @@ const SalesPost = () => {
 										type="radio"
 										id="else"
 										{...register('origin', { required: true })}
-										value="모름"
+										value="else"
 									/>
 									<label htmlFor="else">모름</label>
 								</RadioBtn>
@@ -142,31 +191,31 @@ const SalesPost = () => {
 									<div>
 										<SizeInput>
 											<span>가로 |</span>
-											<input {...register('width')} type="number" min={0} />
+											<input {...register('plant_width')} type="number" min={0} />
 										</SizeInput>
 										<SizeInput>
 											<span>세로 |</span>
-											<input {...register('vertical')} type="number" min={0} />
+											<input {...register('plant_vertical')} type="number" min={0} />
 										</SizeInput>
 										<SizeInput>
 											<span>높이 |</span>
-											<input {...register('height')} type="number" min={0} />
+											<input {...register('plant_height')} type="number" min={0} />
 										</SizeInput>
 									</div>
 								</SizeInputWrapper>
 							</InputBox>
 							<InputBox>
 								<label>화분 종류</label>
-								<input {...register('pot')} type="text" />
+								<input {...register('pot_type')} type="text" />
 							</InputBox>
 							<InputBox>
 								<label>배송 방법</label>
 								<RadioBtn>
 									<input
 										type="radio"
-										id="deliver_type"
-										{...register('transport', { required: true })}
-										value="택배"
+										id="delivery"
+										{...register('deliver_type', { required: true })}
+										value="courier"
 									/>
 									<label htmlFor="delivery" onClick={() => setShowAddress(false)}>
 										택배
@@ -176,8 +225,8 @@ const SalesPost = () => {
 									<input
 										type="radio"
 										id="meet"
-										{...register('transport', { required: true })}
-										value="직거래"
+										{...register('deliver_type', { required: true })}
+										value="direct"
 									/>
 									<label htmlFor="meet" onClick={() => setShowAddress(true)}>
 										직거래

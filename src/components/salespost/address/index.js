@@ -4,14 +4,15 @@ import DaumPostCode from 'react-daum-postcode';
 
 const AddressSelector = ({ register, setValue }) => {
 	const [addressNum, setAddressNum] = useState('');
+	const [addResult, setAddResult] = useState('');
 	const [popup, setPopup] = useState(false);
 	const togglePopup = i => {
 		setPopup(prev => !prev);
-		setAddressNum('address' + i);
+		setAddressNum('address');
 	};
 
 	const onCompletePost = data => {
-		setValue(addressNum, data.address);
+		setValue('address', data.address);
 		setPopup(false);
 	};
 
@@ -26,9 +27,9 @@ const AddressSelector = ({ register, setValue }) => {
 
 	return (
 		<Wrapper>
-			{[1, 2, 3].map(i => (
+			{[1].map(i => (
 				<AddressBox key={i}>
-					<input {...register(`address${i}`)} type="text" placeholder={`직거래 가능 지역 ${i}`} />
+					<input {...register(`address`)} type="text" placeholder={`직거래 가능 지역 ${i}`} />
 					<SearchBtn type="button" onClick={() => togglePopup(i)}>
 						주소 찾기
 					</SearchBtn>

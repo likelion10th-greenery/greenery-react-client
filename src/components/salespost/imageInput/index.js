@@ -80,7 +80,7 @@ const ImageInput = ({ register, innerWidth }) => {
 					➕<span>{`${imgFiles.length}/10`}</span>
 				</ImageAdder>
 				<input
-					{...register('image')}
+					{...register('plant_images')}
 					ref={imgInput}
 					onChange={onChange}
 					type="file"

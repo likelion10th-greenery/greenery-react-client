@@ -11,7 +11,7 @@ const Routes = () => {
 			<Route path="/" element={<Home />} />
 			<Route path="/shop/*" element={<Shop />}>
 				<Route path=":category" element={<Shop />} />
-				<Route path=":category/:id" element={<DetailPage />} />
+				<Route path=":id" element={<DetailPage />} />
 			</Route>
 			<Route path="/shop/salespost" element={<SalesPost />} />
 		</Router>
