@@ -4,6 +4,7 @@ import Counter from './Counter';
 import './index.css';
 import Carousel from './Carousel';
 import ActiveTab from './ActiveTab';
+import RefCarousel from './RefCarousel';
 
 function DetailPage() {
 	return (
@@ -41,7 +42,9 @@ function DetailPage() {
 					<p>시세 금액표</p>
 				</div>
 			</div>
-			<div className="PostRef"></div>
+			<div className="PostRef">
+				<RefCarousel />
+			</div>
 			<div className="ProductDetail">
 				<ActiveTab />
 			</div>

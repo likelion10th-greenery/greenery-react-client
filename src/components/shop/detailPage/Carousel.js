@@ -5,7 +5,7 @@ import { Carousel } from 'react-responsive-carousel';
 export default function CarouselComponent() {
 	return (
 		<div className="carousel">
-			<Carousel infiniteLoop autoPlay>
+			<Carousel infiniteLoop autoPlay showThumbs={true}>
 				<div>
 					<img src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg" />
 				</div>
