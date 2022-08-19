@@ -1,20 +1,34 @@
 import { items } from './rawData';
-import { Item, Wrapper, ItemImg, ItemInfo, Name, Price, DataList } from './styled';
+import { Item, Wrapper, ItemImg, ItemInfo, Price, DataList, Title, PlantType } from './styled';
 import Category from './category/index';
 import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const Shop = () => {
 	const { category } = useParams();
+	const [data, setData] = useState([]);
+
+	useEffect(() => {
+		const getPlants = async () => {
+			const res = await axios.get(`http://127.0.0.1:8000/shop/${category}`);
+
+			setData(res.data);
+		};
+
+		getPlants();
+	}, [category]);
 
 	return (
 		<Wrapper>
 			<Category />
 			<DataList>
-				{items.map(item => (
+				{data.map(item => (
 					<Item key={item.id}>
 						<ItemImg src={item.img_url} />
 						<ItemInfo>
-							<Name>{item.name}</Name>
+							<PlantType>{item.name}</PlantType>
+							<Title>title</Title>
 							<Price>{item.price.toLocaleString('ko-KR')}원</Price>
 						</ItemInfo>
 					</Item>
