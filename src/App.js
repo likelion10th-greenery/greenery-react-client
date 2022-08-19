@@ -10,6 +10,7 @@ const GlobalStyle = createGlobalStyle`
 	body {
 		font-family: "Noto Sans Kr", sans-serif;
 		box-sizing: border-box;
+		position: relative;
 		height: 100vh;
 		padding: 0 140px;
 		margin: 0;
@@ -31,8 +32,7 @@ const GlobalStyle = createGlobalStyle`
 
 const RootDiv = styled.div`
 	min-height: 100vh;
-	padding-bottom: 120px; // footer 공간 마련
-	position: relative;
+	padding-bottom: 380px; // footer 공간 마련
 `;
 
 function App() {
@@ -42,8 +42,8 @@ function App() {
 			<RootDiv>
 				<Nav />
 				<Routes />
-				<Footer />
 			</RootDiv>
+			<Footer />
 		</>
 	);
 }
