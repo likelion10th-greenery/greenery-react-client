@@ -1,55 +1,60 @@
-import Search from '../search';
-import Category from '../category';
-import Counter from './Counter';
-import './index.css';
+import React, { Children } from 'react';
 import Carousel from './Carousel';
-import ActiveTab from './ActiveTab';
-import RefCarousel from './RefCarousel';
+import Category from '../category';
+import Search from '../search';
+import { items } from '../rawData';
+import Counter from './Counter';
+import {
+	Wrapper,
+	Rows,
+	Section,
+	Title,
+	ProductWrapper,
+	CarouselBox,
+	DataList,
+	Name,
+	Price,
+	Delivery,
+	Amount,
+	Button,
+	CartButton,
+	ButtonWrapper,
+	SellerInfo,
+} from './styled';
 
-function DetailPage() {
+const index = () => {
 	return (
-		<div className="App">
-			<div className="Search">
+		<Wrapper>
+			<Section>
 				<Search />
-			</div>
-			<div className="Category">
+			</Section>
+			<Rows>
 				<Category />
-			</div>
-			<div className="PlantPicture">
-				<Carousel />
-			</div>
-			<div className="PlantExplain">
-				<h1>제품명</h1>
-				<p>가격</p>
-				<p>배송비</p>
-				<div className="Counter">
-					<span>수량</span>
-					<Counter />
-				</div>
-				<div className="Btn">
-					<button>구매하기</button>
-					<button>장바구니</button>
-				</div>
-				<div className="SellerInfo">
-					<p>판매자 정보</p>
-				</div>
-			</div>
-			<div className="PriceInfo">
-				<div className="PriceGraph">
-					<p>시세그래프</p>
-				</div>
-				<div className="PriceTable">
-					<p>시세 금액표</p>
-				</div>
-			</div>
-			<div className="PostRef">
-				<RefCarousel />
-			</div>
-			<div className="ProductDetail">
-				<ActiveTab />
-			</div>
-		</div>
+			</Rows>
+			<Title>
+				<p>관엽/공기정화</p>
+			</Title>
+			<ProductWrapper>
+				<CarouselBox>
+					<Carousel />
+				</CarouselBox>
+				<DataList>
+					<Name>알보 몬스테라</Name>
+					<Price>가격</Price>
+					<Delivery>배송비</Delivery>
+					<Amount>
+						수량
+						<Counter />
+					</Amount>
+					<ButtonWrapper>
+						<Button>구매하기</Button>
+						<CartButton>장바구니</CartButton>
+					</ButtonWrapper>
+					<SellerInfo>판매자이름</SellerInfo>
+				</DataList>
+			</ProductWrapper>
+		</Wrapper>
 	);
-}
+};
 
-export default DetailPage;
+export default index;
