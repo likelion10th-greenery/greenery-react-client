@@ -22,7 +22,7 @@ const Nav = () => {
 	// });
 
 	return (
-		<Wrapper /*visibility={(scroll > 80) + ''}*/>
+		<Wrapper>
 			<Link to="/">
 				<Logo src={LOGO_IMG} />
 			</Link>
