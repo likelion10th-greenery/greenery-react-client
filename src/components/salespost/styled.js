@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { COLOR } from './../../utils/color';
 
 export const Wrapper = styled.div`
 	width: 100%;
@@ -19,7 +20,7 @@ export const Form = styled.form`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: whitesmoke;
+	background-color: ${COLOR.gray};
 	position: relative;
 `;
 export const InputWrapper = styled.div`
@@ -41,88 +42,6 @@ export const InputWrapper = styled.div`
 		outline: none;
 	}
 `;
-export const ImageWrapper = styled.div`
-	width: calc(${props => props.innerWidth * 0.5}px);
-	height: 130px;
-	background-color: white;
-	display: flex;
-	align-items: center;
-	overflow-x: scroll;
-	/* &::-webkit-scrollbar {
-		display: none; // 스크롤 바 안보이게
-	} */
-	input {
-		display: none;
-	}
-	border-top: 1px solid rgba(0, 0, 0, 0.3);
-	padding-top: 5px;
-`;
-export const ImageAdder = styled.div`
-	min-width: 100px;
-	height: 100px;
-	margin-left: 10px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: rgba(225, 225, 225, 0.3);
-	font-size: 24px;
-	border: 1px solid gray;
-	cursor: pointer;
-	position: relative;
-	transition: background-color 0.2s ease-in-out;
-	&:hover,
-	&:active {
-		background-color: aliceblue;
-	}
-	span {
-		position: absolute;
-		font-size: 14px;
-		bottom: 8%;
-	}
-`;
-export const Image = styled.div`
-	min-width: 100px;
-	max-width: 100px;
-	height: 100px;
-	margin-left: 10px;
-	position: relative;
-	transition: all 0.3s ease-in-out;
-	img {
-		width: 100%;
-		height: 100%;
-	}
-	&:hover {
-		span {
-			visibility: visible;
-		}
-	}
-	span {
-		position: absolute;
-		visibility: hidden;
-		cursor: pointer;
-	}
-	.del {
-		top: 5px;
-		right: 5px;
-	}
-	.rep {
-		bottom: 5px;
-		left: 5px;
-		font-size: 14px;
-		color: white;
-		background-color: rgba(225, 225, 225, 0.8);
-		border: 1px soild white;
-		border-radius: 5px;
-		padding: 2px 5px;
-		&:hover {
-			background-color: #2bb601;
-		}
-	}
-	.isRep {
-		visibility: visible;
-		background-color: #2bb601;
-	}
-`;
 
 export const InputBox = styled.div`
 	display: flex;
@@ -132,11 +51,11 @@ export const InputBox = styled.div`
 	min-width: 270px;
 	margin: 10px;
 	border-radius: 5px;
-	background-color: white;
+	background-color: ${COLOR.white};
 	padding: 10px;
 `;
 export const InputDetailWrapper = styled.div`
-	background-color: white;
+	background-color: ${COLOR.white};
 	width: calc(${props => props.innerWidth * 0.5}px);
 	padding-top: 15px;
 	border-top: 1px solid rgba(0, 0, 0, 0.3);
@@ -159,17 +78,17 @@ export const RadioBtn = styled.div`
 		display: none;
 	}
 	input[type='radio']:checked + label {
-		background-color: #fad19c;
+		background-color: ${COLOR.lightGreen};
 	}
 	label {
 		font-size: 14px;
 		border: 1px solid gray;
 		padding: 2px 25px;
-		background-color: rgba(225, 225, 225, 0.2);
+		background-color: rgba(225, 225, 225, 0.15);
 		transition: all 0.2s ease-in-out;
 		&:hover,
 		&:focus {
-			background-color: antiquewhite;
+			background-color: ${COLOR.gray};
 		}
 	}
 `;
@@ -210,12 +129,13 @@ export const Textarea = styled.textarea`
 export const Button = styled.button`
 	position: absolute;
 	bottom: -40px;
-	background-color: #2bb601;
-	color: whitesmoke;
+	background-color: ${COLOR.green};
+	color: ${COLOR.white};
 	border: none;
 	border-radius: 5px;
 	padding: 7px 15px;
 	&:hover {
-		background-color: #2bc401;
+		background-color: ${COLOR.neonGreen};
+		color: ${COLOR.darkGreen};
 	}
 `;

@@ -3,7 +3,7 @@ export const COLOR = {
 	black: '#000',
 	white: '#fff',
 	gray: '#f2f2f2', // 배경색
-	lightGreen: 'b8e597', // accent color
+	lightGreen: '#b8e597', // accent color
 	demiLightGreen: '#768d70', // tone downed green
 	green: '#405840', // main color
 	darkGreen: '#2a321c', // dark green
