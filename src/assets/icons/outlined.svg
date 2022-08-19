@@ -1,0 +1,11 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="3.05" y="3.05" width="17.9" height="17.9" rx="0.95" stroke="black" stroke-width="0.1"/>
+<rect x="4.05" y="2.05" width="15.9" height="19.9" rx="0.95" stroke="black" stroke-width="0.1"/>
+<rect x="2.05" y="19.95" width="15.9" height="19.9" rx="0.95" transform="rotate(-90 2.05 19.95)" stroke="black" stroke-width="0.1"/>
+<circle cx="12" cy="12" r="9.95" stroke="black" stroke-width="0.1"/>
+<circle cx="12" cy="12" r="4.95" stroke="black" stroke-width="0.1"/>
+<path d="M0.05 0.05H4H8H12H16H20H23.95V4V8V12V16V20V23.95H20H16H12H8H4H0.05V20V16V12V8V4V0.05Z" stroke="#0047FF" stroke-opacity="0.4" stroke-width="0.1"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M2.9116 4H1V2H4.0884L4.92174 3.5H18.3333C19.8432 3.5 20.8086 5.10896 20.098 6.44118L17.1647 11.9412C16.8171 12.5929 16.1386 13 15.4 13H7.693L6.943 15L19 15V17H6.943C5.54659 17 4.58003 15.6053 5.07034 14.2978L5.93542 11.9909L3.4189 4.91315L2.9116 4ZM5.75022 5.5L7.70577 11H15.4L18.3333 5.5H5.75022Z" fill="black"/>
+<circle cx="7" cy="21" r="2" fill="black"/>
+<circle cx="18" cy="21" r="2" fill="black"/>
+</svg>
