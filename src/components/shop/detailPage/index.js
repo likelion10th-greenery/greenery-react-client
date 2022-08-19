@@ -4,6 +4,7 @@ import Category from '../category';
 import Search from '../search';
 import { items } from '../rawData';
 import Counter from './Counter';
+import PriceGraph from './PriceGraph';
 import {
 	Wrapper,
 	Rows,
@@ -19,6 +20,7 @@ import {
 	Button,
 	CartButton,
 	ButtonWrapper,
+	PriceGraphWrapper,
 	SellerInfo,
 } from './styled';
 
@@ -52,6 +54,9 @@ const index = () => {
 					</ButtonWrapper>
 					<SellerInfo>판매자이름</SellerInfo>
 				</DataList>
+				<PriceGraphWrapper>
+					<PriceGraph />
+				</PriceGraphWrapper>
 			</ProductWrapper>
 		</Wrapper>
 	);

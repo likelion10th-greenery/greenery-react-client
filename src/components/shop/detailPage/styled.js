@@ -25,16 +25,18 @@ export const Title = styled.div`
 
 export const ProductWrapper = styled.div`
 	background-color: ${COLOR.gray};
-	display: flex;
+	flex-container: row;
 `;
 
 export const CarouselBox = styled.div`
 	width: 200px;
+	margin-top: 20px;
+	margin-left: 20px;
 `;
 
 export const DataList = styled.div`
-	border: 1px solid black;
 	width: 70%;
+	margin-top: 20px;
 	padding-left: 20px;
 `;
 
@@ -69,7 +71,12 @@ export const CartButton = styled(Button)`
 `;
 
 export const SellerInfo = styled.div`
-	border: 1px soild ${COLOR.green};
+	margin-top: 20px;
 	width: 400px;
 	height: 30px;
+	border: 1px soild ${COLOR.green};
+`;
+
+export const PriceGraphWrapper = styled.div`
+	display: flex;
 `;
