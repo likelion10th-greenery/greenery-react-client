@@ -1,0 +1,88 @@
+*{
+    box-sizing: content-box;
+}
+
+.PlantExplain{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.PlantPicture{
+    width: 30%;
+    height: 20%;
+    display: inline-flex;
+}
+
+.Category{
+    justify-content: center;
+}
+
+.PlantExplain {
+    width: 65%;
+    float: right;
+    padding-left: 10px;
+}
+
+.PlantExplain h1 {
+    font-size:xx-large;
+    margin-bottom: 50px;
+}
+
+.PlantExplain p {
+    margin: 25px auto
+}
+
+.Counter{
+    display: inline-flex;
+    height: 30px; 
+}
+
+.Counter span {
+    margin-right: 15px;
+    margin-bottom: 25px;
+}
+
+.Btn {
+    padding-left: 20px;
+    margin-top: 40px;
+    height: 50px;
+    width: 500px;
+    display: flex;
+}
+
+.Btn button{
+    margin-left: 7.5px;
+    margin-right: 7.5px;
+}
+
+.SellerInfo {
+    margin-top: 35px;
+    background-color: white;
+    border: 1px solid #405840;
+    width: 300px;
+}
+
+.PriceInfo{
+    display: inline-flex;
+    width: 80%;
+    height: 120px;
+    margin-bottom: 50px;
+}
+
+.PriceGraph{
+    width: 30%;
+    background-color: gray;
+    margin-right: 5px;
+}
+
+.PriceTable{
+    width: 50%;
+    background-color: gray;
+}
+
+.ProductDetail{
+    margin-top: 50px;
+}
+
+
