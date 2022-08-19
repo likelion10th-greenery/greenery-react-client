@@ -36,7 +36,7 @@ const Nav = () => {
 					<Link to="/">
 						<Category>Home</Category>
 					</Link>
-					<Link to="/shop/view-all">
+					<Link to="/shop/shop-list/view-all">
 						<Category>Shop</Category>
 					</Link>
 

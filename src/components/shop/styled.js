@@ -56,5 +56,6 @@ export const Btn = styled.div`
 	padding: 10px 20px;
 	color: white;
 	border-radius: 5px;
+	text-align: center;
 	cursor: pointer;
 `;
