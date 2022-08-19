@@ -30,6 +30,7 @@ const SalesPost = () => {
 		register,
 		handleSubmit,
 		formState: { errors },
+		setValue,
 	} = useForm();
 	const onValid = data => {
 		// 주소 합치기
@@ -83,21 +84,11 @@ const SalesPost = () => {
 							<InputBox>
 								<label>원산지</label>
 								<RadioBtn>
-									<input
-										type="radio"
-										id="native"
-										{...register('origin', { required: true })}
-										value="국산"
-									/>
+									<input type="radio" id="native" {...register('origin')} value="국산" />
 									<label htmlFor="native">국산</label>
 								</RadioBtn>
 								<RadioBtn>
-									<input
-										type="radio"
-										id="abroad"
-										{...register('origin', { required: true })}
-										value="수입산"
-									/>
+									<input type="radio" id="abroad" {...register('origin')} value="수입산" />
 									<label htmlFor="abroad">수입산</label>
 								</RadioBtn>
 								<RadioBtn>
@@ -136,12 +127,7 @@ const SalesPost = () => {
 							<InputBox>
 								<label>배송 방법</label>
 								<RadioBtn>
-									<input
-										type="radio"
-										id="delivery"
-										{...register('transport', { required: true })}
-										value="택배"
-									/>
+									<input type="radio" id="delivery" {...register('transport')} value="택배" />
 									<label htmlFor="delivery" onClick={() => setShowAddress(false)}>
 										택배
 									</label>
@@ -158,12 +144,12 @@ const SalesPost = () => {
 									</label>
 								</RadioBtn>
 							</InputBox>
-							{showAddress ? <AddressSelector register={register} /> : null}
+							{showAddress ? <AddressSelector register={register} setValue={setValue} /> : null}
 						</InputDetailWrapper>
 					</InputBox>
 					<InputBox>
 						<label>상세 설명</label>
-						<Textarea {...register('detali')} innerWidth={innerWidth} />
+						<Textarea {...register('detail')} innerWidth={innerWidth} />
 					</InputBox>
 				</InputWrapper>
 				<Button>판매글 등록하기</Button>
