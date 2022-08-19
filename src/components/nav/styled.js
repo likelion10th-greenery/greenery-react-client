@@ -5,6 +5,9 @@ export const Wrapper = styled.nav`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	padding: 0 140px;
+
+	box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 `;
 
 export const Logo = styled.img`

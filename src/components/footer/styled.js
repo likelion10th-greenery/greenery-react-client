@@ -2,13 +2,13 @@ import styled from 'styled-components';
 import { COLOR } from '../../utils/color';
 
 export const Wrapper = styled.footer`
-	width: calc(100% + 140px);
-	padding: 20px 70px;
+	height: 100%;
+	background-color: ${COLOR.darkGreen};
+	color: ${COLOR.white};
+	padding: 20px 140px;
+	/* padding: 20px 70px; */
 	background-color: #657765;
 	color: ${COLOR.white};
-	position: absolute;
-	bottom: 0;
-	left: -142px;
 `;
 
 export const CustomerCenterWrapper = styled.div`

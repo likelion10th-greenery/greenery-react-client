@@ -38,11 +38,11 @@ const Shop = () => {
 			<Category />
 			<DataList>
 				{data.map(item => (
-					<Item key={item.id}>
+					<Item key={item.id} onClick={() => navigate(`/shop/items/${item.id}`)}>
 						<ItemImg src={item.img_url} />
 						<ItemInfo>
-							<PlantType>{item.name}</PlantType>
-							<Title>title</Title>
+							<PlantType>{item.plant_type}</PlantType>
+							<Title>{item.feed_title}</Title>
 							<Price>{item.price.toLocaleString('ko-KR')}원</Price>
 						</ItemInfo>
 					</Item>

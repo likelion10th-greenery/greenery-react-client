@@ -10,9 +10,7 @@ const GlobalStyle = createGlobalStyle`
 	body {
 		font-family: "Noto Sans Kr", sans-serif;
 		box-sizing: border-box;
-		position: relative;
-		height: 100vh;
-		padding: 0 140px;
+		height: 100%;
 		margin: 0;
 	}
 
@@ -31,16 +29,18 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const RootDiv = styled.div`
+	display: flex;
+	flex-direction: column;
 	min-height: 100vh;
-	padding-bottom: 380px; // footer 공간 마련
+	padding: 0 140px; // footer 공간 마련
 `;
 
 function App() {
 	return (
 		<>
 			<GlobalStyle />
+			<Nav />
 			<RootDiv>
-				<Nav />
 				<Routes />
 			</RootDiv>
 			<Footer />
