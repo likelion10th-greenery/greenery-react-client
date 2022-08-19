@@ -11,6 +11,7 @@ export const Wrapper = styled.nav`
 	padding: 0 140px;
 
 	box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+	z-index: 100;
 `;
 
 export const Logo = styled.img`
