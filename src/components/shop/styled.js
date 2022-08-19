@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { COLOR } from './../../utils/color';
 
 export const Wrapper = styled.section`
 	display: flex;
@@ -42,3 +43,18 @@ export const Title = styled.p`
 `;
 
 export const Price = styled.p``;
+
+export const BtnBox = styled.div`
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+`;
+
+export const Btn = styled.div`
+	width: 4rem;
+	background-color: ${COLOR.green};
+	padding: 10px 20px;
+	color: white;
+	border-radius: 5px;
+	cursor: pointer;
+`;

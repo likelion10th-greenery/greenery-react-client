@@ -1,12 +1,24 @@
-import { Item, Wrapper, ItemImg, ItemInfo, Price, DataList, Title, PlantType } from './styled';
+import {
+	Item,
+	Wrapper,
+	ItemImg,
+	ItemInfo,
+	Price,
+	DataList,
+	Title,
+	PlantType,
+	Btn,
+	BtnBox,
+} from './styled';
 import Category from './category/index';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const Shop = () => {
 	const { category } = useParams();
 	const [data, setData] = useState([]);
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		const getPlants = async () => {
@@ -36,6 +48,9 @@ const Shop = () => {
 					</Item>
 				))}
 			</DataList>
+			<BtnBox>
+				<Btn onClick={() => navigate('/shop/salespost')}>등록하기</Btn>
+			</BtnBox>
 		</Wrapper>
 	);
 };
