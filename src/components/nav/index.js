@@ -4,7 +4,7 @@ import LOGO_IMG from '../../assets/imgs/Greenery LOGO.png';
 import SEARCH_LOGO from '../../assets/icons/search-line.svg';
 import CART_LOGO from '../../assets/icons/shopping-cart-line.svg';
 import USER_LOGO from '../../assets/icons/user-line.svg';
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 
 const Nav = () => {
 	// const [scroll, setScroll] = useState(0);

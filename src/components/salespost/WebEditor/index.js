@@ -1,5 +1,3 @@
-import { Wrapper } from '../styled';
-import { Title } from './styled';
 import { Editor } from '@toast-ui/react-editor';
 import '@toast-ui/editor/dist/toastui-editor.css';
 
