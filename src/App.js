@@ -11,7 +11,6 @@ const GlobalStyle = createGlobalStyle`
 		font-family: "Noto Sans Kr", sans-serif;
 		box-sizing: border-box;
 		height: 100%;
-
 		margin: 0;
 	}
 
