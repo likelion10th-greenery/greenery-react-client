@@ -1,11 +1,9 @@
-import { useEffect, useState } from 'react';
 import { Col, Img, ImgBox, List, Title, Wrapper } from './styled';
 import PLANT_IMG from '../../../assets/imgs/pngwing.com.png';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 const Category = () => {
 	const { category } = useParams();
-	console.log(category);
 
 	return (
 		<Wrapper>
