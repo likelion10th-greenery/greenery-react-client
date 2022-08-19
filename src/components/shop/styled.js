@@ -54,6 +54,8 @@ export const Btn = styled.div`
 	width: 4rem;
 	background-color: ${COLOR.green};
 	padding: 10px 20px;
+	margin-bottom: 50px;
+
 	color: white;
 	border-radius: 5px;
 	text-align: center;

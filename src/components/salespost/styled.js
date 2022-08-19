@@ -2,6 +2,14 @@ import styled from 'styled-components';
 import { COLOR } from './../../utils/color';
 
 export const Wrapper = styled.div`
+	height: 100%;
+	margin: 50px auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+`;
+
+export const Container = styled.div`
 	width: 100%;
 	margin: 20px auto;
 	display: flex;
@@ -126,9 +134,12 @@ export const Textarea = styled.textarea`
 	resize: none;
 	padding: 7px;
 `;
+
+export const BtnBox = styled.div`
+	text-align: center;
+`;
+
 export const Button = styled.button`
-	position: absolute;
-	bottom: -40px;
 	background-color: ${COLOR.green};
 	color: ${COLOR.white};
 	border: none;
