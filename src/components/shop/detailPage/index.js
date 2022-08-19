@@ -3,6 +3,7 @@ import Category from '../category';
 import Counter from './Counter';
 import './index.css';
 import Carousel from './Carousel';
+import ActiveTab from './ActiveTab';
 
 function DetailPage() {
 	return (
@@ -42,7 +43,7 @@ function DetailPage() {
 			</div>
 			<div className="PostRef"></div>
 			<div className="ProductDetail">
-				<p>상품 상세 설명페이지</p>
+				<ActiveTab />
 			</div>
 		</div>
 	);
