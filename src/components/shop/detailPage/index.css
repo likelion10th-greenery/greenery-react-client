@@ -67,6 +67,7 @@
     display: flex;
     width: 80%;
     height: 120px;
+    margin-bottom: 50px;
 }
 
 .PriceGraph{
@@ -79,6 +80,7 @@
     width: 50%;
     background-color: gray;
 }
+
 
 
 

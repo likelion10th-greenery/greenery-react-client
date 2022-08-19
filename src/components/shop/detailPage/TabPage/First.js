@@ -1,7 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
+import '../ActivTab.css';
 
-const First = () => {
-	return <div>상세정보</div>;
-};
+class First extends React.Component {
+	constructor(props) {
+		super();
+
+		this.state = {
+			menu: 0,
+		};
+	}
+
+	render() {
+		return <div>상세 정보</div>;
+	}
+}
 
 export default First;
