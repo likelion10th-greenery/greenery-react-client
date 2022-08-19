@@ -13,36 +13,34 @@ function DetailPage() {
 			<div className="Category">
 				<Category />
 			</div>
-			<div className="PlantPicture" style={{ width: '30%' }}>
+			<div className="PlantPicture">
 				<Carousel />
 			</div>
 			<div className="PlantExplain">
-				<h2>제품명</h2>
+				<h1>제품명</h1>
 				<p>가격</p>
 				<p>배송비</p>
-				<div>
-					수량
+				<div className="Counter">
+					<span>수량</span>
 					<Counter />
 				</div>
-				<div className="BuyBtn">
+				<div className="Btn">
 					<button>구매하기</button>
-				</div>
-				<div className="BasketBtn">
 					<button>장바구니</button>
 				</div>
 				<div className="SellerInfo">
 					<p>판매자 정보</p>
 				</div>
 			</div>
-			<div className="PriceGraph">
-				<p>시세그래프</p>
+			<div className="PriceInfo">
+				<div className="PriceGraph">
+					<p>시세그래프</p>
+				</div>
+				<div className="PriceTable">
+					<p>시세 금액표</p>
+				</div>
 			</div>
-			<div className="PriceTable">
-				<p>시세 금액표</p>
-			</div>
-			<div className="PostRef">
-				<p>관련 추천 게시물</p>
-			</div>
+			<div className="PostRef"></div>
 			<div className="ProductDetail">
 				<p>상품 상세 설명페이지</p>
 			</div>
