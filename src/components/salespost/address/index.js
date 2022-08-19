@@ -1,44 +1,45 @@
-import React from 'react';
-import { SelectBox, SelectWrapper } from './styled';
+import React, { useState } from 'react';
+import { AddressBox, Wrapper, SearchBtn } from './styled';
+import DaumPostCode from 'react-daum-postcode';
 
-const AddressSelector = ({ register }) => {
+const AddressSelector = ({ register, setValue }) => {
+	const [addressNum, setAddressNum] = useState('');
+	const [popup, setPopup] = useState(false);
+	const togglePopup = i => {
+		setPopup(prev => !prev);
+		setAddressNum('address' + i);
+	};
+
+	const onCompletePost = data => {
+		setValue(addressNum, data.address);
+		setPopup(false);
+	};
+
+	const popupStyle = {
+		display: 'block',
+		position: 'absolute',
+		zIndex: '100',
+		width: '400px',
+		height: '400px',
+		border: '1px solid #333333',
+	};
+
 	return (
-		<SelectWrapper>
-			<SelectBox>
-				<select {...register('address1a', { required: true })}>
-					<option>시/도</option>
-					<option>서울시</option>
-				</select>
-				<select {...register('address1b', { required: true })}>
-					<option>시/군/구</option>
-				</select>
-				<select {...register('address1c', { required: true })}>
-					<option>읍/면/동</option>
-				</select>
-			</SelectBox>
-			<SelectBox>
-				<select {...register('address2a')}>
-					<option>시/도</option>
-				</select>
-				<select {...register('address2b')}>
-					<option>시/군/구</option>
-				</select>
-				<select {...register('address2c')}>
-					<option>읍/면/동</option>
-				</select>
-			</SelectBox>
-			<SelectBox>
-				<select {...register('address3a')}>
-					<option>시/도</option>
-				</select>
-				<select {...register('address3b')}>
-					<option>시/군/구</option>
-				</select>
-				<select {...register('address3c')}>
-					<option>읍/면/동</option>
-				</select>
-			</SelectBox>
-		</SelectWrapper>
+		<Wrapper>
+			{[1, 2, 3].map(i => (
+				<AddressBox key={i}>
+					<input {...register(`address${i}`)} type="text" placeholder={`직거래 가능 지역 ${i}`} />
+					<SearchBtn type="button" onClick={() => togglePopup(i)}>
+						주소 찾기
+					</SearchBtn>
+				</AddressBox>
+			))}
+			{popup && (
+				<div>
+					<DaumPostCode style={popupStyle} autoClose onComplete={onCompletePost} />
+				</div>
+			)}
+		</Wrapper>
 	);
 };
 
