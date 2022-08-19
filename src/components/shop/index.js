@@ -1,4 +1,3 @@
-import { items } from './rawData';
 import { Item, Wrapper, ItemImg, ItemInfo, Price, DataList, Title, PlantType } from './styled';
 import Category from './category/index';
 import { useParams } from 'react-router-dom';
@@ -11,9 +10,12 @@ const Shop = () => {
 
 	useEffect(() => {
 		const getPlants = async () => {
-			const res = await axios.get(`http://127.0.0.1:8000/shop/${category}`);
-
-			setData(res.data);
+			try {
+				const { data } = await axios.get(`http://127.0.0.1:8000/shop/${category}`);
+				setData(data);
+			} catch (err) {
+				console.log(err);
+			}
 		};
 
 		getPlants();

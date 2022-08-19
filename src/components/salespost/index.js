@@ -17,7 +17,8 @@ import {
 	Button,
 } from './styled';
 import { Editor } from '@toast-ui/react-editor';
-import WebEditor from './WebEditor';
+import '@toast-ui/editor/dist/toastui-editor.css';
+import axios from 'axios';
 
 const SalesPost = () => {
 	const [innerWidth, setInnerWidth] = useState(window.innerWidth);
@@ -26,6 +27,12 @@ const SalesPost = () => {
 	});
 	const [showAddress, setShowAddress] = useState(false);
 	const imgFiles = useRecoilValue(imageFiles);
+
+	const postData = async input => {
+		const { data } = await axios.post(`http://127.0.0.1:8000/shop/register/`, { input });
+
+		console.log(data);
+	};
 
 	const {
 		register,
@@ -44,17 +51,39 @@ const SalesPost = () => {
 
 		//data.image = imgFiles.map(img => img.file); // -> array of File
 		const detail = editorRef.current.getInstance().getHTML();
-		const parsedData = { ...data, detail: detail, image: dataTransfer.files };
+		const parsedData = { ...data, detail: detail, plant_images: dataTransfer.files };
 
 		console.log(parsedData);
 
-		return parsedData;
+		postData(parsedData);
 	};
 	const inValid = errors => {
 		console.log(errors);
 	};
 
 	const editorRef = useRef();
+
+	/*
+	{
+    "plant_type":"[식물이름]",
+    "price":1,
+    "category":"FLOWER",
+    "stock":1,
+    "origin":"DOMESTIC",
+    "deliver_type":"COURIER",
+    "address":"[판매자 주소]",
+    "plant_images":[
+        {
+            "image_url":"image_url1.com",
+            "image_number":1
+        },
+        {
+            "image_url":"image_url2.com",
+            "image_number":2
+        }
+    ]
+}
+*/
 
 	return (
 		<Wrapper>
@@ -75,7 +104,7 @@ const SalesPost = () => {
 					</InputBox>
 					<InputBox>
 						<label>상품명</label>
-						<input {...register('name', { required: true })} type="text" />
+						<input {...register('plant_type', { required: true })} type="text" />
 					</InputBox>
 					<InputBox>
 						<label>판매가</label>
@@ -133,7 +162,12 @@ const SalesPost = () => {
 							<InputBox>
 								<label>배송 방법</label>
 								<RadioBtn>
-									<input type="radio" id="delivery" {...register('transport')} value="택배" />
+									<input
+										type="radio"
+										id="deliver_type"
+										{...register('transport', { required: true })}
+										value="택배"
+									/>
 									<label htmlFor="delivery" onClick={() => setShowAddress(false)}>
 										택배
 									</label>
@@ -156,7 +190,6 @@ const SalesPost = () => {
 					<InputBox>
 						<label>상세 설명</label>
 						{/* <Textarea {...register('detail')} innerWidth={innerWidth} /> */}
-
 						<Editor
 							ref={editorRef}
 							initialValue="."

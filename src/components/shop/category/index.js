@@ -8,66 +8,66 @@ const Category = () => {
 	return (
 		<Wrapper>
 			<List>
-				<Link to="VIEW-ALL">
+				<Link to="view-all">
 					<Col>
-						<ImgBox isfocused={category === 'VIEW-ALL'}>
-							<Img src={PLANT_IMG} isFocused={category === 'VIEW-ALL'} />
+						<ImgBox isfocused={category === 'view-all'}>
+							<Img src={PLANT_IMG} isFocused={category === 'view-all'} />
 						</ImgBox>
 						<Title>전체</Title>
 					</Col>
 				</Link>
-				<Link to="FLOWER">
+				<Link to="flower">
 					<Col>
-						<ImgBox isfocused={category === 'FLOWER'}>
-							<Img isFocused={category === 'FLOWER'} src={PLANT_IMG} />
+						<ImgBox isfocused={category === 'flower'}>
+							<Img isFocused={category === 'flower'} src={PLANT_IMG} />
 						</ImgBox>
 						<Title>꽃</Title>
 					</Col>
 				</Link>
-				<Link to="FOLIAGE">
+				<Link to="foliage">
 					<Col>
-						<ImgBox isfocused={category === 'FOLIAGE'}>
-							<Img isFocused={category === 'FOLIAGE'} src={PLANT_IMG} />
+						<ImgBox isfocused={category === 'foliage'}>
+							<Img isFocused={category === 'foliage'} src={PLANT_IMG} />
 						</ImgBox>
 						<Title>관엽/공기정화</Title>
 					</Col>
 				</Link>
-				<Link to="SUCCULENCE">
+				<Link to="succulence">
 					<Col>
-						<ImgBox isfocused={category === 'SUCCULENCE'}>
-							<Img isFocused={category === 'SUCCULENCE'} src={PLANT_IMG} />
+						<ImgBox isfocused={category === 'succulence'}>
+							<Img isFocused={category === 'succulence'} src={PLANT_IMG} />
 						</ImgBox>
 						<Title>다육식물</Title>
 					</Col>
 				</Link>
-				<Link to="WILD">
+				<Link to="wild">
 					<Col>
-						<ImgBox isfocused={category === 'WILD'}>
-							<Img isFocused={category === 'WILD'} src={PLANT_IMG} />
+						<ImgBox isfocused={category === 'wild'}>
+							<Img isFocused={category === 'wild'} src={PLANT_IMG} />
 						</ImgBox>
 						<Title>야생화/분재</Title>
 					</Col>
 				</Link>
-				<Link to="ORCHID">
+				<Link to="orchid">
 					<Col>
-						<ImgBox isfocused={category === 'ORCHID'}>
-							<Img isFocused={category === 'ORCHID'} src={PLANT_IMG} />
+						<ImgBox isfocused={category === 'orchid'}>
+							<Img isFocused={category === 'orchid'} src={PLANT_IMG} />
 						</ImgBox>
 						<Title>동/서양란</Title>
 					</Col>
 				</Link>
-				<Link to="SEED">
+				<Link to="seed">
 					<Col>
-						<ImgBox isfocused={category === 'SEED'}>
-							<Img isFocused={category === 'SEED'} src={PLANT_IMG} />
+						<ImgBox isfocused={category === 'seed'}>
+							<Img isFocused={category === 'seed'} src={PLANT_IMG} />
 						</ImgBox>
 						<Title>묘목/씨앗</Title>
 					</Col>
 				</Link>
-				<Link to="ELSE">
+				<Link to="else">
 					<Col>
-						<ImgBox isfocused={category === 'ELSE'}>
-							<Img isFocused={category === 'ELSE'} src={PLANT_IMG} />
+						<ImgBox isfocused={category === 'else'}>
+							<Img isFocused={category === 'else'} src={PLANT_IMG} />
 						</ImgBox>
 						<Title>기타</Title>
 					</Col>
