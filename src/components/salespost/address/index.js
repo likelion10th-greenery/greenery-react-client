@@ -4,7 +4,7 @@ import DaumPostCode from 'react-daum-postcode';
 
 const AddressSelector = ({ register, setValue }) => {
 	const [addressNum, setAddressNum] = useState('');
-	const [addResult, setAddResult] = useState('');
+	// const [addResult, setAddResult] = useState('');
 	const [popup, setPopup] = useState(false);
 	const togglePopup = i => {
 		setPopup(prev => !prev);
