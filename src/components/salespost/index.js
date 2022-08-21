@@ -19,11 +19,11 @@ import {
 	Container,
 	BtnBox,
 } from './styled';
-import { Editor } from '@toast-ui/react-editor';
-import '@toast-ui/editor/dist/toastui-editor.css';
+import { Editor } from '@tinymce/tinymce-react';
 import axios from 'axios';
 
 const SalesPost = () => {
+	const API_KEY = 'hu8nfu3m325us5grhquqzn0vsvf8stfwc214ef8x70fwvc7z';
 	const [innerWidth, setInnerWidth] = useState(window.innerWidth);
 	const navigate = useNavigate();
 	window.addEventListener('resize', () => {
@@ -33,10 +33,7 @@ const SalesPost = () => {
 	const imgFiles = useRecoilValue(imageFiles);
 
 	const postData = async input => {
-		console.log(input);
-		const { data } = await axios.post(`http://127.0.0.1:8000/shop/register/`, input);
-
-		console.log(data);
+		await axios.post(`http://127.0.0.1:8000/shop/register/`, input);
 	};
 
 	const {
@@ -58,7 +55,7 @@ const SalesPost = () => {
 
 		// console.log(dataTransfer.files);
 
-		const detail = editorRef.current.getInstance().getHTML();
+		const detail = editorRef.current.getContent();
 		const parsedData = {
 			...data,
 			plant_detail: detail,
@@ -211,20 +208,40 @@ const SalesPost = () => {
 							<label>상세 설명</label>
 							{/* <Textarea {...register('detail')} innerWidth={innerWidth} /> */}
 							<Editor
-								ref={editorRef}
-								initialValue=" "
-								placeholder="내용을 입력해주세요."
-								previewStyle="vertical"
-								height="500px"
-								initialEditType="wysiwyg"
-								toolbarItems={[
-									['heading', 'bold', 'italic', 'strike'],
-									['hr', 'quote'],
-									['ul', 'ol', 'task', 'indent', 'outdent'],
-									['table', 'image', 'link'],
-									['code', 'codeblock'],
-								]}
-								useCommandShortcut={false}
+								apiKey={API_KEY}
+								// ref={editorRef}
+								onInit={(evt, editor) => (editorRef.current = editor)}
+								initialValue=""
+								init={{
+									height: 500,
+									menubar: false,
+									plugins: [
+										'advlist',
+										'autolink',
+										'lists',
+										'link',
+										'image',
+										'charmap',
+										'preview',
+										'anchor',
+										'searchreplace',
+										'visualblocks',
+										'code',
+										'fullscreen',
+										'insertdatetime',
+										'media',
+										'table',
+										'code',
+										'help',
+										'wordcount',
+									],
+									toolbar:
+										'undo redo | blocks | ' +
+										'bold italic forecolor | alignleft aligncenter ' +
+										'alignright alignjustify | bullist numlist outdent indent | ' +
+										'removeformat | help',
+									content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+								}}
 							/>
 						</InputBox>
 					</InputWrapper>
