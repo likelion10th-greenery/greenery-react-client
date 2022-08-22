@@ -16,23 +16,15 @@ export const Logo = styled.img`
 
 export const RightBox = styled.div`
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-end;
-	gap: 20px;
-`;
-
-export const CategoryBox = styled.div`
-	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 40px;
+	gap: 20px;
 `;
 
 export const Category = styled.span`
 	font-size: 16px;
-	padding-bottom: 10px;
 	border: 1px solid transparen;
+	padding: 10px;
 	cursor: pointer;
 
 	&:hover {
@@ -45,9 +37,4 @@ export const IconBox = styled.div`
 	justify-content: center;
 	align-items: center;
 	gap: 20px;
-`;
-
-export const Icon = styled.img`
-	background-color: transparent;
-	cursor: pointer;
 `;

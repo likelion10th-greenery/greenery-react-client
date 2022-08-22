@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRecoilValue } from 'recoil';
 import AddressSelector from './address';
@@ -14,11 +14,9 @@ import {
 	RadioBtn,
 	SizeInputWrapper,
 	SizeInput,
+	Textarea,
 	Button,
 } from './styled';
-import { Editor } from '@toast-ui/react-editor';
-import '@toast-ui/editor/dist/toastui-editor.css';
-import axios from 'axios';
 
 const SalesPost = () => {
 	const [innerWidth, setInnerWidth] = useState(window.innerWidth);
@@ -28,17 +26,10 @@ const SalesPost = () => {
 	const [showAddress, setShowAddress] = useState(false);
 	const imgFiles = useRecoilValue(imageFiles);
 
-	const postData = async input => {
-		const { data } = await axios.post(`http://127.0.0.1:8000/shop/register/`, { input });
-
-		console.log(data);
-	};
-
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
-		setValue,
 	} = useForm();
 	const onValid = data => {
 		// 주소 합치기
@@ -48,42 +39,15 @@ const SalesPost = () => {
 		const dataTransfer = new DataTransfer();
 
 		Array.from(imgFiles).forEach(file => dataTransfer.items.add(file.file));
+		data.image = dataTransfer.files; // -> Filelist
 
 		//data.image = imgFiles.map(img => img.file); // -> array of File
-		const detail = editorRef.current.getInstance().getHTML();
-		const parsedData = { ...data, detail: detail, plant_images: dataTransfer.files };
-
-		console.log(parsedData);
-
-		postData(parsedData);
+		console.log(imgFiles);
+		console.log(data);
 	};
-	const inValid = errors => {
+	const inValid = data => {
 		console.log(errors);
 	};
-
-	const editorRef = useRef();
-
-	/*
-	{
-    "plant_type":"[식물이름]",
-    "price":1,
-    "category":"FLOWER",
-    "stock":1,
-    "origin":"DOMESTIC",
-    "deliver_type":"COURIER",
-    "address":"[판매자 주소]",
-    "plant_images":[
-        {
-            "image_url":"image_url1.com",
-            "image_number":1
-        },
-        {
-            "image_url":"image_url2.com",
-            "image_number":2
-        }
-    ]
-}
-*/
 
 	return (
 		<Wrapper>
@@ -104,7 +68,7 @@ const SalesPost = () => {
 					</InputBox>
 					<InputBox>
 						<label>상품명</label>
-						<input {...register('plant_type', { required: true })} type="text" />
+						<input {...register('name', { required: true })} type="text" />
 					</InputBox>
 					<InputBox>
 						<label>판매가</label>
@@ -119,11 +83,21 @@ const SalesPost = () => {
 							<InputBox>
 								<label>원산지</label>
 								<RadioBtn>
-									<input type="radio" id="native" {...register('origin')} value="국산" />
+									<input
+										type="radio"
+										id="native"
+										{...register('origin', { required: true })}
+										value="국산"
+									/>
 									<label htmlFor="native">국산</label>
 								</RadioBtn>
 								<RadioBtn>
-									<input type="radio" id="abroad" {...register('origin')} value="수입산" />
+									<input
+										type="radio"
+										id="abroad"
+										{...register('origin', { required: true })}
+										value="수입산"
+									/>
 									<label htmlFor="abroad">수입산</label>
 								</RadioBtn>
 								<RadioBtn>
@@ -164,7 +138,7 @@ const SalesPost = () => {
 								<RadioBtn>
 									<input
 										type="radio"
-										id="deliver_type"
+										id="delivery"
 										{...register('transport', { required: true })}
 										value="택배"
 									/>
@@ -184,28 +158,12 @@ const SalesPost = () => {
 									</label>
 								</RadioBtn>
 							</InputBox>
-							{showAddress ? <AddressSelector register={register} setValue={setValue} /> : null}
+							{showAddress ? <AddressSelector register={register} /> : null}
 						</InputDetailWrapper>
 					</InputBox>
 					<InputBox>
 						<label>상세 설명</label>
-						{/* <Textarea {...register('detail')} innerWidth={innerWidth} /> */}
-						<Editor
-							ref={editorRef}
-							initialValue="."
-							placeholder="내용을 입력해주세요."
-							previewStyle="vertical"
-							height="500px"
-							initialEditType="wysiwyg"
-							toolbarItems={[
-								['heading', 'bold', 'italic', 'strike'],
-								['hr', 'quote'],
-								['ul', 'ol', 'task', 'indent', 'outdent'],
-								['table', 'image', 'link'],
-								['code', 'codeblock'],
-							]}
-							useCommandShortcut={false}
-						/>
+						<Textarea {...register('detali')} innerWidth={innerWidth} />
 					</InputBox>
 				</InputWrapper>
 				<Button>판매글 등록하기</Button>

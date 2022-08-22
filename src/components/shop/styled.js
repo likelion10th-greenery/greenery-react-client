@@ -9,8 +9,8 @@ export const Wrapper = styled.section`
 
 export const DataList = styled.div`
 	display: grid;
-	grid-template: auto / repeat(3, 1fr);
-	gap: 100px;
+	grid-template: auto / repeat(4, 1fr);
+	gap: 10px;
 
 	padding: 50px 0;
 `;
@@ -32,13 +32,6 @@ export const ItemInfo = styled.div`
 	text-align: center;
 `;
 
-export const PlantType = styled.b`
-	font-size: 1.1rem;
-`;
-
-export const Title = styled.p`
-	color: #a1a1a1;
-	padding-top: 5px;
-`;
+export const Name = styled.b``;
 
 export const Price = styled.p``;
