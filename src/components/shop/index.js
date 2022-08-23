@@ -38,7 +38,7 @@ const Shop = () => {
 			<Category />
 			<DataList>
 				{data.map(item => (
-					<Item key={item.id} onClick={() => navigate(`/shop/items/${item.id}`)}>
+					<Item key={item.id} onClick={() => navigate(`/shop/shop-list/items/detail`)}>
 						<ItemImg src={item.img_url} />
 						<ItemInfo>
 							<PlantType>{item.plant_type}</PlantType>

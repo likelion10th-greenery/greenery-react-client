@@ -17,11 +17,13 @@ export const Container = styled.div`
 	justify-content: center;
 	align-items: flex-start;
 `;
+
 export const Title = styled.h3`
 	font-size: 20px;
 	font-weight: 600;
 	margin-bottom: 20px;
 `;
+
 export const Form = styled.form`
 	width: 100%;
 	display: flex;
@@ -31,6 +33,7 @@ export const Form = styled.form`
 	background-color: ${COLOR.gray};
 	position: relative;
 `;
+
 export const InputWrapper = styled.div`
 	width: 80%;
 	margin: 15px 0;
@@ -62,6 +65,7 @@ export const InputBox = styled.div`
 	background-color: ${COLOR.white};
 	padding: 10px;
 `;
+
 export const InputDetailWrapper = styled.div`
 	background-color: ${COLOR.white};
 	width: calc(${props => props.innerWidth * 0.5}px);
@@ -81,6 +85,7 @@ export const InputDetailWrapper = styled.div`
 		text-align: end;
 	}
 `;
+
 export const RadioBtn = styled.div`
 	input[type='radio'] {
 		display: none;
@@ -100,6 +105,7 @@ export const RadioBtn = styled.div`
 		}
 	}
 `;
+
 export const SizeInputWrapper = styled.div`
 	display: flex;
 	div {
@@ -107,6 +113,7 @@ export const SizeInputWrapper = styled.div`
 		flex-direction: column;
 	}
 `;
+
 export const SizeInput = styled.div`
 	border: 1px solid rgba(0, 0, 0, 0.5);
 	height: 24px;
@@ -128,6 +135,7 @@ export const SizeInput = styled.div`
 		border: none;
 	}
 `;
+
 export const Textarea = styled.textarea`
 	width: calc(${props => props.innerWidth * 0.5 - 14}px);
 	height: 100px;
