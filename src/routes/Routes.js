@@ -15,10 +15,11 @@ const Routes = () => {
 		<RouterWrapper>
 			<Router>
 				<Route path="/" element={<Home />} />
-				<Route path="/shop/*" element={<Shop />}>
-					<Route path="shop-list/:category" element={<Shop />} />
-					<Route path="shop-list/items/:id" element={<DetailPage />} />
+				<Route path="/shop" element={<Shop />}>
+					<Route path="/shop/shop-list/:category" element={<Shop />} />
 				</Route>
+				<Route path="/shop/shop-list/items/detail" element={<DetailPage />} />
+
 				<Route path="/shop/salespost" element={<SalesPost />} />
 			</Router>
 		</RouterWrapper>
