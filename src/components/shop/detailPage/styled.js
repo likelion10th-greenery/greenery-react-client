@@ -1,90 +1,39 @@
 import styled from 'styled-components';
 import { COLOR } from '../../../utils/color';
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.section`
+	background-color: #f2f5f1;
 	box-sizing: border-box;
-	width: 80%;
-	margin: 0 auto;
 `;
 
-export const Section = styled.div`
-	width: 100%;
-	margin-right: auto;
+export const Category = styled.div`
+	height: 150px;
+	border: 1px soild ${COLOR.gray};
 `;
 
-export const Rows = styled.div`
-	width: 100%;
-	display: flex;
+export const CarouselWrapper = styled.div`
+	width: 769px;
+	height: 940px;
 `;
 
-export const Title = styled.div`
-	font-size: 1.5em;
-	margin-bottom: 20px;
-	padding-left: 20px;
+export const CarouselComponent = styled(CarouselWrapper);
+
+export const PlantInfo = styled.div`
+	width: 769px;
+	height: 940px;
 `;
 
-export const ProductWrapper = styled.div`
-	background-color: ${COLOR.gray};
-	flex-container: row;
+export const MiniCarousel = styled.div`
+	width: 769px;
+	height: 195px;
 `;
-
-export const CarouselBox = styled.div`
-	width: 200px;
-	margin-top: 20px;
-	margin-left: 20px;
-`;
-
-export const DataList = styled.div`
-	width: 70%;
-	margin-top: 20px;
-	padding-left: 20px;
-`;
-
-export const Name = styled.p`
-	margin: 10px;
-`;
-
-export const Price = styled(Name)``;
-
-export const Delivery = styled(Name)``;
-
-export const Amount = styled.div`
-	display: flex;
-	margin: 10px;
-`;
-
-export const ButtonWrapper = styled.div`
-	display: flex;
-`;
-
-export const Button = styled.div`
-	width: 100px;
-	height: 20px;
-	text-align: center;
-	border: 1px solid ${COLOR.white};
-	background-color: ${COLOR.black};
-	color: ${COLOR.white};
-`;
-
-export const CartButton = styled(Button)`
-	background-color: ${COLOR.demiLightGreen};
-`;
-
 export const SellerInfo = styled.div`
-	margin-top: 20px;
-	width: 400px;
-	height: 30px;
-	border: 1px soild ${COLOR.green};
+	width: 769px;
+	height: 195px;
 `;
 
-export const PriceInfoWrapper = styled.div`
-	display: flex;
-`;
+export const PriceInfo = styled.div``;
 
-export const PriceTable = styled.div`
-	background-color: ${COLOR.gray}
-	width: 600px;
-	height: 300px;
-`;
+export const SimilarPlant = styled.div``;
 
-export const ActiveTapWrapper = styled.div``;
+export const ActiveTab = styled.div``;
