@@ -6,8 +6,9 @@ export const Wrapper = styled.section`
 	box-sizing: border-box;
 `;
 
-export const Category = styled.div`
+export const Category = styled.p`
 	height: 150px;
+	width: 100%
 	border: 1px soild ${COLOR.gray};
 `;
 

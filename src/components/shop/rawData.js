@@ -4,6 +4,7 @@ export const items = [
 		img_url: 'https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg',
 		name: '이름',
 		price: 100000,
+		배송방법: '택배',
 	},
 	{
 		id: 2,
