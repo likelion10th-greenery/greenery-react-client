@@ -1,55 +1,59 @@
-import Search from '../search';
-import Category from '../category';
+import React from 'react';
+import CarouselComponent from './Carousel';
+// import MiniCarousel from './MiniCarousel';
+import { items } from '../rawData';
 import Counter from './Counter';
-import './index.css';
-import Carousel from './Carousel';
-import ActiveTab from './ActiveTab';
-import RefCarousel from './RefCarousel';
 
-function DetailPage() {
+import {
+	Wrapper,
+	Category,
+	CarouselWrapper,
+	PlantInfo,
+	MiniCarouselWrapper,
+	SellerInfo,
+	SellerImg,
+	SellerName,
+	SellerSays,
+	PriceInfo,
+	SimilarPlant,
+	ActiveTab,
+} from './styled';
+import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
+
+const data = [
+	{ name: 'Page A', uv: 400 },
+	{ name: 'Page A', uv: 200 },
+	{ name: 'Page A', uv: 400 },
+	{ name: 'Page A', uv: 400 },
+];
+
+const index = () => {
 	return (
-		<div className="App">
-			<div className="Search">
-				<Search />
-			</div>
-			<div className="Category">
-				<Category />
-			</div>
-			<div className="PlantPicture">
-				<Carousel />
-			</div>
-			<div className="PlantExplain">
-				<h1>제품명</h1>
-				<p>가격</p>
-				<p>배송비</p>
-				<div className="Counter">
-					<span>수량</span>
-					<Counter />
-				</div>
-				<div className="Btn">
-					<button>구매하기</button>
-					<button>장바구니</button>
-				</div>
-				<div className="SellerInfo">
-					<p>판매자 정보</p>
-				</div>
-			</div>
-			<div className="PriceInfo">
-				<div className="PriceGraph">
-					<p>시세그래프</p>
-				</div>
-				<div className="PriceTable">
-					<p>시세 금액표</p>
-				</div>
-			</div>
-			<div className="PostRef">
-				<RefCarousel />
-			</div>
-			<div className="ProductDetail">
-				<ActiveTab />
-			</div>
-		</div>
+		<Wrapper>
+			<Category>카테고리</Category>
+			<CarouselWrapper>
+				<CarouselComponent />
+				<PlantInfo>
+					<div>이름:{items[0].name}</div>
+					<div>가격:{items[0].price}</div>
+					<div>배송방법: {items[0].배송방법}</div>
+					<div>
+						수량
+						<Counter />
+					</div>
+				</PlantInfo>
+			</CarouselWrapper>
+			<MiniCarouselWrapper>{/* <MiniCarousel /> */}</MiniCarouselWrapper>
+			<SellerInfo>
+				<SellerImg></SellerImg>
+				<SellerName>판매자이름</SellerName>
+				<SellerSays>나는 식물판매자</SellerSays>
+			</SellerInfo>
+			<PriceInfo></PriceInfo>
+			<SimilarPlant />
+			<ActiveTab />
+		</Wrapper>
 	);
-}
+};
 
-export default DetailPage;
+export default index;
