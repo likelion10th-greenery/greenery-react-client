@@ -24,6 +24,8 @@ export const PlantInfo = styled.div`
 	height: 940px;
 `;
 
+export const PlantInfomation = styled(PlantInfo);
+
 export const MiniCarousel = styled.div`
 	width: 769px;
 	height: 195px;

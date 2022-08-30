@@ -1,5 +1,6 @@
 import React from 'react';
 import CarouselComponent from './Carousel';
+import PlantInformation from './PlantInformation/PlantInfomation';
 import {
 	Wrapper,
 	Category,
@@ -19,7 +20,7 @@ const index = () => {
 			<CarouselWrapper>
 				<CarouselComponent />
 			</CarouselWrapper>
-			<PlantInfo></PlantInfo>
+			<PlantInfo>{/* <PlantInformation /> */}</PlantInfo>
 			<MiniCarousel />
 			<SellerInfo />
 			<PriceInfo />
