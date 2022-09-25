@@ -1,32 +1,17 @@
-import styled, { createGlobalStyle } from 'styled-components';
-import reset from 'styled-reset';
+import styled from 'styled-components';
+import { BrowserRouter, Route, Router } from 'react-router-dom';
+import { QueryClientProvider } from 'react-query';
+import { queryClient } from 'config/queryClient';
+import GlobalStyle from './styles/GlobalStyle';
+
 import Nav from './components/nav';
 import Footer from './components/footer';
-import Routes from './routes/Routes';
-
-const GlobalStyle = createGlobalStyle`
-	${reset}
-
-	body {
-		font-family: "Noto Sans Kr", sans-serif;
-		box-sizing: border-box;
-		height: 100%;
-		margin: 0;
-	}
-
-	input {
-		outline: none;
-	}
-
-	button {
-		outline: none;
-	}
-
-	a {
-		text-decoration: none;
-		color: #000;
-	}
-`;
+import Home from './components/home/index';
+import Shop from './components/shop/index';
+import SalesPost from './components/salespost';
+import DetailPage from './components/shop/detailPage';
+import { AxiosInterceptor } from 'config';
+import ResponsiveLayout from 'layouts/responsive.layout';
 
 const RootDiv = styled.div`
 	display: flex;
@@ -35,16 +20,35 @@ const RootDiv = styled.div`
 	padding: 0 140px; // footer 공간 마련
 `;
 
+const RouterWrapper = styled.div`
+	flex: 1;
+`;
+
 function App() {
 	return (
-		<>
+		<QueryClientProvider client={queryClient}>
 			<GlobalStyle />
-			<Nav />
-			<RootDiv>
-				<Routes />
-			</RootDiv>
-			<Footer />
-		</>
+			<AxiosInterceptor>
+				<Nav />
+				<RootDiv>
+					<BrowserRouter>
+						<ResponsiveLayout>
+							<RouterWrapper>
+								<Router>
+									<Route path="/" element={<Home />} />
+									<Route path="/shop" element={<Shop />}>
+										<Route path="/shop/shop-list/:category" element={<Shop />} />
+									</Route>
+									<Route path="/shop/shop-list/items/detail" element={<DetailPage />} />
+									<Route path="/shop/salespost" element={<SalesPost />} />
+								</Router>
+							</RouterWrapper>
+						</ResponsiveLayout>
+					</BrowserRouter>
+				</RootDiv>
+				<Footer />
+			</AxiosInterceptor>
+		</QueryClientProvider>
 	);
 }
 

@@ -7,7 +7,7 @@ export const Wrapper = styled.section`
 
 export const Category = styled.p`
 	height: 150px;
-	width: 100%
+	width: 100%;
 	border: 1px soild ${COLOR.gray};
 `;
 

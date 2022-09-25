@@ -18,7 +18,6 @@ import {
 	SimilarPlant,
 	ActiveTab,
 } from './styled';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
 
 const data = [
 	{ name: 'Page A', uv: 400 },
@@ -27,7 +26,7 @@ const data = [
 	{ name: 'Page A', uv: 400 },
 ];
 
-const index = () => {
+const DetailPage = () => {
 	return (
 		<Wrapper>
 			<Category>카테고리</Category>
@@ -56,4 +55,4 @@ const index = () => {
 	);
 };
 
-export default index;
+export default DetailPage;

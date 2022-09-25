@@ -35,6 +35,7 @@ export const ImgBox = styled.span`
 	overflow: hidden;
 	transition: border-color 0.3s ease 0s;
 	margin-bottom: 7px;
+	align-items: center;
 
 	&:hover {
 		border: 1px solid #323232;
