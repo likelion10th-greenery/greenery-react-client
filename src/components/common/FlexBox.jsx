@@ -1,4 +1,5 @@
-const { css } = require('styled-components');
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
 
 const defaultProps = {
 	width: 'auto',
@@ -75,6 +76,7 @@ const FlexBox = props => {
 				padding: ${padding};
 				box-shadow: ${shadow ? 'rgba(00, 00, 00, 0.2 0px 2px 8px 0px' : ''};
 				border-radius: ${borderRadius};
+				flex-direction: ${dir};
 				flex-wrap: ${wrap};
 				justify-content: ${center ? 'center' : justifyContent};
 				align-items: ${center ? 'center' : alignItems};
