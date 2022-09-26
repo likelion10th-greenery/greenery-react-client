@@ -1,6 +1,5 @@
 import React from 'react';
 import CarouselComponent from './Carousel';
-// import MiniCarousel from './MiniCarousel';
 import { items } from '../rawData';
 import Counter from './Counter';
 
