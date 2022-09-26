@@ -1,11 +1,11 @@
 import { createGlobalStyle } from 'styled-components';
-import { COLOR } from '../utils/color';
+import { COLOR } from '../constants/color';
 
 const GlobalStyle = createGlobalStyle`
 	html {
 		font-size: 16px;
 		height: 100%;
-		background-color: ${COLOR.white}
+		background-color: ${COLOR.white};
 	}
 	
 	* {
@@ -18,6 +18,8 @@ const GlobalStyle = createGlobalStyle`
 		font-family: "ASD-Light";
 		font-size: 16px;
 		height: 100%;
+		margin: 0;
+		padding: 0;
 	}
 	
 	a {

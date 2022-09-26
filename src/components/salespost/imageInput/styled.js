@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLOR } from './../../../utils/color';
+import { COLOR } from 'constants/color';
 
 export const ImageWrapper = styled.div`
 	width: calc(${props => props.innerWidth * 0.5}px);
