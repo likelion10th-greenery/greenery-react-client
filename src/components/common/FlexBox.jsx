@@ -63,7 +63,7 @@ const FlexBox = props => {
 		transform,
 	} = props;
 
-	const dir = (column ? 'column' : 'row') + (reverse && '-reverse');
+	const dir = (column ? 'column' : 'row') + (reverse ? '-reverse' : '');
 
 	return (
 		<div
