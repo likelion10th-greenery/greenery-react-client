@@ -1,4 +1,4 @@
-import Category from './category/index';
+import Category from 'components/shop/category';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -9,16 +9,16 @@ import { FlexBox } from 'components/common';
 export const DataList = styled.div`
 	display: grid;
 	grid-template: auto / repeat(3, 1fr);
-	gap: 100px;
+	gap: 6rem;
 
-	padding: 50px 0;
+	padding: 3.5rem 0;
 `;
 
 export const Item = styled.div`
 	display: flex;
 	flex-direction: column;
 
-	gap: 20px;
+	gap: 1.5rem;
 
 	cursor: pointer;
 `;
@@ -37,7 +37,7 @@ export const PlantType = styled.b`
 
 export const Title = styled.p`
 	color: #a1a1a1;
-	padding-top: 5px;
+	padding-top: 0.4rem;
 `;
 
 export const Price = styled.p``;
@@ -51,11 +51,11 @@ export const BtnBox = styled.div`
 export const Btn = styled.div`
 	width: 4rem;
 	background-color: ${COLOR.green};
-	padding: 10px 20px;
-	margin-bottom: 50px;
+	padding: 0.6rem 1.2rem;
+	margin-bottom: 3rem;
 
 	color: white;
-	border-radius: 5px;
+	border-radius: 0.4rem;
 	text-align: center;
 	cursor: pointer;
 `;

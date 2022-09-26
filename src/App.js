@@ -1,17 +1,15 @@
-import styled from 'styled-components';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { QueryClientProvider } from 'react-query';
 import { queryClient } from 'config/queryClient';
 import GlobalStyle from './styles/GlobalStyle';
 import Home from 'components/home/';
-import Shop from 'components/shop/';
 import SalesPost from 'components/salespost';
 import DetailPage from 'components/shop/detailPage';
 import { AxiosInterceptor } from 'config';
 import ResponsiveLayout from 'layouts/responsive.layout';
 import 'styles/fonts.css';
 
-import { NotFound } from 'pages';
+import { NotFound, Shop } from 'pages';
 
 function App() {
 	return (

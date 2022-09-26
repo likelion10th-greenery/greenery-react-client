@@ -1,20 +1,19 @@
 import { Link } from 'react-router-dom';
-import LOGO_IMG from 'assets/imgs/Greenery LOGO.png';
-import SEARCH_LOGO from 'assets/icons/search-line.svg';
-import CART_LOGO from 'assets/icons/shopping-cart-line.svg';
-import USER_LOGO from 'assets/icons/user-line.svg';
 // import { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { COLOR } from 'constants/color';
+// import { COLOR } from './../../constants/color';
+import { FlexBox } from 'components/common';
 
 const Wrapper = styled.nav`
 	position: sticky;
 	top: 0%;
-	background-color: white;
+	background-color: ${COLOR.white};
 	height: 7rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0 140px;
+	padding: 0 8% 0 8%;
 
 	box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 	z-index: 100;
@@ -22,29 +21,12 @@ const Wrapper = styled.nav`
 
 const Logo = styled.img`
 	width: auto;
-	height: 50px;
-	color: green;
+	height: 3.5rem;
 	cursor: pointer;
 `;
 
-const RightBox = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-end;
-	gap: 20px;
-`;
-
-const CategoryBox = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 40px;
-`;
-
 const Category = styled.span`
-	font-size: 16px;
-	padding-bottom: 10px;
+	padding-bottom: 0.5rem;
 	border: 1px solid transparen;
 	cursor: pointer;
 
@@ -53,15 +35,7 @@ const Category = styled.span`
 	}
 `;
 
-const IconBox = styled.div`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 20px;
-`;
-
 const Icon = styled.img`
-	background-color: transparent;
 	cursor: pointer;
 `;
 
@@ -83,15 +57,15 @@ const Navbar = () => {
 	return (
 		<Wrapper>
 			<Link to="/">
-				<Logo src={LOGO_IMG} />
+				<Logo src="/images/logo.png" />
 			</Link>
-			<RightBox>
-				<IconBox>
-					<Icon src={SEARCH_LOGO} alt="search_logo" />
-					<Icon src={USER_LOGO} alt="user_logo" />
-					<Icon src={CART_LOGO} alt="cart_logo" />
-				</IconBox>
-				<CategoryBox>
+			<FlexBox column justifyContent="center" alignItems="flex-end" gap="1rem">
+				<FlexBox justifyContent="center" alignItems="flex-end" gap="1.5rem">
+					<Icon src="/icons/icon-search.svg" alt="search_logo" />
+					<Icon src="/icons/icon-user.svg" alt="user_logo" />
+					<Icon src="/icons/icon-cart.svg" alt="cart_logo" />
+				</FlexBox>
+				<FlexBox justifyContent="center" alignItems="center" gap="3rem">
 					<Link to="/">
 						<Category>Home</Category>
 					</Link>
@@ -105,8 +79,8 @@ const Navbar = () => {
 					<Link to="/community">
 						<Category>Community</Category>
 					</Link>
-				</CategoryBox>
-			</RightBox>
+				</FlexBox>
+			</FlexBox>
 		</Wrapper>
 	);
 };
