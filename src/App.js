@@ -1,50 +1,37 @@
-import styled, { createGlobalStyle } from 'styled-components';
-import reset from 'styled-reset';
-import Nav from './components/nav';
-import Footer from './components/footer';
-import Routes from './routes/Routes';
+import styled from 'styled-components';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { QueryClientProvider } from 'react-query';
+import { queryClient } from 'config/queryClient';
+import GlobalStyle from './styles/GlobalStyle';
 
-const GlobalStyle = createGlobalStyle`
-	${reset}
-
-	body {
-		font-family: "Noto Sans Kr", sans-serif;
-		box-sizing: border-box;
-		height: 100%;
-		margin: 0;
-	}
-
-	input {
-		outline: none;
-	}
-
-	button {
-		outline: none;
-	}
-
-	a {
-		text-decoration: none;
-		color: #000;
-	}
-`;
-
-const RootDiv = styled.div`
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-	padding: 0 140px; // footer 공간 마련
-`;
+import Navbar from 'components/nav/DesktopNavbar';
+import Footer from 'components/Footer';
+import Home from 'components/home/';
+import Shop from 'components/shop/';
+import SalesPost from 'components/salespost';
+import DetailPage from 'components/shop/detailPage';
+import { AxiosInterceptor } from 'config';
+import ResponsiveLayout from 'layouts/responsive.layout';
 
 function App() {
 	return (
-		<>
+		<QueryClientProvider client={queryClient}>
 			<GlobalStyle />
-			<Nav />
-			<RootDiv>
-				<Routes />
-			</RootDiv>
-			<Footer />
-		</>
+			{/* <AxiosInterceptor> */}
+			<Router>
+				<ResponsiveLayout>
+					<Routes>
+						<Route path="/" element={<Home />} />
+						<Route path="/shop" element={<Shop />}>
+							<Route path="/shop/shop-list/:category" element={<Shop />} />
+						</Route>
+						<Route path="/shop/shop-list/items/detail" element={<DetailPage />} />
+						<Route path="/shop/salespost" element={<SalesPost />} />
+					</Routes>
+				</ResponsiveLayout>
+			</Router>
+			{/* </AxiosInterceptor> */}
+		</QueryClientProvider>
 	);
 }
 

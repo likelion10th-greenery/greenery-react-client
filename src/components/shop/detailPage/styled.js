@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { COLOR } from '../../../utils/color';
+import { COLOR } from 'constants/color';
 
 export const Wrapper = styled.section`
 	box-sizing: border-box;
@@ -7,7 +7,7 @@ export const Wrapper = styled.section`
 
 export const Category = styled.p`
 	height: 150px;
-	width: 100%
+	width: 100%;
 	border: 1px soild ${COLOR.gray};
 `;
 
