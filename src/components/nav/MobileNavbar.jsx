@@ -58,3 +58,8 @@ export const Icon = styled.img`
 	background-color: transparent;
 	cursor: pointer;
 `;
+const Navbar = () => {
+	return;
+};
+
+export default Navbar;
