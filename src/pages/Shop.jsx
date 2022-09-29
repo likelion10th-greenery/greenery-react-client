@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { COLOR } from 'constants/color';
-import { FlexBox } from 'components/common';
+import { FlexBox, FlexButton } from 'components/common';
 
 export const DataList = styled.div`
 	display: grid;
@@ -162,9 +162,16 @@ const Shop = () => {
 					</Item>
 				))}
 			</DataList>
-			<BtnBox>
-				<Btn onClick={() => navigate('/shop/salespost')}>등록하기</Btn>
-			</BtnBox>
+			<FlexBox
+				width="100%"
+				backgroundColor="transparent"
+				justifyContent="flex-end"
+				margin="0 0 3rem 0"
+			>
+				<FlexButton onClick={() => navigate('/shop/salespost')} backgroundColor={`${COLOR.green}`}>
+					등록하기
+				</FlexButton>
+			</FlexBox>
 		</FlexBox>
 	);
 };
