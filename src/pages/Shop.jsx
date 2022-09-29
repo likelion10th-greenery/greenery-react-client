@@ -1,4 +1,4 @@
-import Category from 'components/shop/Category';
+import Category from 'components/Shop/Category';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -8,8 +8,8 @@ import { FlexBox } from 'components/common';
 
 export const DataList = styled.div`
 	display: grid;
-	grid-template: auto / repeat(3, 1fr);
-	gap: 6rem;
+	grid-template: auto / repeat(4, 1fr);
+	gap: 3rem;
 
 	padding: 3.5rem 0;
 `;
@@ -27,17 +27,13 @@ export const ItemImg = styled.img`
 	width: 100%;
 `;
 
-export const ItemInfo = styled.div`
-	text-align: center;
-`;
-
 export const PlantType = styled.b`
 	font-size: 1.1rem;
+	font-weight: 500;
 `;
 
-export const Title = styled.p`
+export const FeedTitle = styled.p`
 	color: #a1a1a1;
-	padding-top: 0.4rem;
 `;
 
 export const Price = styled.p``;
@@ -59,6 +55,79 @@ export const Btn = styled.div`
 	text-align: center;
 	cursor: pointer;
 `;
+
+export const items = [
+	{
+		id: 1,
+		img_url: 'https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg',
+		feed_title: '이름',
+		plant_type: '알보 몬스테라',
+		price: 100000,
+	},
+	{
+		id: 2,
+		img_url: 'https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg',
+		feed_title: '이름',
+		plant_type: '알보 몬스테라',
+		price: 100000,
+	},
+	{
+		id: 3,
+		img_url: 'https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg',
+		feed_title: '이름',
+		plant_type: '알보 몬스테라',
+		price: 100000,
+	},
+	{
+		id: 4,
+		img_url: 'https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg',
+		feed_title: '이름',
+		plant_type: '알보 몬스테라',
+		price: 100000,
+	},
+	{
+		id: 5,
+		img_url: 'https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg',
+		feed_title: '이름',
+		plant_type: '알보 몬스테라',
+		price: 100000,
+	},
+	{
+		id: 6,
+		img_url: 'https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg',
+		feed_title: '이름',
+		plant_type: '알보 몬스테라',
+		price: 100000,
+	},
+	{
+		id: 7,
+		img_url: 'https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg',
+		feed_title: '이름',
+		plant_type: '알보 몬스테라',
+		price: 100000,
+	},
+	{
+		id: 8,
+		img_url: 'https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg',
+		feed_title: '이름',
+		plant_type: '알보 몬스테라',
+		price: 100000,
+	},
+	{
+		id: 9,
+		img_url: 'https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg',
+		feed_title: '이름',
+		plant_type: '알보 몬스테라',
+		price: 100000,
+	},
+	{
+		id: 10,
+		img_url: 'https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg',
+		feed_title: '이름',
+		plant_type: '알보 몬스테라',
+		price: 100000,
+	},
+];
 
 const Shop = () => {
 	const { category } = useParams();
@@ -82,14 +151,14 @@ const Shop = () => {
 		<FlexBox column justify-content="center" align-items="cneter">
 			<Category />
 			<DataList>
-				{data.map(item => (
+				{items.map(item => (
 					<Item key={item.id} onClick={() => navigate(`/shop/shop-list/items/detail`)}>
 						<ItemImg src={item.img_url} />
-						<ItemInfo>
+						<FlexBox column alignItems="center">
 							<PlantType>{item.plant_type}</PlantType>
-							<Title>{item.feed_title}</Title>
+							<FeedTitle>{item.feed_title}</FeedTitle>
 							<Price>{item.price.toLocaleString('ko-KR')}원</Price>
-						</ItemInfo>
+						</FlexBox>
 					</Item>
 				))}
 			</DataList>

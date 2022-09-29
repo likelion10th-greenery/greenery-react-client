@@ -4,7 +4,7 @@ import { queryClient } from 'config/queryClient';
 import GlobalStyle from './styles/GlobalStyle';
 import Home from 'components/home/';
 import SalesPost from 'components/salespost';
-import DetailPage from 'components/shop/detailPage';
+import DetailPage from 'components/Shop/detailPage';
 import { AxiosInterceptor } from 'config';
 import ResponsiveLayout from 'layouts/responsive.layout';
 import 'styles/fonts.css';
