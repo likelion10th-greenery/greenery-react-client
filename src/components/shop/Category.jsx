@@ -1,9 +1,8 @@
 import PLANT_IMG from 'assets/imgs/pngwing.com.png';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { COLOR } from 'constants/color';
 import { FlexBox, FlexTextBox } from 'components/common';
-import { useEffect, useState } from 'react';
 
 // const List = styled.ul`
 // 	display: flex;

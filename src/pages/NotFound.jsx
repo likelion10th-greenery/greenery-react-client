@@ -38,7 +38,7 @@ const NotFound = () => {
 	return (
 		<FlexBox column alignItems="center" width="100%" height="100%">
 			<Img src="/images/404.svg" alt="404" />
-			<Text>해당 페이지를 찾을 수 없습니다.</Text>
+			<Text>이런! 페이지를 찾을 수가 없네요!</Text>
 		</FlexBox>
 	);
 };
