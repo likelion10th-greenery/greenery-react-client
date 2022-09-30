@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useLocation, useMatch, useNavigate } from 'react-router-dom';
 // import { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { COLOR } from 'constants/color';
@@ -25,7 +25,7 @@ const Logo = styled.img`
 	cursor: pointer;
 `;
 
-const NavItem = styled.div`
+const CustomNavLink = styled(NavLink)`
 	position: relative;
 	display: block;
 	padding: 1px 0.3rem;
@@ -52,8 +52,6 @@ const NavItem = styled.div`
 	${props =>
 		props.isClicked &&
 		css`
-			font-size: 1rem;
-
 			font-weight: bold;
 			color: ${COLOR.demiLightGreen};
 
@@ -69,10 +67,10 @@ const Icon = styled.img`
 `;
 
 const Navbar = () => {
-	const [clickedNav, setClickedNav] = useState('');
-
-	const navigate = useNavigate();
-	const location = useLocation();
+	const homeMatch = useMatch('/');
+	const shopMatch = useMatch('/shop/shop-list/:category');
+	const shareMatch = useMatch('/share');
+	const communityMatch = useMatch('/community');
 
 	// const [scroll, setScroll] = useState(0);
 
@@ -88,73 +86,27 @@ const Navbar = () => {
 	// 	window.addEventListener('scroll', onScroll);
 	// });
 
-	const onClickLogo = () => {
-		setClickedNav('home');
-		navigate('/');
-	};
-
-	const onClickNav = e => {
-		const current = e.currentTarget.id;
-		setClickedNav(current);
-
-		switch (current) {
-			case 'home':
-				navigate('/');
-				break;
-			case 'shop':
-				navigate('/shop/shop-list/view-all');
-				break;
-			default:
-				navigate(current);
-		}
-		// if (current === 'home') {
-		// 	navigate('/');
-		// } else if (current === 'shop') {
-		// 	navigate('/shop/shop-list/view-all');
-		// } else {
-		// 	navigate(current);
-		// }
-	};
-
-	useEffect(() => {
-		if (clickedNav === '') {
-			let url = location.pathname.slice(1, 5);
-
-			switch (url) {
-				case 'shop':
-					setClickedNav('shop');
-					break;
-				case 'shar':
-					setClickedNav('share');
-					break;
-				case 'comm':
-					setClickedNav('community');
-					break;
-				default:
-					setClickedNav('home');
-			}
-		}
-	}, [clickedNav]);
-
 	return (
 		<Wrapper>
-			<Logo src="/images/logo.png" onClick={onClickLogo} isClicked={'home' === clickedNav} />
+			<Link to="/">
+				<Logo src="/images/logo.png" isClicked={homeMatch} />
+			</Link>
 
 			<FlexBox justifyContent="space-between" alignItems="center" gap="3rem">
 				<FlexBox justifyContent="center" alignItems="center" gap="3rem">
-					<NavItem id="home" onClick={onClickNav} isClicked={'home' === clickedNav}>
+					<CustomNavLink to="/" isClicked={homeMatch}>
 						Home
-					</NavItem>
-					<NavItem id="shop" onClick={onClickNav} isClicked={'shop' === clickedNav}>
+					</CustomNavLink>
+					<CustomNavLink to="/shop/shop-list/view-all" isClicked={shopMatch}>
 						Shop
-					</NavItem>
+					</CustomNavLink>
 
-					<NavItem id="share" onClick={onClickNav} isClicked={'share' === clickedNav}>
+					<CustomNavLink to="/share" isClicked={shareMatch}>
 						Share
-					</NavItem>
-					<NavItem id="community" onClick={onClickNav} isClicked={'community' === clickedNav}>
+					</CustomNavLink>
+					<CustomNavLink to="/community" isClicked={communityMatch}>
 						Community
-					</NavItem>
+					</CustomNavLink>
 				</FlexBox>
 
 				<FlexBox justifyContent="center" alignItems="center" gap="1.5rem">
