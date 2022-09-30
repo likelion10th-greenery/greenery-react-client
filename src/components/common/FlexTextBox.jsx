@@ -1,3 +1,4 @@
+/** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
 
 const defaultProps = {
@@ -58,6 +59,7 @@ const FlexTextBox = props => {
 				background: ${background};
 				line-height: ${lineHeight};
 				white-space: ${whiteSpace};
+
 				@media only screen and (max-width: 767px) {
 					font-size: ${mobileFontSize};
 					display: ${mobileDisplay};
