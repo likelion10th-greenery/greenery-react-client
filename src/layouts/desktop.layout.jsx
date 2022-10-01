@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import MaxWidthLayout from './maxWidth.layout';
-import DesktopFooter from 'components/Footer/DesktopFooter';
+import DesktopFooter from 'components/footer/DesktopFooter';
 import DesktopNavbar from 'components/nav/DesktopNavbar';
 
 const ChildrenContainer = styled.div`
