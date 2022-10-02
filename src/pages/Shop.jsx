@@ -34,9 +34,13 @@ export const PlantType = styled.b`
 
 export const FeedTitle = styled.p`
 	color: #a1a1a1;
+	font-size: 0.9rem;
+	margin: 0;
 `;
 
-export const Price = styled.p``;
+export const Price = styled.p`
+	margin: 0;
+`;
 
 export const BtnBox = styled.div`
 	width: 100%;
@@ -154,7 +158,7 @@ const Shop = () => {
 				{items.map(item => (
 					<Item key={item.id} onClick={() => navigate(`/shop/shop-list/items/detail`)}>
 						<ItemImg src={item.img_url} />
-						<FlexBox column alignItems="center">
+						<FlexBox column justifyContent="center" alignItems="flex-start" gap="0.5rem">
 							<PlantType>{item.plant_type}</PlantType>
 							<FeedTitle>{item.feed_title}</FeedTitle>
 							<Price>{item.price.toLocaleString('ko-KR')}원</Price>

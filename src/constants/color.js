@@ -1,6 +1,6 @@
 export const COLOR = {
 	// 색상 코드를 정해놓고 필요한 곳에서 import 해서 사용하기
-	black: '#000',
+	black: '#323232',
 	white: '#fff',
 	gray: '#f2f2f2', // 배경색
 	lightGreen: '#b8e597', // accent color

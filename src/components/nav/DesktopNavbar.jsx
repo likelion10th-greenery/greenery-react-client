@@ -1,19 +1,19 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink, useLocation, useMatch, useNavigate } from 'react-router-dom';
 // import { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { COLOR } from 'constants/color';
-// import { COLOR } from './../../constants/color';
 import { FlexBox } from 'components/common';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 const Wrapper = styled.nav`
 	position: sticky;
 	top: 0%;
 	background-color: ${COLOR.white};
-	height: 7rem;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 0 8% 0 8%;
+	padding: 1.5rem 8% 1.5rem 8%;
 
 	box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 	z-index: 100;
@@ -21,18 +21,45 @@ const Wrapper = styled.nav`
 
 const Logo = styled.img`
 	width: auto;
-	height: 3.5rem;
+	height: 2rem;
 	cursor: pointer;
 `;
 
-const Category = styled.span`
-	padding-bottom: 0.5rem;
-	border: 1px solid transparen;
+const CustomNavLink = styled(NavLink)`
+	position: relative;
+	display: block;
+	padding: 1px 0.3rem;
 	cursor: pointer;
 
-	&:hover {
-		border-bottom: 1px solid green;
+	&::after {
+		position: absolute;
+		content: '';
+		top: 100%;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: ${COLOR.demiLightGreen};
+		transform: scaleX(0);
+		transform-origin: right;
+		transition: transform 0.5s;
 	}
+
+	&:hover::after {
+		transform: scaleX(1);
+		transform-origin: left;
+	}
+
+	${props =>
+		props.isClicked &&
+		css`
+			font-weight: bold;
+			color: ${COLOR.demiLightGreen};
+
+			&::after {
+				transform: scale(1);
+				transform-origin: left;
+			}
+		`}
 `;
 
 const Icon = styled.img`
@@ -40,6 +67,11 @@ const Icon = styled.img`
 `;
 
 const Navbar = () => {
+	const homeMatch = useMatch('/');
+	const shopMatch = useMatch('/shop/shop-list/:category');
+	const shareMatch = useMatch('/share');
+	const communityMatch = useMatch('/community');
+
 	// const [scroll, setScroll] = useState(0);
 
 	// const onScroll = () => {
@@ -57,28 +89,30 @@ const Navbar = () => {
 	return (
 		<Wrapper>
 			<Link to="/">
-				<Logo src="/images/logo.png" />
+				<Logo src="/images/logo.png" isClicked={homeMatch} />
 			</Link>
-			<FlexBox column justifyContent="center" alignItems="flex-end" gap="1rem">
-				<FlexBox justifyContent="center" alignItems="flex-end" gap="1.5rem">
+
+			<FlexBox justifyContent="space-between" alignItems="center" gap="3rem">
+				<FlexBox justifyContent="center" alignItems="center" gap="3rem">
+					<CustomNavLink to="/" isClicked={homeMatch}>
+						Home
+					</CustomNavLink>
+					<CustomNavLink to="/shop/shop-list/view-all" isClicked={shopMatch}>
+						Shop
+					</CustomNavLink>
+
+					<CustomNavLink to="/share" isClicked={shareMatch}>
+						Share
+					</CustomNavLink>
+					<CustomNavLink to="/community" isClicked={communityMatch}>
+						Community
+					</CustomNavLink>
+				</FlexBox>
+
+				<FlexBox justifyContent="center" alignItems="center" gap="1.5rem">
 					<Icon src="/icons/icon-search.svg" alt="search_logo" />
 					<Icon src="/icons/icon-user.svg" alt="user_logo" />
 					<Icon src="/icons/icon-cart.svg" alt="cart_logo" />
-				</FlexBox>
-				<FlexBox justifyContent="center" alignItems="center" gap="3rem">
-					<Link to="/">
-						<Category>Home</Category>
-					</Link>
-					<Link to="/shop/shop-list/view-all">
-						<Category>Shop</Category>
-					</Link>
-
-					<Link to="/share">
-						<Category>Share</Category>
-					</Link>
-					<Link to="/community">
-						<Category>Community</Category>
-					</Link>
 				</FlexBox>
 			</FlexBox>
 		</Wrapper>
