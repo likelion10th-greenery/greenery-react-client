@@ -1,10 +1,10 @@
-import { Link, NavLink, useLocation, useMatch, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useMatch } from 'react-router-dom';
 // import { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { COLOR } from 'constants/color';
 import { FlexBox } from 'components/common';
-import { useEffect } from 'react';
-import { useState } from 'react';
+// import { useEffect } from 'react';
+// import { useState } from 'react';
 
 const Wrapper = styled.nav`
 	position: sticky;

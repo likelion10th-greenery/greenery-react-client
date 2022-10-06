@@ -8,6 +8,7 @@ const defaultProps = {
 	padding: '0',
 	fontSize: '1rem',
 	fontFamily: 'Pr-SemiBold',
+	textAlign: 'left',
 	color: 'white',
 	position: 'static',
 	top: '0',
@@ -30,6 +31,7 @@ const FlexTextBox = props => {
 		margin,
 		fontSize,
 		fontFamily,
+		textAlign,
 		color,
 		position,
 		top,
@@ -50,7 +52,7 @@ const FlexTextBox = props => {
 				padding: ${padding};
 				font-size: ${fontSize};
 				font-family: ${fontFamily};
-				text-align: left;
+				text-align: ${textAlign};
 				color: ${color};
 				position: ${position};
 				top: ${top};
