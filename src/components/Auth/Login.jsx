@@ -7,18 +7,28 @@ import { Divider } from 'primereact/divider';
 
 import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
+import styled from 'styled-components';
 
-const Login = () => {
+const ChangeAuth = styled.span`
+	color: ${COLOR.demiLightGreen};
+	font-size: 0.8rem;
+	text-decoration: underline;
+	margin-top: 1rem;
+	cursor: pointer;
+`;
+
+const Login = ({ auth, setAuth }) => {
 	const [email, onChangeEmail] = useInput('');
 	const [password, onChangePassword] = useInput('');
+
 	return (
 		<FlexBox column>
-			<FormContainer className="flex p-fluid">
+			<FormContainer className="p-fluid">
 				<Field className="p-input-icon-right">
 					<InputText autoFocus value={email} onChange={onChangeEmail} placeholder="이메일" />
 					<i className="pi pi-envelope" />
 				</Field>
-				<Field className="p-input-icon-right">
+				<Field>
 					<Password
 						value={password}
 						onChange={onChangePassword}
@@ -35,10 +45,12 @@ const Login = () => {
 				</PrimaryBtn>
 			</FormContainer>
 			<Divider />
-			<FlexBox width="100%" justifyContent="center">
-				<FlexTextBox color={`${COLOR.demiLightGreen}`} fontSize="1rem">
+			<FlexBox column width="100%" justifyContent="center" alignItems="center">
+				<FlexTextBox color={`${COLOR.demiLightGreen}`} fontSize="1rem" fontFamily="ASD-Medium">
 					SNS 계정으로 간편 로그인 / 회원가입
 				</FlexTextBox>
+				{/* <FlexBox></FlexBox> */}
+				<ChangeAuth onClick={() => setAuth(!auth)}>회원가입 하시겠습니까?</ChangeAuth>
 			</FlexBox>
 		</FlexBox>
 	);

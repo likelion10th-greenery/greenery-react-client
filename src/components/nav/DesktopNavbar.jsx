@@ -13,7 +13,7 @@ const Wrapper = styled.nav`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1.5rem 8% 1.5rem 8%;
+	padding: 1.5rem 8%;
 
 	box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 	z-index: 100;

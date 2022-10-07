@@ -7,7 +7,7 @@ const defaultProps = {
 	margin: '0',
 	padding: '0',
 	fontSize: '1rem',
-	fontFamily: 'Pr-SemiBold',
+	fontFamily: 'ASD-Medium',
 	textAlign: 'left',
 	color: 'white',
 	position: 'static',
