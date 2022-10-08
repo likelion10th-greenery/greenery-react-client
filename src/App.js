@@ -15,8 +15,13 @@ import Auth from 'pages/Auth';
 import 'primereact/resources/themes/saga-green/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
+import NaverLogin from 'components/Auth/Social/NaverLogin';
 
 function App() {
+	let naver_api_url =
+		'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=7T7w55f77AbZJtSOXk6y&redirect_uri=http://127.0.0.1:8000/accounts/login/naver/callback/&state=' +
+		Math.random().toString(36).substr(3, 14);
+
 	return (
 		<QueryClientProvider client={queryClient}>
 			<GlobalStyle />
