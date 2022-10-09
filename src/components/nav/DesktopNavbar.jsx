@@ -1,10 +1,10 @@
-import { Link, NavLink, useLocation, useMatch, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useMatch } from 'react-router-dom';
 // import { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { COLOR } from 'constants/color';
 import { FlexBox } from 'components/common';
-import { useEffect } from 'react';
-import { useState } from 'react';
+// import { useEffect } from 'react';
+// import { useState } from 'react';
 
 const Wrapper = styled.nav`
 	position: sticky;
@@ -13,7 +13,7 @@ const Wrapper = styled.nav`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 1.5rem 8% 1.5rem 8%;
+	padding: 1.5rem 8%;
 
 	box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 	z-index: 100;

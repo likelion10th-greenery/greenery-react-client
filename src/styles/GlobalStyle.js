@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
 		color: ${COLOR.black};
 		font-family: "ASD-Medium";
 		font-size: 16px;
+    line-height: bottom;
 		height: 100%;
 		margin: 0;
 		padding: 0;
