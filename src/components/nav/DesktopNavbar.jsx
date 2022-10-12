@@ -50,7 +50,7 @@ const CustomNavLink = styled(NavLink)`
 	}
 
 	${props =>
-		props.isClicked &&
+		props.clicked &&
 		css`
 			font-weight: bold;
 			color: ${COLOR.demiLightGreen};
@@ -89,22 +89,22 @@ const Navbar = () => {
 	return (
 		<Wrapper>
 			<Link to="/">
-				<Logo src="/images/logo.png" isClicked={homeMatch} />
+				<Logo src="/images/logo.png" clicked={homeMatch} />
 			</Link>
 
 			<FlexBox justifyContent="space-between" alignItems="center" gap="3rem">
 				<FlexBox justifyContent="center" alignItems="center" gap="3rem">
-					<CustomNavLink to="/" isClicked={homeMatch}>
+					<CustomNavLink to="/" clicked={homeMatch}>
 						Home
 					</CustomNavLink>
-					<CustomNavLink to="/shop/shop-list/view-all" isClicked={shopMatch}>
+					<CustomNavLink to="/shop/shop-list/view-all" clicked={shopMatch}>
 						Shop
 					</CustomNavLink>
 
-					<CustomNavLink to="/share" isClicked={shareMatch}>
+					<CustomNavLink to="/share" clicked={shareMatch}>
 						Share
 					</CustomNavLink>
-					<CustomNavLink to="/community" isClicked={communityMatch}>
+					<CustomNavLink to="/community" clicked={communityMatch}>
 						Community
 					</CustomNavLink>
 				</FlexBox>
