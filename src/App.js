@@ -3,13 +3,12 @@ import { QueryClientProvider } from 'react-query';
 import { queryClient } from 'config/queryClient';
 import GlobalStyle from './styles/GlobalStyle';
 import Home from 'components/home/';
-import SalesPost from 'components/salespost';
-import DetailPage from 'components/Shop/detailPage';
+import DetailPage from 'components/shop/detailPage';
 import { AxiosInterceptor } from 'config';
 import ResponsiveLayout from 'layouts/responsive.layout';
 import 'styles/fonts.css';
 
-import { NotFound, Shop } from 'pages';
+import { NotFound, Shop, Salespost } from 'pages';
 
 function App() {
 	return (
@@ -24,7 +23,7 @@ function App() {
 								<Route path="/shop/shop-list/:category" element={<Shop />} />
 							</Route>
 							<Route path="/shop/shop-list/items/detail" element={<DetailPage />} />
-							<Route path="/shop/salespost" element={<SalesPost />} />
+							<Route path="/shop/salespost" element={<Salespost />} />
 							<Route path="/*" element={<NotFound />} />
 						</Routes>
 					</ResponsiveLayout>
