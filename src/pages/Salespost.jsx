@@ -171,7 +171,14 @@ const Salespost = () => {
 	const imgFiles = useRecoilValue(imageFiles);
 
 	const postData = async input => {
-		await axios.post(`http://127.0.0.1:8000/shop/register/`, input);
+		try {
+			const res = await axios.post(`http://127.0.0.1:8000/shop/register/`, input);
+			console.log(res);
+			//window.location.reload();
+			navigate('/shop/shop-list/view-all');
+		} catch (err) {
+			console.log(err);
+		}
 	};
 
 	const { register, handleSubmit, setValue } = useForm();
@@ -190,6 +197,7 @@ const Salespost = () => {
 
 		const detail = editorRef.current.getContent();
 		const parsedData = {
+			address: 'none', // 배송 방법 'courier' 선택 시에도 default로 문자열 들어가도록 설정
 			...data,
 			plant_detail: detail,
 			plant_images: imgFiles.map((img, idx) => {
@@ -207,11 +215,11 @@ const Salespost = () => {
 		};
 		// console.log(parsedData);
 
-		const formData = new FormData();
-		formData.append('file', parsedData);
+		// multipart data 전송하는 게 아니라면 formData 쓸 필요는 없는 것 같아요
+		//const formData = new FormData();
+		//formData.append('file', parsedData);
 
 		postData(parsedData);
-		navigate('/shop/shop-list/view-all');
 	};
 	const inValid = errors => {
 		console.log(errors);
@@ -223,11 +231,7 @@ const Salespost = () => {
 		<Wrapper>
 			<Container>
 				<Title>상품 등록</Title>
-				<Form
-					onSubmit={handleSubmit(onValid, inValid)}
-					enctype="multipart/form-data"
-					id="hook-form"
-				>
+				<Form onSubmit={handleSubmit(onValid, inValid)} id="hook-form">
 					<InputWrapper>
 						<InputBox>
 							<label>카테고리</label>
