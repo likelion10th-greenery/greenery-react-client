@@ -10,6 +10,7 @@
 - React
 - Recoil
 - styled-component
+- Recharts -> 식물 시세 보여줄때 사용한 라이브러리입니다.(https://recharts.org/en-US/api/LineChart)
 
 ### Back
 
