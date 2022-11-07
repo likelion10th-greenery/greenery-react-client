@@ -1,7 +1,7 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import styled from 'styled-components';
-import { COLOR } from '../../../../utils/color';
+import { COLOR } from '../../../../constants/color';
 import { pricedata } from './pricedata';
 
 // recharts 라이브러리 활용했습니다. API_URL : https://recharts.org/en-US/api/LineChart
@@ -10,7 +10,7 @@ export default function PriceChart() {
 	return (
 		<Wrapper>
 			<LineChart
-				width={500}
+				width={580}
 				height={400}
 				data={pricedata}
 				margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
@@ -57,6 +57,7 @@ export const Wrapper = styled.div`
 	border: 1px solid ${COLOR.gray};
 `;
 export const PriceTable = styled.div`
+	width: 400px;
 	display: flex;
 	align-itmes: center;
 	justify-content: center;

@@ -1,22 +1,11 @@
 import React from 'react';
-import CarouselComponent from './Carousel';
-import { items } from '../rawData';
-import Counter from './Counter';
 
-import {
-	Wrapper,
-	Category,
-	CarouselWrapper,
-	PlantInfo,
-	MiniCarouselWrapper,
-	SellerInfo,
-	SellerImg,
-	SellerName,
-	SellerSays,
-	PriceInfo,
-	SimilarPlant,
-	ActiveTab,
-} from './styled';
+import { Wrapper, Category, MainCarousel, Info, AddInfo, LongCarousel } from './styled';
+
+import CarouselComponent from './Carousel';
+import PlantInfo from './PlantInfo/PlantInfo';
+import PriceChart from './pricedata/PriceChart';
+import { Tab } from './Tab/Tab';
 
 const data = [
 	{ name: 'Page A', uv: 400 },
@@ -27,30 +16,24 @@ const data = [
 
 const DetailPage = () => {
 	return (
-		<Wrapper>
+		<>
 			<Category>카테고리</Category>
-			<CarouselWrapper>
-				<CarouselComponent />
-				<PlantInfo>
-					<div>이름:{items[0].name}</div>
-					<div>가격:{items[0].price}</div>
-					<div>배송방법: {items[0].배송방법}</div>
-					<div>
-						수량
-						<Counter />
-					</div>
-				</PlantInfo>
-			</CarouselWrapper>
-			<MiniCarouselWrapper>{/* <MiniCarousel /> */}</MiniCarouselWrapper>
-			<SellerInfo>
-				<SellerImg></SellerImg>
-				<SellerName>판매자이름</SellerName>
-				<SellerSays>나는 식물판매자</SellerSays>
-			</SellerInfo>
-			<PriceInfo></PriceInfo>
-			<SimilarPlant />
-			<ActiveTab />
-		</Wrapper>
+			<Wrapper>
+				<MainCarousel>
+					<CarouselComponent />
+				</MainCarousel>
+				<Info>
+					<PlantInfo />
+				</Info>
+				<AddInfo>
+					<h3>알보 몬스테라의 시세</h3>
+					<PriceChart />
+					<h3>알보 몬스테라와 유사한 식물</h3>
+					<LongCarousel />
+					<Tab />
+				</AddInfo>
+			</Wrapper>
+		</>
 	);
 };
 
