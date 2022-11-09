@@ -60,7 +60,7 @@ export const PriceTable = styled.div`
 	width: 400px;
 	display: flex;
 	align-itmes: center;
-	justify-content: center;
+	justify-content: space-around;
 `;
 export const TableTitle = styled.p``;
 export const TablePrice = styled.div``;

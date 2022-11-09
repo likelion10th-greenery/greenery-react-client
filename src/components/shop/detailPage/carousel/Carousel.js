@@ -1,7 +1,7 @@
 import React from 'react';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
-import { items } from '../rawData';
+import { items } from '../../rawData';
 
 export default function CarouselComponent() {
 	return (

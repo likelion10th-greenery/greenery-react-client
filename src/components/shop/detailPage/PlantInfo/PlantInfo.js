@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Counter from '../Counter';
+import Counter from './Counter';
 
 function PlantInfo() {
 	return (
@@ -63,7 +63,7 @@ const Num = styled.div`
 const SellerInfo = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	height: 240px;
+	height: 220px;
 `;
 
 const Circle = styled.div`
