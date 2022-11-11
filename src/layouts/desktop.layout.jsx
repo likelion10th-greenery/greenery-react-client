@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import MaxWidthLayout from './maxWidth.layout';
-import DesktopFooter from 'components/footer/DesktopFooter';
-import DesktopNavbar from 'components/nav/DesktopNavbar';
+import DesktopFooter from 'components/Footer/DesktopFooter';
+import DesktopNavbar from 'components/Nav/DesktopNavbar';
 
 const ChildrenContainer = styled.div`
 	margin: 2rem 0 0 0;
