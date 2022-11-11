@@ -4,7 +4,6 @@ import { COLOR } from 'constants/color';
 // Styled-Component 라이브러리를 활용해 TabMenu 와 Desc 컴포넌트의 CSS를 구현.
 
 const TabMenu = styled.ul`
-	border-radius: 10px 10px 0px 0px;
 	background-color: ${COLOR.green};
 	color: ${COLOR.white};
 	font-weight: bold;
@@ -25,7 +24,6 @@ const TabMenu = styled.ul`
 		padding: 10px;
 		font-size: 15px;
 		transition: 0.5s;
-		border-radius: 10px 10px 0px 0px;
 	}
 
 	.focused {

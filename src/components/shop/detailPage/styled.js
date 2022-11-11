@@ -12,7 +12,10 @@ export const Wrapper = styled.section`
 export const Info = styled.div`
 	display: flex;
 `;
-export const Category = styled.div``;
+export const Category = styled.div`
+	margin-left: 30px;
+	height: 30px;
+`;
 
 export const MainCarousel = styled.div`
 	width: 50%;

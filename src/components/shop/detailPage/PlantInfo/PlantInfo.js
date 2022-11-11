@@ -1,3 +1,4 @@
+import { COLOR } from 'constants/color';
 import React from 'react';
 import styled from 'styled-components';
 import Counter from './Counter';
@@ -20,8 +21,10 @@ function PlantInfo() {
 				<p>택배</p>
 			</Deliver>
 			<Num>
-				<p>수량</p>
+				<span>수량</span>
 				<Counter />
+				<CartBtn>장바구니</CartBtn>
+				<BuyBtn>구매하기</BuyBtn>
 			</Num>
 			<SellerInfo>
 				<Circle />
@@ -46,21 +49,32 @@ const Describe = styled.p`
 `;
 const Price = styled.div`
 	display: flex;
-	padding: 10px 10px;
 `;
 const Origin = styled.div`
 	display: flex;
-	padding: 10px 10px;
 `;
 const Deliver = styled.div`
 	display: flex;
-	padding: 10px 10px;
 `;
+
+const CartBtn = styled.button`
+	display: block;
+	border: 1px black solid;
+`;
+const BuyBtn = styled.button`
+	display: block;
+	border: 1px black solid;
+	color: ${COLOR.white};
+	background-color: ${COLOR.black};
+`;
+
 const Num = styled.div`
-	padding: 10px 10px;
+	display: flex;
+	flex-wrap: no-wrap;
 `;
 
 const SellerInfo = styled.div`
+	margin-top: 70px;
 	display: flex;
 	flex-wrap: wrap;
 	height: 220px;

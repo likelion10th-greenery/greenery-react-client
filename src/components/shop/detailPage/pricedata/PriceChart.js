@@ -54,7 +54,9 @@ export default function PriceChart() {
 
 export const Wrapper = styled.div`
 	display: flex;
-	border: 1px solid ${COLOR.gray};
+	border: 1px solid ${COLOR.black};
+	backgroud-color: ${COLOR.white};
+	padding: 30px 30px;
 `;
 export const PriceTable = styled.div`
 	width: 400px;
@@ -62,6 +64,8 @@ export const PriceTable = styled.div`
 	align-itmes: center;
 	justify-content: space-around;
 `;
-export const TableTitle = styled.p``;
+export const TableTitle = styled.p`
+	border-bottom: 1px solid black;
+`;
 export const TablePrice = styled.div``;
 export const TableDate = styled.div``;

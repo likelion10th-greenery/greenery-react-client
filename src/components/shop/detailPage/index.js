@@ -10,26 +10,26 @@ import LongCarousel from './carousel/LongCarousel';
 
 const DetailPage = () => {
 	return (
-		<>
-			<Category>카테고리</Category>
-			<Wrapper>
-				<Info>
-					<MainCarousel>
-						<CarouselComponent />
-					</MainCarousel>
-					<PlantInfo />
-				</Info>
-				<AddInfo>
-					<h3>알보 몬스테라의 시세</h3>
-					<PriceChart />
-					<h3>알보 몬스테라와 유사한 식물</h3>
-					<div>
-						<LongCarousel />
-					</div>
-					<Tab />
-				</AddInfo>
-			</Wrapper>
-		</>
+		<Wrapper>
+			<Category>
+				상점{'>'}관엽/공기정화{'>'}알보 몬스테라
+			</Category>
+			<Info>
+				<MainCarousel>
+					<CarouselComponent />
+				</MainCarousel>
+				<PlantInfo />
+			</Info>
+			<AddInfo>
+				<h3>알보 몬스테라의 시세</h3>
+				<PriceChart />
+				<h3>알보 몬스테라와 유사한 식물</h3>
+				<div>
+					<LongCarousel />
+				</div>
+				<Tab />
+			</AddInfo>
+		</Wrapper>
 	);
 };
 
