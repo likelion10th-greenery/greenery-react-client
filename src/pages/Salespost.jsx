@@ -146,6 +146,13 @@ export const Button = styled.button`
 	}
 `;
 
+export const ErrorMsg = styled.span`
+	font-size: 12px;
+	color: red;
+	padding-left: 1.5rem;
+	margin-bottom: 10px;
+`;
+
 const Salespost = () => {
 	const API_KEY = 'hu8nfu3m325us5grhquqzn0vsvf8stfwc214ef8x70fwvc7z';
 	const navigate = useNavigate();
@@ -162,7 +169,12 @@ const Salespost = () => {
 		}
 	};
 
-	const { register, handleSubmit, setValue } = useForm();
+	const {
+		register,
+		handleSubmit,
+		setValue,
+		formState: { errors },
+	} = useForm();
 	const onValid = data => {
 		// const newObj = []...imgFiles],
 
@@ -203,6 +215,7 @@ const Salespost = () => {
 		postData(parsedData);
 	};
 	const inValid = errors => {
+		alert('입력 조건을 만족시켜주세요!');
 		console.log(errors);
 	};
 
@@ -215,18 +228,18 @@ const Salespost = () => {
 				<Form onSubmit={handleSubmit(onValid, inValid)} id="hook-form">
 					<InputWrapper>
 						<Category register={register} />
-						<PostTitle register={register} />
-						<PlantName register={register} />
-						<PlantPrice register={register} />
-						<PlantStock register={register} />
+						<PostTitle register={register} errors={errors} />
+						<PlantName register={register} errors={errors} />
+						<PlantPrice register={register} errors={errors} />
+						<PlantStock register={register} errors={errors} />
 						<ImageInput register={register} />
 						<InputBox>
 							<label>상품 주요 정보</label>
 							<InputDetailWrapper>
-								<Origin register={register} />
+								<Origin register={register} errors={errors} />
 								<Size register={register} />
 								<Pot register={register} />
-								<Delivery register={register} setValue={setValue} />
+								<Delivery register={register} errors={errors} setValue={setValue} />
 							</InputDetailWrapper>
 						</InputBox>
 						<Description API_KEY={API_KEY} editorRef={editorRef} />

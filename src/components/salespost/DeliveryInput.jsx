@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { InputBox, RadioBtn } from 'pages/Salespost';
+import { InputBox, RadioBtn, ErrorMsg } from 'pages/Salespost';
 import AddressSelector from './AddressInput';
 
-export const Delivery = ({ register, setValue }) => {
+export const Delivery = ({ register, errors, setValue }) => {
 	const [showAddress, setShowAddress] = useState(false);
 
 	return (
@@ -27,6 +27,9 @@ export const Delivery = ({ register, setValue }) => {
 					</label>
 				</RadioBtn>
 			</InputBox>
+			{errors.deliver_type !== undefined && (
+				<ErrorMsg style={{ paddingLeft: '6rem' }}>{errors.deliver_type.message}</ErrorMsg>
+			)}
 			{showAddress ? <AddressSelector register={register} setValue={setValue} /> : null}
 		</>
 	);
