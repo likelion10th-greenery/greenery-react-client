@@ -132,6 +132,10 @@ const ImageInput = ({ register }) => {
 	const onDelete = id => {
 		setImgFiles(prev => {
 			const copied = [...prev];
+			// 삭제할 이미지가 유일한 이미지이면
+			if (copied.length === 1) {
+				return [];
+			}
 			const tempList = copied.filter(file => file.id !== id);
 			if (copied[0].id === id) {
 				// 삭제한 이미지가 대표사진이면
