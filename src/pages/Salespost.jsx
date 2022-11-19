@@ -173,7 +173,7 @@ const Salespost = () => {
 		register,
 		handleSubmit,
 		setValue,
-		formState: { errors },
+		formState: { errors, isSubmitting },
 	} = useForm();
 	const onValid = data => {
 		// const newObj = []...imgFiles],
@@ -247,7 +247,7 @@ const Salespost = () => {
 				</Form>
 			</Container>
 			<BtnBox>
-				<Button type="submit" form="hook-form">
+				<Button type="submit" form="hook-form" disabled={isSubmitting}>
 					판매글 등록하기
 				</Button>
 			</BtnBox>
