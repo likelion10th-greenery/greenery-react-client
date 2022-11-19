@@ -3,6 +3,7 @@ import { useRecoilState } from 'recoil';
 import { imageFiles } from './atoms';
 import styled from 'styled-components';
 import { COLOR } from 'constants/color';
+import { InputBox } from 'pages/Salespost';
 
 export const ImageWrapper = styled.div`
 	min-width: 485px;
@@ -86,18 +87,6 @@ export const Image = styled.div`
 		visibility: visible;
 		background-color: #2bb601;
 	}
-`;
-
-export const InputBox = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-start;
-	min-width: 270px;
-	margin: 10px;
-	border-radius: 5px;
-	background-color: white;
-	padding: 10px;
 `;
 
 const ImageInput = ({ register }) => {
