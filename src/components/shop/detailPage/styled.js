@@ -3,9 +3,7 @@ import { COLOR } from 'constants/color';
 
 export const Wrapper = styled.section`
 	margin: 0;
-	padding: 0;
 	box-sizing: border-box;
-	background-color: ${COLOR.grayishGreen};
 	position: absoulte;
 	width: 80%;
 	left: -0.04px;

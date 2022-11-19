@@ -86,12 +86,14 @@ const CartBtn = styled.button`
 	height: 60px;
 	color: ${COLOR.black};
 	border: 1px solid black;
+	margin-right: 15px;
 `;
 
 const SellerInfo = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	height: 80px;
+	padding: 30px 30px;
 	.name{
 		display: flex;
 		align-items: center;
