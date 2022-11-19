@@ -3,6 +3,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { Carousel } from 'react-responsive-carousel';
 import { items } from '../../rawData';
 import styled from 'styled-components';
+import { COLOR } from 'constants/color';
 
 export default function CarouselComponent() {
 	return (
@@ -25,4 +26,10 @@ export default function CarouselComponent() {
 	);
 }
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+	border: 0.1px solid ${COLOR.gray};
+	.img {
+		width: 580px;
+		height: 586px;
+	}
+`;

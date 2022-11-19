@@ -11,7 +11,7 @@ export default function PriceChart() {
 		<Wrapper>
 			<LineChart
 				width={580}
-				height={400}
+				height={386}
 				data={pricedata}
 				margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
 			>
@@ -54,9 +54,10 @@ export default function PriceChart() {
 
 export const Wrapper = styled.div`
 	display: flex;
-	border: 1px solid ${COLOR.black};
-	backgroud-color: ${COLOR.white};
-	padding: 30px 30px;
+	border: 1px solid ${COLOR.gray};
+	background-color: ${COLOR.white};
+	margin: 30px 30px;
+	border-radius: 10px;
 `;
 export const PriceTable = styled.div`
 	width: 400px;

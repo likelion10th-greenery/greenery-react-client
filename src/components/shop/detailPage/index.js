@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Wrapper, Category, MainCarousel, Info, AddInfo } from './styled';
 
-import CarouselComponent from './carousel/Carousel';
 import PlantInfo from './PlantInfo/PlantInfo';
 import PriceChart from './pricedata/PriceChart';
 import { Tab } from './Tab/Tab';
 import LongCarousel from './carousel/LongCarousel';
+import CarouselComponent from './carousel/Carousel';
 
 const DetailPage = () => {
 	return (
@@ -21,10 +21,10 @@ const DetailPage = () => {
 				<PlantInfo />
 			</Info>
 			<AddInfo>
-				<h3>알보 몬스테라의 시세</h3>
+				<div className="title">알보 몬스테라의 시세</div>
 				<PriceChart />
-				<h3>알보 몬스테라와 유사한 식물</h3>
-				<div>
+				<div className="title">알보 몬스테라와 유사한 식물</div>
+				<div className="longcarousel">
 					<LongCarousel />
 				</div>
 				<Tab />
