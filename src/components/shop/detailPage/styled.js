@@ -6,7 +6,6 @@ export const Wrapper = styled.section`
 	box-sizing: border-box;
 	position: absoulte;
 	width: 80%;
-	left: -0.04px;
 `;
 
 export const Info = styled.div`
@@ -29,6 +28,7 @@ export const MainCarousel = styled.div`
 export const SellerInfo = styled.div``;
 
 export const AddInfo = styled.div`
+	border: 0.2px solid ${COLOR.gray};
 	.title {
 		padding-left: 20px;
 		font-size: 24px;

@@ -27,6 +27,12 @@ function PlantInfo() {
 					<p>수량</p>
 					<Counter />
 				</div>
+				<div>
+					<p>사이즈</p>
+					<p>(가로) 30cm</p>
+					<p>(세로) 30cm</p>
+					<p>(높이) 30cm</p>
+				</div>
 				<div className="Button">
 					<CartBtn>장바구니</CartBtn>
 					<BuyBtn>구매하기</BuyBtn>

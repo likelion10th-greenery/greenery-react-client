@@ -11,15 +11,14 @@ const TabMenu = styled.ul`
 	flex-direction: row;
 	align-items: center;
 	list-style: none;
-	margin-bottom: 7rem;
-	margin-top: 10px;
+	padding: 0;
 
 	.submenu {
 		text-align: center;
 		// 기본 Tabmenu 에 대한 CSS를 구현
 		display: flex;
 		/* justify-content: space-between;
-    	heigth: 30px; */
+    	heigth: 305px; */
 		width: calc(100% / 3);
 		padding: 10px;
 		font-size: 15px;
@@ -28,8 +27,8 @@ const TabMenu = styled.ul`
 
 	.focused {
 		//선택된 Tabmenu 에만 적용되는 CSS를 구현
-		background-color: rgb(255, 255, 255);
-		color: rgb(21, 20, 20);
+		background-color: ${COLOR.white};
+		color: ${COLOR.green};
 	}
 
 	& div.desc {

@@ -10,7 +10,7 @@ export default function PriceChart() {
 	return (
 		<Wrapper>
 			<LineChart
-				width={580}
+				width={500}
 				height={386}
 				data={pricedata}
 				margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
