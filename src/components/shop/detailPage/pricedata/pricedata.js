@@ -16,7 +16,7 @@ export const pricedata = [
 	},
 	{
 		month: '2022.06',
-		date: '45',
+		date: '25',
 		price: '220000',
 	},
 ];

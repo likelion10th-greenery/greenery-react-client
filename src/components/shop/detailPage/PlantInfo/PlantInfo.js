@@ -9,6 +9,12 @@ function PlantInfo() {
 			<Title>
 				<div className="title">알보 몬스테라</div>
 				<div className="description">금전운과 행운을 들어오게 하는 기특한 식물, 알보 몬스테라</div>
+				<div className="tagBox">
+					<div className="tag">#알보몬</div>
+					<div className="tag">#희귀</div>
+					<div className="tag">#태그</div>
+					<div className="tag">#태그</div>
+				</div>
 			</Title>
 			<Information>
 				<div>
@@ -27,7 +33,7 @@ function PlantInfo() {
 					<p>수량</p>
 					<Counter />
 				</div>
-				<div>
+				<div className="size">
 					<p>사이즈</p>
 					<p>(가로) 30cm</p>
 					<p>(세로) 30cm</p>
@@ -41,7 +47,6 @@ function PlantInfo() {
 			<SellerInfo>
 				<Circle />
 				<div className="name">판매자 이름</div>
-				<p>판매자 설명판매자 설명판매자 설명판매자 설명판매자 설명판매자 설명판매자 설명판매자</p>
 			</SellerInfo>
 		</Wrapper>
 	);
@@ -58,22 +63,39 @@ const Wrapper = styled.div`
 const Title = styled.div`
 	.title {
 		font-size: 30px;
+		margin-top: 30px;
+		margin-bottom: 15px;
 	}
 	.description {
 		font-size: 15px;
+		padding-left: 15px;
+	}
+	.tagBox {
+		display: flex;
+	}
+	.tag {
+		color: ${COLOR.green};
+		border: 1px solid ${COLOR.green};
+		width: 73px;
+		text-align: center;
+		border-radius: 30px;
+		margin: 2px 2px;
 	}
 `;
 const Information = styled.div`
 	div {
 		display: flex;
 		p {
-			margin: 10px 10px;
+			margin: 15px 15px;
 		}
+	}
+	.size {
+		display: flex;
 	}
 	.Button {
 		padding-left: 70px;
 		display: flex;
-		margin-top: 20px;
+		margin-top: 10px;
 	}
 `;
 
@@ -104,6 +126,10 @@ const SellerInfo = styled.div`
 		display: flex;
 		align-items: center;
 		justify-content; center;
+		margin-left: 15px;
+	}
+	p{
+		font-size: 10px;
 		margin-left: 15px;
 	}
 `;

@@ -28,8 +28,4 @@ export default function CarouselComponent() {
 
 const Wrapper = styled.div`
 	border: 0.1px solid ${COLOR.gray};
-	.img {
-		width: 580px;
-		height: 586px;
-	}
 `;

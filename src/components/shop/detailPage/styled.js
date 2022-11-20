@@ -4,7 +4,6 @@ import { COLOR } from 'constants/color';
 export const Wrapper = styled.section`
 	margin: 0;
 	box-sizing: border-box;
-	position: absoulte;
 	width: 80%;
 `;
 
