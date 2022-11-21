@@ -1,5 +1,6 @@
 import React from 'react';
-import { InputBox, RadioBtn, ErrorMsg } from 'pages/Salespost';
+import { InputBox, RadioBtn } from 'pages/Salespost';
+import ErrorMsg from './ErrorMessage';
 
 export const Origin = ({ register, errors }) => {
 	return (
@@ -25,7 +26,7 @@ export const Origin = ({ register, errors }) => {
 				</RadioBtn>
 			</InputBox>
 			{errors.origin !== undefined && (
-				<ErrorMsg style={{ paddingLeft: '6rem' }}>{errors.origin.message}</ErrorMsg>
+				<ErrorMsg paddingLeft="6.2rem">{errors.origin.message}</ErrorMsg>
 			)}
 		</>
 	);

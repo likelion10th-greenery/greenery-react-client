@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { InputBox, RadioBtn, ErrorMsg } from 'pages/Salespost';
+import { InputBox, RadioBtn } from 'pages/Salespost';
 import AddressSelector from './AddressInput';
+import ErrorMsg from './ErrorMessage';
 
 export const Delivery = ({ register, errors, setValue }) => {
 	const [showAddress, setShowAddress] = useState(false);
@@ -28,7 +29,7 @@ export const Delivery = ({ register, errors, setValue }) => {
 				</RadioBtn>
 			</InputBox>
 			{errors.deliver_type !== undefined && (
-				<ErrorMsg style={{ paddingLeft: '6rem' }}>{errors.deliver_type.message}</ErrorMsg>
+				<ErrorMsg paddingLeft="6.2rem">{errors.deliver_type.message}</ErrorMsg>
 			)}
 			{showAddress ? <AddressSelector register={register} setValue={setValue} /> : null}
 		</>

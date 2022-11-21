@@ -146,13 +146,6 @@ export const Button = styled.button`
 	}
 `;
 
-export const ErrorMsg = styled.span`
-	font-size: 12px;
-	color: red;
-	padding-left: 1.5rem;
-	margin-bottom: 10px;
-`;
-
 const Salespost = () => {
 	const API_KEY = 'hu8nfu3m325us5grhquqzn0vsvf8stfwc214ef8x70fwvc7z';
 	const navigate = useNavigate();
