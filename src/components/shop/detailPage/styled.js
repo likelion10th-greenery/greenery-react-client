@@ -21,7 +21,6 @@ export const Category = styled.div`
 
 export const MainCarousel = styled.div`
 	border-bottom: 0.5px solid ${COLOR.gray};
-	width: 953px;
 `;
 
 export const SellerInfo = styled.div``;

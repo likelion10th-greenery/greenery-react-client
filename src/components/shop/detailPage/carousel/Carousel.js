@@ -21,6 +21,9 @@ export default function CarouselComponent() {
 				<div>
 					<img src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg" />
 				</div>
+				<div>
+					<img src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg" />
+				</div>
 			</Carousel>
 		</Wrapper>
 	);
