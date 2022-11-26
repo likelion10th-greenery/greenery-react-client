@@ -10,7 +10,6 @@ import 'swiper/css/scrollbar';
 
 // import required modules
 import { FreeMode, Navigation, Scrollbar } from 'swiper';
-import { COLOR } from 'constants/color';
 
 export default function LongCarousel() {
 	return (

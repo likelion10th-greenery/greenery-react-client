@@ -8,24 +8,36 @@ export const Container = styled.section`
 `;
 
 export const Category = styled.div`
-	border-bottom: 1px solid ${COLOR.gray};
+	border-bottom: 0.5px solid ${COLOR.darkgray};
+	p {
+		padding-left: 10rem;
+	}
 `;
 
 export const Infomation = styled.div`
-	display: flex;
+	width: 100%;
+	border-bottom: 0.5px solid ${COLOR.darkgray};
+	.Box {
+		display: flex;
+		margin: 0 auto;
+		width: 80%;
+	}
 	.MainCarousel {
-		border: 1px solid ${COLOR.gray};
+		border: 0.5px solid ${COLOR.darkgray};
 		width: 50%;
 		text-align: center;
 	}
 	.PlantData {
-		border: 1px solid ${COLOR.gray};
-		padding: 5rem 5rem;
+		border: 0.5px solid ${COLOR.darkgray};
+		padding: 3rem 3rem;
 		width: 50%;
 	}
 `;
 
 export const AddInfo = styled.div`
+	width: 80%;
+	margin: 0 auto;
+	border: 0.5px solid ${COLOR.darkgray};
 	.Charts {
 		.title {
 			font-size: 2rem;

@@ -10,14 +10,18 @@ export default function DetailPage() {
 	return (
 		<Container>
 			<Category>
-				<p>카테고리</p>
+				<p>
+					상점 {'>'} 관엽/공기정화 {'>'} 알보 몬스테라
+				</p>
 			</Category>
 			<Infomation>
-				<div className="MainCarousel">
-					<CarouselComponent />
-				</div>
-				<div className="PlantData">
-					<PlantInfo />
+				<div className="Box">
+					<div className="MainCarousel">
+						<CarouselComponent />
+					</div>
+					<div className="PlantData">
+						<PlantInfo />
+					</div>
 				</div>
 			</Infomation>
 			<AddInfo>

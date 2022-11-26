@@ -63,10 +63,12 @@ const Wrapper = styled.div``;
 const Upper = styled.div`
 	.title {
 		font-size: 2rem;
+		margin-bottom: 1rem;
 	}
 	.description {
 		font-size: 1rem;
-		color: ${COLOR.black};
+		color: ${COLOR.darkgray};
+		margin-bottom: 0.5rem;
 	}
 	.tagBox {
 		display: flex;
