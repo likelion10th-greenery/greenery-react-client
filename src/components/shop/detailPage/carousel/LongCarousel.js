@@ -24,28 +24,40 @@ export default function LongCarousel() {
 			className="mySwiper"
 		>
 			<SwiperSlide>
-				<img src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg" />
+				<img
+					src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg"
+					alt="plant"
+				/>
 			</SwiperSlide>
 			<SwiperSlide>
-				<img src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg" />
+				<img
+					src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg"
+					alt="plant"
+				/>
 			</SwiperSlide>
 			<SwiperSlide>
-				<img src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg" />
+				<img
+					src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg"
+					alt="plant"
+				/>
 			</SwiperSlide>
 			<SwiperSlide>
-				<img src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg" />
+				<img
+					src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg"
+					alt="plant"
+				/>
 			</SwiperSlide>
 			<SwiperSlide>
-				<img src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg" />
+				<img
+					src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg"
+					alt="plant"
+				/>
 			</SwiperSlide>
 			<SwiperSlide>
-				<img src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg" />
-			</SwiperSlide>
-			<SwiperSlide>
-				<img src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg" />
-			</SwiperSlide>
-			<SwiperSlide>
-				<img src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg" />
+				<img
+					src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg"
+					alt="plant"
+				/>
 			</SwiperSlide>
 		</Swiper>
 	);

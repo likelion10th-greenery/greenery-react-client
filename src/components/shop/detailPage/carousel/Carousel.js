@@ -21,15 +21,12 @@ export default function CarouselComponent() {
 				<div>
 					<img src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg" />
 				</div>
-				<div>
-					<img src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg" />
-				</div>
 			</Carousel>
 		</Wrapper>
 	);
 }
 
 const Wrapper = styled.div`
-	border: 0.1px solid ${COLOR.gray};
-	padding: 3rem 2rem;
+	text-align: center;
+	padding: 5rem 5rem;
 `;

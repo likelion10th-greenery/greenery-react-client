@@ -29,9 +29,4 @@ export const pricedata = [
 		date: '25',
 		price: '210000',
 	},
-	{
-		month: '09',
-		date: '25',
-		price: '218000',
-	},
 ];

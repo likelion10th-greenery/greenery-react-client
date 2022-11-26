@@ -1,47 +1,46 @@
 import styled from 'styled-components';
 import { COLOR } from 'constants/color';
 
-export const Container = styled.div`
-	display: flex;
+export const Container = styled.section`
 	background-color: ${COLOR.grayishGreen};
-	max-width: 90%;
-	flex-direction: column;
-	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
 `;
 
-export const Wrapper = styled.section`
-	margin: 0;
-`;
-
-export const Info = styled.div`
-	display: flex;
-`;
 export const Category = styled.div`
 	border-bottom: 1px solid ${COLOR.gray};
-	padding-left: 1rem;
-	height: 75px;
-	width: 100%;
-	p {
-		padding-left: 5rem;
-	}
 `;
 
-export const MainCarousel = styled.div`
-	width: 50%;
-	border-bottom: 0.5px solid ${COLOR.gray};
+export const Infomation = styled.div`
+	display: flex;
+	.MainCarousel {
+		border: 1px solid ${COLOR.gray};
+		width: 50%;
+		text-align: center;
+	}
+	.PlantData {
+		border: 1px solid ${COLOR.gray};
+		padding: 5rem 5rem;
+		width: 50%;
+	}
 `;
 
 export const AddInfo = styled.div`
-	border: 0.2px solid ${COLOR.gray};
-	.title {
-		padding-left: 20px;
-		font-size: 2rem;
-		margin: 15px 15px;
+	.Charts {
+		.title {
+			font-size: 2rem;
+			padding-left: 2rem;
+		}
 	}
-	.longcarousel {
-		margin: 2rem 2rem;
-		padding: 1rem 1rem;
-		background-color: ${COLOR.white};
-		heigth: 386px;
+	.SimilarPlant {
+		.title {
+			font-size: 2rem;
+			padding-left: 2rem;
+		}
+		.cover {
+			margin: 2rem 2rem;
+			padding: 3rem 3rem;
+			background-color: ${COLOR.white};
+		}
 	}
 `;

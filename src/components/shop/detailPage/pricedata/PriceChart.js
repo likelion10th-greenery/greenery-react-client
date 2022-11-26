@@ -33,7 +33,6 @@ export default function PriceChart() {
 					<p>{pricedata[3].price}원</p>
 					<p>{pricedata[4].price}원</p>
 					<p>{pricedata[5].price}원</p>
-					<p>{pricedata[6].price}원</p>
 				</TablePrice>
 				<TableDate>
 					<TableTitle>거래일자</TableTitle>
@@ -55,9 +54,6 @@ export default function PriceChart() {
 					<p>
 						{pricedata[5].month}.{pricedata[5].date}
 					</p>
-					<p>
-						{pricedata[6].month}.{pricedata[6].date}
-					</p>
 				</TableDate>
 			</PriceTable>
 		</Wrapper>
@@ -68,8 +64,7 @@ export const Wrapper = styled.div`
 	display: flex;
 	border: 1px solid ${COLOR.gray};
 	background-color: ${COLOR.white};
-	margin: 30px 30px;
-	border-radius: 0.5rem;
+	margin: 2rem 2rem;
 	justify-content: space-around;
 `;
 export const PriceTable = styled.div`
