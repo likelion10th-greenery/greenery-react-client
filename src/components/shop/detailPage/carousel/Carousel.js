@@ -31,4 +31,5 @@ export default function CarouselComponent() {
 
 const Wrapper = styled.div`
 	border: 0.1px solid ${COLOR.gray};
+	padding: 3rem 2rem;
 `;

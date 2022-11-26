@@ -10,10 +10,10 @@ export default function PriceChart() {
 	return (
 		<Wrapper>
 			<LineChart
-				width={500}
-				height={386}
+				width={400}
+				height={300}
 				data={pricedata}
-				margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+				padding={{ top: 15, right: 30, left: 20, bottom: 5 }}
 			>
 				{/* <CartesianGrid strokeDasharray="0 0" /> */}
 				{/* x축, datakey가 x 축으로 들어갈 내용 */}
@@ -31,6 +31,9 @@ export default function PriceChart() {
 					<p>{pricedata[1].price}원</p>
 					<p>{pricedata[2].price}원</p>
 					<p>{pricedata[3].price}원</p>
+					<p>{pricedata[4].price}원</p>
+					<p>{pricedata[5].price}원</p>
+					<p>{pricedata[6].price}원</p>
 				</TablePrice>
 				<TableDate>
 					<TableTitle>거래일자</TableTitle>
@@ -46,6 +49,15 @@ export default function PriceChart() {
 					<p>
 						{pricedata[3].month}.{pricedata[3].date}
 					</p>
+					<p>
+						{pricedata[4].month}.{pricedata[4].date}
+					</p>
+					<p>
+						{pricedata[5].month}.{pricedata[5].date}
+					</p>
+					<p>
+						{pricedata[6].month}.{pricedata[6].date}
+					</p>
 				</TableDate>
 			</PriceTable>
 		</Wrapper>
@@ -57,7 +69,8 @@ export const Wrapper = styled.div`
 	border: 1px solid ${COLOR.gray};
 	background-color: ${COLOR.white};
 	margin: 30px 30px;
-	border-radius: 10px;
+	border-radius: 0.5rem;
+	justify-content: space-around;
 `;
 export const PriceTable = styled.div`
 	width: 400px;

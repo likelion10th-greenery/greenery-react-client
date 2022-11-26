@@ -58,20 +58,21 @@ const Wrapper = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	border: 0.2px solid ${COLOR.gray};
-	width: 967px;
 `;
 const Title = styled.div`
 	.title {
 		font-size: 30px;
 		margin-top: 30px;
 		margin-bottom: 15px;
+		padding-left: 15px;
 	}
 	.description {
 		font-size: 15px;
-		padding-left: 15px;
+		padding-left: 30px;
 	}
 	.tagBox {
 		display: flex;
+		padding-left: 30px;
 	}
 	.tag {
 		color: ${COLOR.green};
@@ -86,7 +87,7 @@ const Information = styled.div`
 	div {
 		display: flex;
 		p {
-			margin: 15px 15px;
+			margin: 10px 15px;
 		}
 	}
 	.size {
