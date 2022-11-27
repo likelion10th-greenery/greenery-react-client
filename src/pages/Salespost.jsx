@@ -1,11 +1,23 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import AddressSelector from 'components/Salespost/AddressInput';
+
+import Category from 'components/Salespost/CategoryInput';
+import {
+	PostTitle,
+	PlantName,
+	PlantPrice,
+	PlantStock,
+	Pot,
+} from 'components/Salespost/MainInfoInput';
 import { imageFiles } from 'components/Salespost/atoms';
 import ImageInput from 'components/Salespost/ImageInput';
-import { Editor } from '@tinymce/tinymce-react';
+import { Origin } from 'components/Salespost/OriginInput';
+import { Size } from 'components/Salespost/SizeInput';
+import { Delivery } from 'components/Salespost/DeliveryInput';
+import Description from 'components/Salespost/DescriptionInput';
+
 import axios from 'axios';
 import styled from 'styled-components';
 import { COLOR } from 'constants/color';
@@ -88,7 +100,7 @@ export const InputDetailWrapper = styled.div`
 		flex-direction: row;
 		justify-content: flex-start;
 		align-items: center;
-		margin-bottom: 20px;
+		margin-top: 20px;
 	}
 	label {
 		font-size: 12px;
@@ -118,36 +130,6 @@ export const RadioBtn = styled.div`
 	}
 `;
 
-export const SizeInputWrapper = styled.div`
-	display: flex;
-	div {
-		display: inherit;
-		flex-direction: column;
-	}
-`;
-
-export const SizeInput = styled.div`
-	border: 1px solid rgba(0, 0, 0, 0.5);
-	height: 24px;
-	min-width: 100px;
-	position: relative;
-	padding-left: 40px;
-	margin-bottom: 7px;
-	span {
-		font-size: 14px;
-		text-align: center;
-		position: absolute;
-		left: 3px;
-		top: 4px;
-	}
-	input {
-		font-size: 15px;
-		min-width: 160px;
-		height: 100%;
-		border: none;
-	}
-`;
-
 export const BtnBox = styled.div`
 	text-align: center;
 `;
@@ -167,7 +149,6 @@ export const Button = styled.button`
 const Salespost = () => {
 	const API_KEY = 'hu8nfu3m325us5grhquqzn0vsvf8stfwc214ef8x70fwvc7z';
 	const navigate = useNavigate();
-	const [showAddress, setShowAddress] = useState(false);
 	const imgFiles = useRecoilValue(imageFiles);
 
 	const postData = async input => {
@@ -181,7 +162,12 @@ const Salespost = () => {
 		}
 	};
 
-	const { register, handleSubmit, setValue } = useForm();
+	const {
+		register,
+		handleSubmit,
+		setValue,
+		formState: { errors, isSubmitting },
+	} = useForm();
 	const onValid = data => {
 		// const newObj = []...imgFiles],
 
@@ -222,6 +208,7 @@ const Salespost = () => {
 		postData(parsedData);
 	};
 	const inValid = errors => {
+		alert('입력 조건을 만족시켜주세요!');
 		console.log(errors);
 	};
 
@@ -230,161 +217,30 @@ const Salespost = () => {
 	return (
 		<Wrapper>
 			<Container>
-				<Title>상품 등록</Title>
+				<Title>판매글 등록하기</Title>
 				<Form onSubmit={handleSubmit(onValid, inValid)} id="hook-form">
 					<InputWrapper>
-						<InputBox>
-							<label>카테고리</label>
-							<select {...register('category', { required: true })}>
-								<option value="flower">꽃</option>
-								<option value="foliage">관엽/공기정화</option>
-								<option value="succulence">다육식물</option>
-								<option value="wild">야생화/분재</option>
-								<option value="orchid">동/서양란</option>
-								<option value="seed">묘목/씨앗</option>
-								<option value="else">기타</option>
-							</select>
-						</InputBox>
-						<InputBox>
-							<label>제목</label>
-							<input {...register('feed_title', { required: true })} type="text" />
-						</InputBox>
-						<InputBox>
-							<label>상품명</label>
-							<input {...register('plant_type', { required: true })} type="text" />
-						</InputBox>
-						<InputBox>
-							<label>판매가</label>
-							<div>
-								<input {...register('price', { required: true })} type="number" min={0} />원
-							</div>
-						</InputBox>
-						<InputBox>
-							<label>재고</label>
-							<div>
-								<input {...register('stock', { required: true })} type="number" min={0} />개
-							</div>
-						</InputBox>
-
+						<Category register={register} />
+						<PostTitle register={register} errors={errors} />
+						<PlantName register={register} errors={errors} />
+						<PlantPrice register={register} errors={errors} />
+						<PlantStock register={register} errors={errors} />
 						<ImageInput register={register} />
 						<InputBox>
 							<label>상품 주요 정보</label>
 							<InputDetailWrapper>
-								<InputBox>
-									<label>원산지</label>
-									<RadioBtn>
-										<input type="radio" id="native" {...register('origin')} value="domestic" />
-										<label htmlFor="native">국산</label>
-									</RadioBtn>
-									<RadioBtn>
-										<input type="radio" id="abroad" {...register('origin')} value="import" />
-										<label htmlFor="abroad">수입산</label>
-									</RadioBtn>
-									<RadioBtn>
-										<input
-											type="radio"
-											id="else"
-											{...register('origin', { required: true })}
-											value="else"
-										/>
-										<label htmlFor="else">모름</label>
-									</RadioBtn>
-								</InputBox>
-								<InputBox>
-									<SizeInputWrapper>
-										<label>사이즈(cm)</label>
-										<div>
-											<SizeInput>
-												<span>가로 |</span>
-												<input {...register('plant_width')} type="number" min={0} />
-											</SizeInput>
-											<SizeInput>
-												<span>세로 |</span>
-												<input {...register('plant_vertical')} type="number" min={0} />
-											</SizeInput>
-											<SizeInput>
-												<span>높이 |</span>
-												<input {...register('plant_height')} type="number" min={0} />
-											</SizeInput>
-										</div>
-									</SizeInputWrapper>
-								</InputBox>
-								<InputBox>
-									<label>화분 종류</label>
-									<input {...register('pot_type')} type="text" />
-								</InputBox>
-								<InputBox>
-									<label>배송 방법</label>
-									<RadioBtn>
-										<input
-											type="radio"
-											id="delivery"
-											{...register('deliver_type', { required: true })}
-											value="courier"
-										/>
-										<label htmlFor="delivery" onClick={() => setShowAddress(false)}>
-											택배
-										</label>
-									</RadioBtn>
-									<RadioBtn>
-										<input
-											type="radio"
-											id="meet"
-											{...register('deliver_type', { required: true })}
-											value="direct"
-										/>
-										<label htmlFor="meet" onClick={() => setShowAddress(true)}>
-											직거래
-										</label>
-									</RadioBtn>
-								</InputBox>
-								{showAddress ? <AddressSelector register={register} setValue={setValue} /> : null}
+								<Origin register={register} errors={errors} />
+								<Size register={register} />
+								<Pot register={register} />
+								<Delivery register={register} errors={errors} setValue={setValue} />
 							</InputDetailWrapper>
 						</InputBox>
-						<InputBox>
-							<label>상세 설명</label>
-							<Editor
-								apiKey={API_KEY}
-								// ref={editorRef}
-								onInit={(evt, editor) => (editorRef.current = editor)}
-								initialValue=""
-								init={{
-									height: 500,
-									menubar: false,
-									plugins: [
-										'advlist',
-										'autolink',
-										'lists',
-										'link',
-										'image',
-										'charmap',
-										'preview',
-										'anchor',
-										'searchreplace',
-										'visualblocks',
-										'code',
-										'fullscreen',
-										'insertdatetime',
-										'media',
-										'table',
-										'code',
-										'help',
-										'wordcount',
-									],
-									toolbar:
-										'undo redo | blocks | ' +
-										'bold italic forecolor | alignleft aligncenter ' +
-										'alignright alignjustify | bullist numlist outdent indent | ' +
-										'removeformat | help',
-									content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
-								}}
-							/>
-						</InputBox>
+						<Description API_KEY={API_KEY} editorRef={editorRef} />
 					</InputWrapper>
 				</Form>
 			</Container>
 			<BtnBox>
-				<Button type="submit" form="hook-form">
+				<Button type="submit" form="hook-form" disabled={isSubmitting}>
 					판매글 등록하기
 				</Button>
 			</BtnBox>

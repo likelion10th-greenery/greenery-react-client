@@ -3,6 +3,7 @@ import { useRecoilState } from 'recoil';
 import { imageFiles } from './atoms';
 import styled from 'styled-components';
 import { COLOR } from 'constants/color';
+import { InputBox } from 'pages/Salespost';
 
 export const ImageWrapper = styled.div`
 	min-width: 485px;
@@ -88,18 +89,6 @@ export const Image = styled.div`
 	}
 `;
 
-export const InputBox = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: flex-start;
-	min-width: 270px;
-	margin: 10px;
-	border-radius: 5px;
-	background-color: white;
-	padding: 10px;
-`;
-
 const ImageInput = ({ register }) => {
 	const [imgFiles, setImgFiles] = useRecoilState(imageFiles);
 	const imgInput = useRef();
@@ -143,6 +132,10 @@ const ImageInput = ({ register }) => {
 	const onDelete = id => {
 		setImgFiles(prev => {
 			const copied = [...prev];
+			// 삭제할 이미지가 유일한 이미지이면
+			if (copied.length === 1) {
+				return [];
+			}
 			const tempList = copied.filter(file => file.id !== id);
 			if (copied[0].id === id) {
 				// 삭제한 이미지가 대표사진이면
