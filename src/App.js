@@ -2,13 +2,11 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { QueryClientProvider } from 'react-query';
 import { queryClient } from 'config/queryClient';
 import GlobalStyle from 'styles/GlobalStyle';
-import DetailPage from 'components/Shop/detailPage';
 import { AxiosInterceptor } from 'config';
 import ResponsiveLayout from 'layouts/responsive.layout';
 import 'styles/fonts.css';
 
-import { NotFound, Shop, Home, Salespost } from 'pages';
-import Auth from 'pages/Auth';
+import { NotFound, Shop, Home, Salespost, Auth } from 'pages';
 
 import 'primereact/resources/themes/saga-green/theme.css';
 import 'primereact/resources/primereact.min.css';

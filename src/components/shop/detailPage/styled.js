@@ -1,54 +1,58 @@
 import styled from 'styled-components';
 import { COLOR } from 'constants/color';
 
-export const Wrapper = styled.section`
-	box-sizing: border-box;
-`;
-
-export const Category = styled.p`
-	height: 150px;
+export const Container = styled.section`
+	background-color: ${COLOR.grayishGreen};
 	width: 100%;
-	border: 1px soild ${COLOR.gray};
+	height: 100%;
 `;
 
-export const CarouselWrapper = styled.div`
-	width: 580px;
-	height: 586px;
-	display: flex;
-	text-align: center;
-	justify-items: center;
+export const Category = styled.div`
+	border-bottom: 0.5px solid ${COLOR.darkgray};
+	p {
+		padding-left: 10rem;
+	}
 `;
 
-export const CarouselComponent = styled(CarouselWrapper);
-
-export const PlantInfo = styled.div`
-	width: 580px;
-	height: 586px;
-	align-items: center;
+export const Infomation = styled.div`
+	width: 100%;
+	border-bottom: 0.5px solid ${COLOR.darkgray};
+	.Box {
+		display: flex;
+		margin: 0 auto;
+		width: 80%;
+	}
+	.MainCarousel {
+		border: 0.5px solid ${COLOR.darkgray};
+		width: 50%;
+		text-align: center;
+	}
+	.PlantData {
+		border: 0.5px solid ${COLOR.darkgray};
+		padding: 3rem 3rem;
+		width: 50%;
+	}
 `;
 
-export const MiniCarouselWrapper = styled.div``;
-export const SellerInfo = styled.div`
-	width: 769px;
-	height: 195px;
-	display: flex;
+export const AddInfo = styled.div`
+	width: 80%;
+	margin: 0 auto;
+	border: 0.5px solid ${COLOR.darkgray};
+	.Charts {
+		.title {
+			font-size: 2rem;
+			padding-left: 2rem;
+		}
+	}
+	.SimilarPlant {
+		.title {
+			font-size: 2rem;
+			padding-left: 2rem;
+		}
+		.cover {
+			margin: 2rem 2rem;
+			padding: 3rem 3rem;
+			background-color: ${COLOR.white};
+		}
+	}
 `;
-
-export const SellerImg = styled.div`
-	background-color: ${COLOR.gray};
-	width: 119px;
-	height: 119px;
-	border-radius: 50%;
-`;
-
-export const SellerName = styled.p``;
-
-export const SellerSays = styled.p`
-	display: block;
-`;
-
-export const PriceInfo = styled.div``;
-
-export const SimilarPlant = styled.div``;
-
-export const ActiveTab = styled.div``;

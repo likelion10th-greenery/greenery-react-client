@@ -10,7 +10,13 @@ const Counter = () => {
 		setCount(prevCount => prevCount - 1);
 	};
 	return (
-		<div style={{ display: 'inline-flex', border: '1px solid black' }}>
+		<div
+			style={{
+				border: '1px solid black',
+				display: 'flex',
+				alignItems: 'center',
+			}}
+		>
 			<button onClick={onDecrease}>-</button>
 			<span>{count}</span>
 			<button onClick={onIncrease}>+</button>

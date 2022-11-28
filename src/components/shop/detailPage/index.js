@@ -1,57 +1,44 @@
 import React from 'react';
-import CarouselComponent from './Carousel';
-import { items } from '../rawData';
-import Counter from './Counter';
+import CarouselComponent from './carousel/Carousel';
+import LongCarousel from './carousel/LongCarousel';
+import PlantInfo from './PlantInfo/PlantInfo';
+import PriceChart from './pricedata/PriceChart';
+import { Container, Category, Infomation, AddInfo } from './styled';
+import { Tab } from './Tab/Tab';
 
-import {
-	Wrapper,
-	Category,
-	CarouselWrapper,
-	PlantInfo,
-	MiniCarouselWrapper,
-	SellerInfo,
-	SellerImg,
-	SellerName,
-	SellerSays,
-	PriceInfo,
-	SimilarPlant,
-	ActiveTab,
-} from './styled';
-
-const data = [
-	{ name: 'Page A', uv: 400 },
-	{ name: 'Page A', uv: 200 },
-	{ name: 'Page A', uv: 400 },
-	{ name: 'Page A', uv: 400 },
-];
-
-const DetailPage = () => {
+export default function DetailPage() {
 	return (
-		<Wrapper>
-			<Category>카테고리</Category>
-			<CarouselWrapper>
-				<CarouselComponent />
-				<PlantInfo>
-					<div>이름:{items[0].name}</div>
-					<div>가격:{items[0].price}</div>
-					<div>배송방법: {items[0].배송방법}</div>
-					<div>
-						수량
-						<Counter />
+		<Container>
+			<Category>
+				<p>
+					상점 {'>'} 관엽/공기정화 {'>'} 알보 몬스테라
+				</p>
+			</Category>
+			<Infomation>
+				<div className="Box">
+					<div className="MainCarousel">
+						<CarouselComponent />
 					</div>
-				</PlantInfo>
-			</CarouselWrapper>
-			<MiniCarouselWrapper>{/* <MiniCarousel /> */}</MiniCarouselWrapper>
-			<SellerInfo>
-				<SellerImg></SellerImg>
-				<SellerName>판매자이름</SellerName>
-				<SellerSays>나는 식물판매자</SellerSays>
-			</SellerInfo>
-			<PriceInfo></PriceInfo>
-			<SimilarPlant />
-			<ActiveTab />
-		</Wrapper>
+					<div className="PlantData">
+						<PlantInfo />
+					</div>
+				</div>
+			</Infomation>
+			<AddInfo>
+				<div className="Charts">
+					<p className="title">알보 몬스테라의 시세</p>
+					<PriceChart />
+				</div>
+				<div className="SimilarPlant">
+					<p className="title">알보 몬스테라와 유사한 식물</p>
+					<div className="cover">
+						<LongCarousel />
+					</div>
+				</div>
+				<div className="TabBox">
+					<Tab />
+				</div>
+			</AddInfo>
+		</Container>
 	);
-};
-
-export default DetailPage;
+}
