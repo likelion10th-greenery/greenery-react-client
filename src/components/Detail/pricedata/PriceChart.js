@@ -1,6 +1,6 @@
 import { FlexBox } from 'components/common';
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from 'recharts';
 import styled from 'styled-components';
 import { COLOR } from 'constants/color';
 import { pricedata } from './pricedata';

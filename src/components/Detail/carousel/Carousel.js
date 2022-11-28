@@ -7,16 +7,28 @@ export default function CarouselComponent() {
 		<Wrapper>
 			<Carousel infiniteLoop autoPlay showThumbs={true} thumbWidth={70}>
 				<div>
-					<img src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg" />
+					<img
+						src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg"
+						alt="img"
+					/>
 				</div>
 				<div>
-					<img src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg" />
+					<img
+						src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg"
+						alt="img"
+					/>
 				</div>
 				<div>
-					<img src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg" />
+					<img
+						src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg"
+						alt="img"
+					/>
 				</div>
 				<div>
-					<img src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg" />
+					<img
+						src="https://cdn.imweb.me/upload/S201905295cee7c0f94cee/12d4d58e92dd7.jpeg"
+						alt="img"
+					/>
 				</div>
 			</Carousel>
 		</Wrapper>
