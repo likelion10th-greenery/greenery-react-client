@@ -97,8 +97,8 @@ const Information = styled.div`
 
 const Button = styled.div`
 	display: flex;
-	margin-left: 3rem;
-	margin-bottom: 5rem;
+	margin: 2rem 3rem 3rem 3rem;
+
 	.Cart {
 		display: block;
 		width: 180px;
@@ -120,6 +120,8 @@ const Button = styled.div`
 
 const SellerInfo = styled.div`
 	display: flex;
+	align-items: center;
+
 	.name {
 		margin: 1rem 1rem;
 		font-size: 1rem;
