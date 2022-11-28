@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { FlexBox, FlexTextBox } from 'components/common';
 import { ErrorText, Field, FormContainer } from 'components/Form';
 import { PrimaryBtn } from 'components/Form/Button';
@@ -7,7 +8,10 @@ import { Divider } from 'primereact/divider';
 
 import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import NaverLogin from './Social/NaverLogin';
+import KakaoLogin from './Social/KakaoLogin';
 
 const ChangeAuth = styled.span`
 	color: ${COLOR.demiLightGreen};
@@ -17,9 +21,19 @@ const ChangeAuth = styled.span`
 	cursor: pointer;
 `;
 
+const Icon = styled.img`
+	width: 3rem;
+	height: 3rem;
+	cursor: pointer;
+`;
+
 const Login = ({ auth, setAuth }) => {
 	const [email, onChangeEmail] = useInput('');
 	const [password, onChangePassword] = useInput('');
+	const navigate = useNavigate();
+	// let naver_api_url =
+	// 	'https://nid.naver.com/oauth2.0/authorize?response_type=code&client_id=7T7w55f77AbZJtSOXk6y&redirect_uri=http://127.0.0.1:8000/accounts/login/naver/callback/&state=' +
+	// 	Math.random().toString(36).substr(3, 14);
 
 	return (
 		<FlexBox column>
@@ -49,7 +63,11 @@ const Login = ({ auth, setAuth }) => {
 				<FlexTextBox color={`${COLOR.demiLightGreen}`} fontSize="1rem" fontFamily="ASD-Medium">
 					SNS 계정으로 간편 로그인 / 회원가입
 				</FlexTextBox>
-				{/* <FlexBox></FlexBox> */}
+				<FlexBox margin="1rem 0 0 0" gap="1rem" alignItems="center">
+					<NaverLogin />
+					<KakaoLogin />
+				</FlexBox>
+
 				<ChangeAuth onClick={() => setAuth(!auth)}>회원가입 하시겠습니까?</ChangeAuth>
 			</FlexBox>
 		</FlexBox>
