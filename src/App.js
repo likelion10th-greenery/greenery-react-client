@@ -6,7 +6,7 @@ import { AxiosInterceptor } from 'config';
 import ResponsiveLayout from 'layouts/responsive.layout';
 import 'styles/fonts.css';
 
-import { NotFound, Shop, Home, Salespost, Auth } from 'pages';
+import { NotFound, Shop, Home, Salespost, Auth, Detail } from 'pages';
 
 import 'primereact/resources/themes/saga-green/theme.css';
 import 'primereact/resources/primereact.min.css';
@@ -31,8 +31,8 @@ function App() {
 								<Route path="/shop/shop-list/:category" element={<Shop />} />
 							</Route>
 							<Route path="/auth" element={<Auth />} />
+							<Route path="/shop/shop-list/:category/*" element={<Detail />} />
 							<Route path="/accounts/login/kakao/callback" element={<KakaoRedirectHandler />} />
-							<Route path="/shop/shop-list/items/detail" element={<DetailPage />} />
 							<Route path="/shop/salespost" element={<Salespost />} />
 							<Route path="/*" element={<NotFound />} />
 						</Routes>

@@ -11,7 +11,6 @@ const TabMenu = styled.ul`
 	color: ${COLOR.white};
 	font-weight: bold;
 	display: flex;
-	flex-direction: row;
 	align-items: center;
 	list-style: none;
 	padding: 0;
@@ -20,12 +19,13 @@ const TabMenu = styled.ul`
 		text-align: center;
 		// 기본 Tabmenu 에 대한 CSS를 구현
 		display: flex;
+		justify-content: center;
 		/* justify-content: space-between;
     	heigth: 305px; */
 		width: calc(100% / 3);
 		padding: 10px;
 		font-size: 15px;
-		transition: 0.5s;
+		transition: 0.2s;
 	}
 
 	.focused {
@@ -63,6 +63,7 @@ export const Tab = () => {
 			<TabMenu>
 				{menuArr.map((el, index) => (
 					<li
+						key={el.name}
 						className={index === currentTab ? 'submenu focused' : 'submenu'}
 						onClick={() => selectMenuHandler(index)}
 					>

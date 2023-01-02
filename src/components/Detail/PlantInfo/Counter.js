@@ -12,14 +12,19 @@ const Counter = () => {
 	return (
 		<div
 			style={{
-				border: '1px solid black',
 				display: 'flex',
 				alignItems: 'center',
+				justifyContent: 'center',
+				gap: '0.5rem',
 			}}
 		>
-			<button onClick={onDecrease}>-</button>
+			<button onClick={onDecrease}>
+				<i className="pi pi-minus" style={{ fontSize: '.5rem' }} />
+			</button>
 			<span>{count}</span>
-			<button onClick={onIncrease}>+</button>
+			<button onClick={onIncrease}>
+				<i className="pi pi-plus" style={{ fontSize: '.5rem' }} />
+			</button>
 		</div>
 	);
 };

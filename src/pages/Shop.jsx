@@ -1,4 +1,4 @@
-import Category from 'components/shop/Category';
+import Category from 'components/Shop/Category';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -156,7 +156,7 @@ const Shop = () => {
 			<Category />
 			<DataList>
 				{items.map(item => (
-					<Item key={item.id} onClick={() => navigate(`/shop/shop-list/items/detail`)}>
+					<Item key={item.id} onClick={() => navigate(`/shop/shop-list/${category}/detail`)}>
 						<ItemImg src={item.img_url} />
 						<FlexBox column justifyContent="center" alignItems="flex-start" gap="0.5rem">
 							<PlantType>{item.plant_type}</PlantType>
