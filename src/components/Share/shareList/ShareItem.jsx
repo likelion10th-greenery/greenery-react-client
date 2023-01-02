@@ -6,6 +6,7 @@ const Title = styled.h2`
 	color: ${COLOR.black};
 	font-size: 1rem;
 	width: 100%;
+	margin: 1rem 0 1.5rem 0;
 
 	white-space: normal;
 	display: -webkit-box;
@@ -34,44 +35,30 @@ const Span = styled.p`
 	}
 `;
 
-const Separator = styled.div`
-	width: 100%;
-	height: 1px;
-	background-color: ${COLOR.gray};
-	text-align: center;
-	vertical-align: middle;
-
-	margin-bottom: 2rem;
-`;
-
-const Img = styled.i`
+const Icon = styled.i`
 	margin-right: 0.3rem;
 `;
-
-const ShareItem = ({ item, fin }) => {
+const ShareItem = ({ item }) => {
 	return (
-		<>
-			<FlexBox width="100%" height="5rem" margin="0 0 1.5rem 0">
-				<FlexBox column>
-					<Title>{item.title}</Title>
-					<FlexBox>
-						<Span color={COLOR.black}>{item.userName}</Span>
-						<Span>{item.date}</Span>
-						<Span>조회 {item.views}</Span>
-						<Span>
-							<Img className="pi pi-heart" /> {item.like}
-						</Span>
-						<Span>
-							<Img className="pi pi-bookmark" /> {item.bookmark}
-						</Span>
-						<Span>
-							<Img className="pi pi-comment" /> {item.comments}
-						</Span>
-					</FlexBox>
+		<FlexBox width="100%">
+			<FlexBox column height="100%">
+				<Title>{item.title}</Title>
+				<FlexBox>
+					<Span color={COLOR.black}>{item.userName}</Span>
+					<Span>{item.date}</Span>
+					<Span>조회 {item.views}</Span>
+					<Span>
+						<Icon className="pi pi-heart" /> {item.like}
+					</Span>
+					<Span>
+						<Icon className="pi pi-bookmark" /> {item.bookmark}
+					</Span>
+					<Span>
+						<Icon className="pi pi-comment" /> {item.comments}
+					</Span>
 				</FlexBox>
 			</FlexBox>
-			{!fin && <Separator />}
-		</>
+		</FlexBox>
 	);
 };
 

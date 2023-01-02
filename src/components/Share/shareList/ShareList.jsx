@@ -17,6 +17,8 @@ const items = [
 		like: 1,
 		bookmark: 12,
 		comments: 1,
+		image:
+			'https://media.istockphoto.com/id/1372896722/ko/%EC%82%AC%EC%A7%84/%ED%9D%B0-%EB%B0%B0%EA%B2%BD%EC%97%90-%EA%B3%A0%EB%A6%BD-%EB%90%9C-%ED%99%94%EB%B6%84-%EB%B0%94%EB%82%98%EB%82%98-%EC%8B%9D%EB%AC%BC.jpg?s=612x612&w=0&k=20&c=R_oZjWbJwOnW8oR6ORnkQrYHQmg1NL1NzCqnAYpiFCc=',
 	},
 	{
 		id: 2,
@@ -30,6 +32,8 @@ const items = [
 		like: 1,
 		bookmark: 12,
 		comments: 1,
+		image:
+			'https://media.istockphoto.com/id/1372896722/ko/%EC%82%AC%EC%A7%84/%ED%9D%B0-%EB%B0%B0%EA%B2%BD%EC%97%90-%EA%B3%A0%EB%A6%BD-%EB%90%9C-%ED%99%94%EB%B6%84-%EB%B0%94%EB%82%98%EB%82%98-%EC%8B%9D%EB%AC%BC.jpg?s=612x612&w=0&k=20&c=R_oZjWbJwOnW8oR6ORnkQrYHQmg1NL1NzCqnAYpiFCc=',
 	},
 	{
 		id: 3,
@@ -43,6 +47,8 @@ const items = [
 		like: 1,
 		bookmark: 12,
 		comments: 1,
+		image:
+			'https://media.istockphoto.com/id/1372896722/ko/%EC%82%AC%EC%A7%84/%ED%9D%B0-%EB%B0%B0%EA%B2%BD%EC%97%90-%EA%B3%A0%EB%A6%BD-%EB%90%9C-%ED%99%94%EB%B6%84-%EB%B0%94%EB%82%98%EB%82%98-%EC%8B%9D%EB%AC%BC.jpg?s=612x612&w=0&k=20&c=R_oZjWbJwOnW8oR6ORnkQrYHQmg1NL1NzCqnAYpiFCc=',
 	},
 	{
 		id: 4,
@@ -56,6 +62,8 @@ const items = [
 		like: 1,
 		bookmark: 12,
 		comments: 1,
+		image:
+			'https://media.istockphoto.com/id/1372896722/ko/%EC%82%AC%EC%A7%84/%ED%9D%B0-%EB%B0%B0%EA%B2%BD%EC%97%90-%EA%B3%A0%EB%A6%BD-%EB%90%9C-%ED%99%94%EB%B6%84-%EB%B0%94%EB%82%98%EB%82%98-%EC%8B%9D%EB%AC%BC.jpg?s=612x612&w=0&k=20&c=R_oZjWbJwOnW8oR6ORnkQrYHQmg1NL1NzCqnAYpiFCc=',
 	},
 	{
 		id: 5,
@@ -69,6 +77,8 @@ const items = [
 		like: 1,
 		bookmark: 12,
 		comments: 1,
+		image:
+			'https://media.istockphoto.com/id/1372896722/ko/%EC%82%AC%EC%A7%84/%ED%9D%B0-%EB%B0%B0%EA%B2%BD%EC%97%90-%EA%B3%A0%EB%A6%BD-%EB%90%9C-%ED%99%94%EB%B6%84-%EB%B0%94%EB%82%98%EB%82%98-%EC%8B%9D%EB%AC%BC.jpg?s=612x612&w=0&k=20&c=R_oZjWbJwOnW8oR6ORnkQrYHQmg1NL1NzCqnAYpiFCc=',
 	},
 	{
 		id: 6,
@@ -82,6 +92,8 @@ const items = [
 		like: 1,
 		bookmark: 12,
 		comments: 1,
+		image:
+			'https://media.istockphoto.com/id/1372896722/ko/%EC%82%AC%EC%A7%84/%ED%9D%B0-%EB%B0%B0%EA%B2%BD%EC%97%90-%EA%B3%A0%EB%A6%BD-%EB%90%9C-%ED%99%94%EB%B6%84-%EB%B0%94%EB%82%98%EB%82%98-%EC%8B%9D%EB%AC%BC.jpg?s=612x612&w=0&k=20&c=R_oZjWbJwOnW8oR6ORnkQrYHQmg1NL1NzCqnAYpiFCc=',
 	},
 	{
 		id: 7,
@@ -95,18 +107,43 @@ const items = [
 		like: 1,
 		bookmark: 12,
 		comments: 1,
+		image:
+			'https://media.istockphoto.com/id/1372896722/ko/%EC%82%AC%EC%A7%84/%ED%9D%B0-%EB%B0%B0%EA%B2%BD%EC%97%90-%EA%B3%A0%EB%A6%BD-%EB%90%9C-%ED%99%94%EB%B6%84-%EB%B0%94%EB%82%98%EB%82%98-%EC%8B%9D%EB%AC%BC.jpg?s=612x612&w=0&k=20&c=R_oZjWbJwOnW8oR6ORnkQrYHQmg1NL1NzCqnAYpiFCc=',
 	},
 ];
+
+const Image = styled.img`
+	width: 10rem;
+	height: 10rem;
+	padding-bottom: 1rem;
+	margin-left: 3rem;
+`;
+
+const Separator = styled.div`
+	width: 100%;
+	height: 1px;
+	background-color: ${COLOR.gray};
+	text-align: center;
+	vertical-align: middle;
+
+	margin-bottom: 2rem;
+`;
 
 const ShareList = () => {
 	return (
 		<>
 			{items.map((item, idx) => {
 				return (
-					<FlexBox key={item.id} column>
-						<Symbol name={item.name} status={item.status} />
-						<ShareItem item={item} fin={idx === items.length - 1 && true} />
-					</FlexBox>
+					<>
+						<FlexBox key={item.id} center>
+							<FlexBox column height="100%" padding="0 0 1rem 0" justifyContent="space-around">
+								<Symbol name={item.name} status={item.status} />
+								<ShareItem item={item} fin={idx === items.length - 1 && true} />
+							</FlexBox>
+							<Image src={item.image} />
+						</FlexBox>
+						{idx !== items.length - 1 && <Separator />}
+					</>
 				);
 			})}
 		</>
