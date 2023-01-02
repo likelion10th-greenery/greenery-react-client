@@ -1,8 +1,8 @@
 import { FlexBox } from 'components/common';
 import { COLOR } from 'constants/color';
 import styled from 'styled-components';
-import ShareItem from './ShareItem';
-import Symbol from './Symbol';
+import ShareItem from './ListItem/Item';
+import Symbol from './ListItem/Symbol';
 
 const items = [
 	{

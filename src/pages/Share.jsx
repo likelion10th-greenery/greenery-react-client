@@ -1,6 +1,6 @@
 import { FlexBox } from 'components/common';
 import Inform from 'components/Share/Inform';
-import ShareList from 'components/Share/shareList/ShareList';
+import ShareList from 'components/Share/ShareList';
 
 const Share = () => {
 	return (
