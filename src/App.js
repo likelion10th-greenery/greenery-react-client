@@ -13,6 +13,7 @@ import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 // import NaverLogin from 'components/Auth/Social/NaverLogin';
 import KakaoRedirectHandler from 'components/Auth/Social/KakaoRedirectHandler';
+import Share from 'pages/Share';
 
 function App() {
 	// let naver_api_url =
@@ -34,6 +35,7 @@ function App() {
 							<Route path="/shop/shop-list/:category/*" element={<Detail />} />
 							<Route path="/accounts/login/kakao/callback" element={<KakaoRedirectHandler />} />
 							<Route path="/shop/salespost" element={<Salespost />} />
+							<Route path="/share" element={<Share />} />
 							<Route path="/*" element={<NotFound />} />
 						</Routes>
 					</ResponsiveLayout>
