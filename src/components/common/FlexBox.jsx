@@ -4,6 +4,7 @@ import { css } from '@emotion/react';
 const defaultProps = {
 	width: 'auto',
 	maxWidth: 'none',
+	minWidth: 'none',
 	tabletWidth: '',
 	mobileWidth: '',
 	height: 'auto',
@@ -38,6 +39,7 @@ const FlexBox = props => {
 		tabletWidth,
 		mobileWidth,
 		maxWidth,
+		minWidth,
 		height,
 		margin,
 		tabletMargin,
@@ -71,6 +73,7 @@ const FlexBox = props => {
 				display: flex;
 				width: ${width};
 				max-width: ${maxWidth};
+				min-width: ${minWidth};
 				height: ${height};
 				margin: ${margin};
 				padding: ${padding};
