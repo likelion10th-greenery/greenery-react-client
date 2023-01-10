@@ -34,10 +34,6 @@ const GlobalStyle = createGlobalStyle`
 		outline: none;
 	}
 
-	ol, ul, li {
-		list-style: none;
-	}
-
 	img {
 		display: block;
 		width: 100%;
