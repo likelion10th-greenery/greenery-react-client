@@ -141,7 +141,7 @@ const Shop = () => {
 	useEffect(() => {
 		const getPlants = async () => {
 			try {
-				const { data } = await axios.get(`http://127.0.0.1:8000/shop/${category}`);
+				const { data } = await axios.get(`http://127.0.0.1:8000/shop`);
 				setData(data);
 			} catch (err) {
 				new Error(err);
@@ -155,7 +155,7 @@ const Shop = () => {
 		<FlexBox column justify-content="center" align-items="cneter">
 			<Category />
 			<DataList>
-				{items.map(item => (
+				{data.map(item => (
 					<Item key={item.id} onClick={() => navigate(`/shop/shop-list/${category}/detail`)}>
 						<ItemImg src={item.img_url} />
 						<FlexBox column justifyContent="center" alignItems="flex-start" gap="0.5rem">
