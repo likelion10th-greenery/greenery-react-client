@@ -152,11 +152,14 @@ const Shop = () => {
 	}, [category]);
 
 	return (
-		<FlexBox column justify-content="center" align-items="cneter">
+		<FlexBox column justify-content="center" align-items="center">
 			<Category />
 			<DataList>
 				{data.map(item => (
-					<Item key={item.id} onClick={() => navigate(`/shop/shop-list/${category}/detail`)}>
+					<Item
+						key={item.id}
+						onClick={() => navigate(`/shop/shop-list/${category}/detail?id=${item.id}`)}
+					>
 						<ItemImg src={item.img_url} />
 						<FlexBox column justifyContent="center" alignItems="flex-start" gap="0.5rem">
 							<PlantType>{item.plant_type}</PlantType>
