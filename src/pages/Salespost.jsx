@@ -155,7 +155,7 @@ const Salespost = () => {
 		try {
 			const res = await axios.post(`http://127.0.0.1:8000/shop/register/`, input);
 			console.log(res);
-			//window.location.reload();
+			alert('상품 등록이 완료되었습니다!');
 			navigate('/shop/shop-list/view-all');
 		} catch (err) {
 			console.log(err);
@@ -186,7 +186,7 @@ const Salespost = () => {
 			address: 'none', // 배송 방법 'courier' 선택 시에도 default로 문자열 들어가도록 설정
 			...data,
 			plant_detail: detail,
-			plant_images: imgFiles.map((img, idx) => {
+			image_url: imgFiles.map((img, idx) => {
 				const plant_images = { image_url: img.objUrl, image_number: idx };
 
 				return plant_images;
