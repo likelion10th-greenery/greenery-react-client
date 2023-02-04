@@ -188,7 +188,7 @@ const Salespost = () => {
 			address: 'none', // 배송 방법 'courier' 선택 시에도 default로 문자열 들어가도록 설정
 			...data,
 			plant_detail: detail,
-			plant_images: imgFiles.map((img, idx) => {
+			image_url: imgFiles.map((img, idx) => {
 				const plant_images = { image_url: img.objUrl, image_number: idx };
 
 				return plant_images;
