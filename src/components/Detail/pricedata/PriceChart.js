@@ -28,12 +28,12 @@ export default function PriceChart() {
 			<PriceTable>
 				<FlexBox center column>
 					<TableTitle>거래가</TableTitle>
-					<Price>{pricedata[0].price}원</Price>
-					<Price>{pricedata[1].price}원</Price>
-					<Price>{pricedata[2].price}원</Price>
-					<Price>{pricedata[3].price}원</Price>
-					<Price>{pricedata[4].price}원</Price>
-					<Price>{pricedata[5].price}원</Price>
+					<Price>{pricedata[0].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</Price>
+					<Price>{pricedata[1].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</Price>
+					<Price>{pricedata[2].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</Price>
+					<Price>{pricedata[3].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</Price>
+					<Price>{pricedata[4].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</Price>
+					<Price>{pricedata[5].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</Price>
 				</FlexBox>
 				<FlexBox center column>
 					<TableTitle>거래일자</TableTitle>

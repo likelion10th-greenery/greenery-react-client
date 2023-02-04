@@ -56,7 +56,7 @@ function PlantInfo() {
 					<Information>
 						<div className="price info">
 							<p>가격</p>
-							<p>{item.price} 원</p>
+							<p>{item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')} 원</p>
 						</div>
 						<div className="origin info">
 							<p>원산지</p>
