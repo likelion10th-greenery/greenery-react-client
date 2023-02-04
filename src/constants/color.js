@@ -11,7 +11,7 @@ export const COLOR = {
 	neonLightGreen: '#c5fa04',
 	neonGreen: '#94ec06',
 	grayishGreen: '#EAEEE6',
-	darkgray: '#656565',
+	darkgray: '#ABB2B9',
 };
 
 // figma, detailPage background color : #F2F5F1
