@@ -26,7 +26,7 @@ const DeleteBtn = styled.div`
 `;
 
 const Tag = ({ children, id }) => {
-	const [tags, setTags] = useRecoilState(tagList);
+	const [, setTags] = useRecoilState(tagList);
 	const onDelete = id => {
 		setTags(prev => prev.filter(tag => tag.id !== id));
 	};

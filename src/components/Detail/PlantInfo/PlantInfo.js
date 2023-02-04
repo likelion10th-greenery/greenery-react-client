@@ -2,13 +2,13 @@ import { COLOR } from 'constants/color';
 import React from 'react';
 import styled from 'styled-components';
 import Counter from './Counter';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 function PlantInfo() {
 	const { id } = useParams();
-	const [data, setData] = useState([]);
+	const [, setData] = useState([]);
 
 	const items = [
 		{
@@ -36,7 +36,8 @@ function PlantInfo() {
 		};
 
 		getPlants();
-	}, []);
+	}, [id]);
+
 	return (
 		<Wrapper>
 			{items.map(item => (

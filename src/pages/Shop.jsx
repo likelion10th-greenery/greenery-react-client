@@ -1,4 +1,4 @@
-import Category from 'components/shop/Category';
+import Category from 'components/Shop/Category';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -25,11 +25,12 @@ export const Item = styled.div`
 
 export const ItemImg = styled.img`
 	width: 100%;
+	border-radius: 5px;
 `;
 
 export const PlantType = styled.b`
 	font-size: 1.1rem;
-	font-weight: 500;
+	font-weight: 600;
 `;
 
 export const FeedTitle = styled.p`
@@ -135,7 +136,7 @@ export const items = [
 
 const Shop = () => {
 	const { category } = useParams();
-	const [data, setData] = useState([]);
+	const [, setData] = useState([]);
 	const navigate = useNavigate();
 
 	useEffect(() => {
@@ -155,13 +156,13 @@ const Shop = () => {
 		<FlexBox column justify-content="center" align-items="center">
 			<Category />
 			<DataList>
-				{data.map(item => (
+				{items.map(item => (
 					<Item
 						key={item.id}
 						onClick={() => navigate(`/shop/shop-list/${category}/detail?id=${item.id}`)}
 					>
 						<ItemImg src={item.img_url} />
-						<FlexBox column justifyContent="center" alignItems="flex-start" gap="0.5rem">
+						<FlexBox column justifyContent="center" alignItems="flex-start" gap="0.2rem">
 							<PlantType>{item.plant_type}</PlantType>
 							<FeedTitle>{item.feed_title}</FeedTitle>
 							<Price>{item.price.toLocaleString('ko-KR')}원</Price>

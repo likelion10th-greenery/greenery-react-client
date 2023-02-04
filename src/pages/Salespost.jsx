@@ -3,21 +3,21 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 
-import Category from 'components/salespost/CategoryInput';
 import {
+	Category,
 	PostTitle,
 	PlantName,
 	PlantPrice,
 	PlantStock,
 	Pot,
-} from 'components/Salespost/MainInfoInput';
+	ImageInput,
+	Origin,
+	Size,
+	Delivery,
+	Description,
+	Tags,
+} from 'components/Salespost';
 import { imageFiles } from 'components/Salespost/atoms';
-import ImageInput from 'components/Salespost/ImageInput';
-import { Origin } from 'components/Salespost/OriginInput';
-import { Size } from 'components/Salespost/SizeInput';
-import { Delivery } from 'components/Salespost/DeliveryInput';
-import Description from 'components/Salespost/DescriptionInput';
-import Tags from 'components/Salespost/TagInput';
 
 import axios from 'axios';
 import styled from 'styled-components';
@@ -153,28 +153,24 @@ const Salespost = () => {
 	const [imgFiles, setImgFiles] = useRecoilState(imageFiles);
 	useEffect(() => {
 		setImgFiles([]);
-	}, []);
+	}, [setImgFiles]);
 
 	const postData = async input => {
 		try {
 			const res = await axios.post(`http://127.0.0.1:8000/shop/register/`, input);
-			console.log(res);
 
 			for (let img of imgFiles) {
 				const id = res.data.id;
+				// eslint-disable-next-line no-unused-vars
 				const imgres = await axios.post(`http://127.0.0.1:8000/shop/img/shopimage/`, {
 					plant: id,
 					image: img.objUrl,
 				});
-				//URL.revokeObjectURL(img.objUrl); // blob url 해제
-				console.log(imgres);
 			}
 
 			alert('상품 등록이 완료되었습니다.');
 			navigate('/shop/shop-list/view-all');
-		} catch (err) {
-			console.log(err);
-		}
+		} catch (err) {}
 	};
 
 	const {
@@ -184,18 +180,6 @@ const Salespost = () => {
 		formState: { errors, isSubmitting },
 	} = useForm();
 	const onValid = data => {
-		// const newObj = []...imgFiles],
-
-		// 주소 합치기
-		//const address = data.address1 + data.address2 + data.address3;
-
-		// data.image (=FileList) 덮어쓰기 필요
-		// const dataTransfer = new DataTransfer();
-
-		// Array.from(imgFiles).forEach(file => dataTransfer.items.add(file.file));
-
-		// console.log(dataTransfer.files);
-
 		const detail = editorRef.current.getContent();
 		const parsedData = {
 			address: 'none', // 배송 방법 'courier' 선택 시에도 default로 문자열 들어가도록 설정
@@ -206,15 +190,12 @@ const Salespost = () => {
 			stock: Number(data.stock),
 			plant_width: Number(data.plant_width),
 			plant_vertical: Number(data.plant_vertical),
-			// address: `${data.address1}, ${data.address2}, ${data.address3}`,
 		};
-		// console.log(parsedData);
 
 		postData(parsedData);
 	};
 	const inValid = errors => {
 		alert('입력 조건을 만족시켜주세요!');
-		console.log(errors);
 	};
 
 	const editorRef = useRef();

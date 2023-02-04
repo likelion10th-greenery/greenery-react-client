@@ -15,7 +15,7 @@ const Box = styled.div`
 	flex-direction: column;
 	justify-content: center;
 
-	margin-bottom: 3rem;
+	margin-bottom: 2rem;
 `;
 
 const Inform = ({ title, text }) => {

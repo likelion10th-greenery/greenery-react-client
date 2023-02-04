@@ -34,7 +34,7 @@ export const SizeInput = styled.div`
 	}
 `;
 
-export const Size = ({ register }) => {
+const Size = ({ register }) => {
 	return (
 		<InputBox>
 			<SizeInputWrapper>
@@ -62,3 +62,5 @@ export const Size = ({ register }) => {
 		</InputBox>
 	);
 };
+
+export default Size;

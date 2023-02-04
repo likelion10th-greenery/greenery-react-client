@@ -1,4 +1,4 @@
-import { FlexBox } from 'components/common';
+import { Filter, FlexBox } from 'components/common';
 import Inform from 'components/common/Inform';
 import ShareList from 'components/Share/ShareList';
 import { COLOR } from 'constants/color';
@@ -29,10 +29,15 @@ const Share = () => {
 			<li>해당 사이트 내에서 발생하는 거래에 대해 그리너리는 책임지지 않습니다.</li>
 		</ul>
 	);
+	const filterOption = [
+		{ id: '거래 유형', options: ['나눔', '교환'] },
+		{ id: '거래 상태', options: ['거래 전', '거래 완료'] },
+	];
 
 	return (
 		<FlexBox column width="80%" minWidth="560px" margin="0 0 3rem 0">
 			<Inform title={title} text={InformText} />
+			<Filter filterOption={filterOption} />
 			<ShareList />
 		</FlexBox>
 	);

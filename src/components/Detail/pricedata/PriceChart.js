@@ -23,7 +23,7 @@ export default function PriceChart() {
 				<YAxis dataKey="price" />
 				<Tooltip />
 				<Legend />
-				<Line dataKey="price" stroke={COLOR.green} />
+				<Line dataKey="price" stroke={COLOR.demiLightGreen} />
 			</LineChart>
 			<PriceTable>
 				<FlexBox center column>

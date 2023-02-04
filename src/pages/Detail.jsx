@@ -6,20 +6,19 @@ import { Tab } from '../components/Detail/Tab/Tab';
 
 import styled from 'styled-components';
 import { COLOR } from 'constants/color';
-import { useEffect } from 'react';
-import axios from 'axios';
-import { useLocation } from 'react-router-dom';
 
 const Container = styled.section`
+	background-color: ${COLOR.gray};
 	width: 100%;
-	font-family: 'Noto Sans KR', sans-serif;
+	height: 100%;
+	margin-bottom: 2rem;
 `;
 
 const Category = styled.div`
-	width : 100%;
-	margin 0 1rem;	
-	border-top: .5px solid ${COLOR.darkgray};
-	border-bottom: .5px solid ${COLOR.darkgray};
+	width: 100%;
+	margin: 0 1rem;
+	border-top: 0.5px solid ${COLOR.darkgray};
+	border-bottom: 0.5px solid ${COLOR.darkgray};
 	p {
 		padding-left: 10rem;
 	}
@@ -69,22 +68,6 @@ const AddInfo = styled.div`
 `;
 
 const Detail = () => {
-	const { search } = useLocation();
-	const getPlantDetail = async () => {
-		const params = new URLSearchParams(search);
-		const id = params.get('id');
-		try {
-			const { data } = await axios.get(`http://127.0.0.1:8000/shop/${id}`);
-			console.log(data);
-		} catch (err) {
-			new Error(err);
-		}
-	};
-
-	useEffect(() => {
-		getPlantDetail();
-	}, []);
-
 	return (
 		<Container>
 			<Category>

@@ -1,10 +1,8 @@
 import { Link, NavLink, useMatch } from 'react-router-dom';
-// import { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { COLOR } from 'constants/color';
 import { FlexBox } from 'components/common';
-// import { useEffect } from 'react';
-// import { useState } from 'react';
+import React from 'react';
 
 const Wrapper = styled.nav`
 	position: sticky;
@@ -52,7 +50,6 @@ const CustomNavLink = styled(NavLink)`
 	${props =>
 		props.clicked &&
 		css`
-			font-weight: bold;
 			color: ${COLOR.demiLightGreen};
 
 			&::after {
@@ -69,22 +66,9 @@ const Icon = styled.img`
 const Navbar = () => {
 	const homeMatch = useMatch('/');
 	const shopMatch = useMatch('/shop/shop-list/:category');
+	const detailMatch = useMatch('/shop/shop-list/:category/detail');
 	const shareMatch = useMatch('/share');
 	const communityMatch = useMatch('/community');
-
-	// const [scroll, setScroll] = useState(0);
-
-	// const onScroll = () => {
-	// 	setScroll(window.scrollY || document.documentElement.scrollTop);
-
-	// 	// if (scroll > 80) {
-
-	// 	// }
-	// };
-
-	// useEffect(() => {
-	// 	window.addEventListener('scroll', onScroll);
-	// });
 
 	return (
 		<Wrapper>
@@ -93,14 +77,13 @@ const Navbar = () => {
 			</Link>
 
 			<FlexBox justifyContent="space-between" alignItems="center" gap="3rem">
-				<FlexBox justifyContent="center" alignItems="center" gap="3rem">
+				<FlexBox justifyContent="space-between" alignItems="center" gap="3rem">
 					<CustomNavLink to="/" clicked={homeMatch}>
 						Home
 					</CustomNavLink>
-					<CustomNavLink to="/shop/shop-list/view-all" clicked={shopMatch}>
+					<CustomNavLink to="/shop/shop-list/view-all" clicked={shopMatch || detailMatch}>
 						Shop
 					</CustomNavLink>
-
 					<CustomNavLink to="/share" clicked={shareMatch}>
 						Share
 					</CustomNavLink>
@@ -119,4 +102,4 @@ const Navbar = () => {
 	);
 };
 
-export default Navbar;
+export default React.memo(Navbar);
