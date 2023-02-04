@@ -2,7 +2,7 @@ import React from 'react';
 import { InputBox, RadioBtn } from 'pages/Salespost';
 import ErrorMsg from './ErrorMessage';
 
-export const Origin = ({ register, errors }) => {
+const Origin = ({ register, errors }) => {
 	return (
 		<>
 			<InputBox style={{ marginBottom: 0 }}>
@@ -31,3 +31,5 @@ export const Origin = ({ register, errors }) => {
 		</>
 	);
 };
+
+export default Origin;

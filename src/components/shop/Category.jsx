@@ -4,29 +4,6 @@ import styled from 'styled-components';
 import { COLOR } from 'constants/color';
 import { FlexBox, FlexTextBox } from 'components/common';
 
-// const List = styled.ul`
-// 	display: flex;
-// 	justify-content: center;
-// 	align-items: center;
-
-// 	gap: 20px;
-// `;
-
-// const Col = styled.li`
-// 	width: auto;
-// 	height: 100%;
-// 	display: flex;
-// 	flex-direction: column;
-// 	align-items: center;
-// 	gap: 15px;
-
-// 	cursor: pointer;
-
-// 	&:hover div {
-// 		border: 1px solid ${COLOR.demiLightGreen} !important;
-// 	}
-// `;
-
 const CustomNavLink = styled(NavLink)`
 	display: flex;
 	flex-direction: column;
@@ -150,82 +127,6 @@ const Category = () => {
 				</FlexTextBox>
 			</CustomNavLink>
 		</FlexBox>
-
-		// <FlexBox padding="0 0 3rem 0" margin="0 auto">
-		// 	<List>
-		// 		<Col id="view-all" onClick={onClickNav}>
-		// 			<ImgBox>
-		// 				<Img src={PLANT_IMG} />
-		// 			</ImgBox>
-		// 			<FlexTextBox fontFamily="ASD-Medium" fontSize=".8rem" color="#323232">
-		// 				전체
-		// 			</FlexTextBox>
-		// 		</Col>
-
-		// 		<Col id="flower" onClick={onClickNav}>
-		// 			<ImgBox>
-		// 				<Img src={PLANT_IMG} />
-		// 			</ImgBox>
-		// 			<FlexTextBox fontFamily="ASD-Medium" fontSize=".8rem" color="#323232">
-		// 				꽃
-		// 			</FlexTextBox>
-		// 		</Col>
-
-		// 		<Col id="foliage" onClick={onClickNav}>
-		// 			<ImgBox>
-		// 				<Img src={PLANT_IMG} />
-		// 			</ImgBox>
-		// 			<FlexTextBox fontFamily="ASD-Medium" fontSize=".8rem" color="#323232">
-		// 				관엽/공기정화
-		// 			</FlexTextBox>
-		// 		</Col>
-
-		// 		<Col id="succulence" onClick={onClickNav}>
-		// 			<ImgBox>
-		// 				<Img src={PLANT_IMG} />
-		// 			</ImgBox>
-		// 			<FlexTextBox fontFamily="ASD-Medium" fontSize=".8rem" color="#323232">
-		// 				다육식물
-		// 			</FlexTextBox>
-		// 		</Col>
-
-		// 		<Col id="wild" onClick={onClickNav}>
-		// 			<ImgBox>
-		// 				<Img src={PLANT_IMG} />
-		// 			</ImgBox>
-		// 			<FlexTextBox fontFamily="ASD-Medium" fontSize=".8rem" color="#323232">
-		// 				야생화/분재
-		// 			</FlexTextBox>
-		// 		</Col>
-
-		// 		<Col id="orchid" onClick={onClickNav}>
-		// 			<ImgBox>
-		// 				<Img src={PLANT_IMG} />
-		// 			</ImgBox>
-		// 			<FlexTextBox fontFamily="ASD-Medium" fontSize=".8rem" color="#323232">
-		// 				동/서양란
-		// 			</FlexTextBox>
-		// 		</Col>
-
-		// 		<Col id="seed" onClick={onClickNav}>
-		// 			<ImgBox>
-		// 				<Img src={PLANT_IMG} />
-		// 			</ImgBox>
-		// 			<FlexTextBox fontFamily="ASD-Medium" fontSize=".8rem" color="#323232">
-		// 				묘목/씨앗
-		// 			</FlexTextBox>
-		// 		</Col>
-
-		// 		<Col id="else" onClick={onClickNav}>
-		// 			<ImgBox>
-		// 				<Img src={PLANT_IMG} />
-		// 			</ImgBox>
-		// 			<FlexTextBox fontFamily="ASD-Medium" fontSize=".8rem" color="#323232">
-		// 				기타
-		// 			</FlexTextBox>
-		// 		</Col>
-		// 	</List>
-		// </FlexBox>
 	);
 };
 

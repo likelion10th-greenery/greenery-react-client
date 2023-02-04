@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
 	body {
 		background-color: ${COLOR.white};
 		color: ${COLOR.black};
-		font-family: "ASD-Medium";
+		font-family: "Noto Sans KR";
 		font-size: 16px;
     line-height: bottom;
 		height: 100%;

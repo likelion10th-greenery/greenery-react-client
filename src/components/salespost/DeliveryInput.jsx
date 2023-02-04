@@ -3,7 +3,7 @@ import { InputBox, RadioBtn } from 'pages/Salespost';
 import AddressSelector from './AddressInput';
 import ErrorMsg from './ErrorMessage';
 
-export const Delivery = ({ register, errors, setValue }) => {
+const Delivery = ({ register, errors, setValue }) => {
 	const [showAddress, setShowAddress] = useState(false);
 
 	return (
@@ -35,3 +35,5 @@ export const Delivery = ({ register, errors, setValue }) => {
 		</>
 	);
 };
+
+export default Delivery;

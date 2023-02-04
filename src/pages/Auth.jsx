@@ -17,7 +17,13 @@ const Auth = () => {
 	const navigate = useNavigate();
 
 	return (
-		<FlexBox column justifyContent="center" alignItems="center" height="100%">
+		<FlexBox
+			column
+			justifyContent="flex-start"
+			alignItems="center"
+			height="100%"
+			margin="6.5rem 0 0 0"
+		>
 			<Logo src="images/logo.png" onClick={() => navigate('/')} />
 			{!auth ? <Login auth={auth} setAuth={setAuth} /> : <Signup auth={auth} setAuth={setAuth} />}
 		</FlexBox>

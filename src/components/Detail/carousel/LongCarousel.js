@@ -9,7 +9,6 @@ import 'swiper/css/scrollbar';
 
 // import required modules
 import { FreeMode, Navigation, Scrollbar } from 'swiper';
-import styled from 'styled-components';
 
 export default function LongCarousel() {
 	return (

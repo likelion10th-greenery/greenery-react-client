@@ -38,6 +38,7 @@ const Span = styled.p`
 const Icon = styled.i`
 	margin-right: 0.3rem;
 `;
+
 const ShareItem = ({ item }) => {
 	return (
 		<FlexBox width="100%">

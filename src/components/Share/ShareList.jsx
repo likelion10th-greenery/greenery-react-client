@@ -1,5 +1,6 @@
 import { FlexBox } from 'components/common';
 import { COLOR } from 'constants/color';
+import { Fragment } from 'react';
 import styled from 'styled-components';
 import ShareItem from './ListItem/Item';
 import Symbol from './ListItem/Symbol';
@@ -134,8 +135,8 @@ const ShareList = () => {
 		<>
 			{items.map((item, idx) => {
 				return (
-					<>
-						<FlexBox key={item.id} center>
+					<Fragment key={item.id}>
+						<FlexBox center>
 							<FlexBox column height="100%" padding="0 0 1rem 0" justifyContent="space-around">
 								<Symbol name={item.name} status={item.status} />
 								<ShareItem item={item} fin={idx === items.length - 1 && true} />
@@ -143,7 +144,7 @@ const ShareList = () => {
 							<Image src={item.image} />
 						</FlexBox>
 						{idx !== items.length - 1 && <Separator />}
-					</>
+					</Fragment>
 				);
 			})}
 		</>
