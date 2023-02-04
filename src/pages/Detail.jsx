@@ -6,6 +6,9 @@ import { Tab } from '../components/Detail/Tab/Tab';
 
 import styled from 'styled-components';
 import { COLOR } from 'constants/color';
+import { useEffect } from 'react';
+import axios from 'axios';
+import { useLocation } from 'react-router-dom';
 
 const Container = styled.section`
 	width: 100%;
@@ -66,6 +69,22 @@ const AddInfo = styled.div`
 `;
 
 const Detail = () => {
+	const { search } = useLocation();
+	const getPlantDetail = async () => {
+		const params = new URLSearchParams(search);
+		const id = params.get('id');
+		try {
+			const { data } = await axios.get(`http://127.0.0.1:8000/shop/${id}`);
+			console.log(data);
+		} catch (err) {
+			new Error(err);
+		}
+	};
+
+	useEffect(() => {
+		getPlantDetail();
+	}, []);
+
 	return (
 		<Container>
 			<Category>
