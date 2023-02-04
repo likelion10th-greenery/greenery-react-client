@@ -19,7 +19,7 @@ export default function PriceChart() {
 				{/* <CartesianGrid strokeDasharray="0 0" /> */}
 				{/* x축, datakey가 x 축으로 들어갈 내용 */}
 				<XAxis dataKey="month" />
-				{/* y축, x 축고 ㅏ동일함. */}
+				{/* y축, x 축과 동일함. */}
 				<YAxis dataKey="price" />
 				<Tooltip />
 				<Legend />
@@ -27,34 +27,26 @@ export default function PriceChart() {
 			</LineChart>
 			<PriceTable>
 				<FlexBox center column>
-					<TableTitle>거래가</TableTitle>
+					<TableTitle>거래가격</TableTitle>
 					<Price>{pricedata[0].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</Price>
 					<Price>{pricedata[1].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</Price>
 					<Price>{pricedata[2].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</Price>
 					<Price>{pricedata[3].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</Price>
-					<Price>{pricedata[4].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</Price>
-					<Price>{pricedata[5].price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}원</Price>
 				</FlexBox>
-				<FlexBox center column>
+				<FlexBox className="Box" center column>
 					<TableTitle>거래일자</TableTitle>
-					<Price>
+					<Date>
 						{pricedata[0].month}.{pricedata[0].date}
-					</Price>
-					<Price>
+					</Date>
+					<Date>
 						{pricedata[1].month}.{pricedata[1].date}
-					</Price>
-					<Price>
+					</Date>
+					<Date>
 						{pricedata[2].month}.{pricedata[2].date}
-					</Price>
-					<Price>
+					</Date>
+					<Date>
 						{pricedata[3].month}.{pricedata[3].date}
-					</Price>
-					<Price>
-						{pricedata[4].month}.{pricedata[4].date}
-					</Price>
-					<Price>
-						{pricedata[5].month}.{pricedata[5].date}
-					</Price>
+					</Date>
 				</FlexBox>
 			</PriceTable>
 		</Wrapper>
@@ -74,11 +66,20 @@ const PriceTable = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+	margin-bottom: 3rem;
 `;
+
 const TableTitle = styled.p`
 	border-bottom: 1px solid black;
 	text-align: center;
+	width: 200px;
+	padding: 10px 0;
 `;
+
+const Date = styled.p`
+	margin: 0.5rem 0;
+`;
+
 const Price = styled.p`
 	margin: 0.5rem 0;
 `;
