@@ -17,6 +17,7 @@ import { Origin } from 'components/Salespost/OriginInput';
 import { Size } from 'components/Salespost/SizeInput';
 import { Delivery } from 'components/Salespost/DeliveryInput';
 import Description from 'components/Salespost/DescriptionInput';
+import Tags from 'components/Salespost/TagInput';
 
 import axios from 'axios';
 import styled from 'styled-components';
@@ -155,7 +156,8 @@ const Salespost = () => {
 		try {
 			const res = await axios.post(`http://127.0.0.1:8000/shop/register/`, input);
 			console.log(res);
-			alert('상품 등록이 완료되었습니다!');
+
+			alert('상품 등록이 완료되었습니다.');
 			navigate('/shop/shop-list/view-all');
 		} catch (err) {
 			console.log(err);
@@ -226,6 +228,7 @@ const Salespost = () => {
 						<PlantPrice register={register} errors={errors} />
 						<PlantStock register={register} errors={errors} />
 						<ImageInput register={register} />
+						<Tags />
 						<InputBox>
 							<label>상품 주요 정보</label>
 							<InputDetailWrapper>
