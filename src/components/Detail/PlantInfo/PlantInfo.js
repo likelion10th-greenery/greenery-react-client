@@ -13,7 +13,7 @@ function PlantInfo() {
 	const items = [
 		{
 			feed_title: '식물 판매합니다',
-			plant_name: '꽃',
+			plant_name: '알보 몬스테라',
 			category: 'flower',
 			price: 5000,
 			stock: 2,
@@ -43,6 +43,15 @@ function PlantInfo() {
 				<Container key={item.id}>
 					<Upper>
 						<div className="title">{item.plant_name}</div>
+						<div className="description">
+							금전운과 행운을 들어오게 하는 기특한 식물, 알보 몬스테라
+						</div>
+						<div className="tagBox">
+							<div className="tag">#알보몬</div>
+							<div className="tag">#희귀</div>
+							<div className="tag">#태그</div>
+							<div className="tag">#태그</div>
+						</div>
 					</Upper>
 					<Information>
 						<div className="price info">
@@ -95,15 +104,16 @@ export default PlantInfo;
 const Wrapper = styled.div``;
 
 const Container = styled.div``;
-
+// upper .title font : Noto Serif vs Noto Sans
 const Upper = styled.div`
 	.title {
+		font-family: 'Noto Serif KR', serif;
 		font-size: 2rem;
 		margin-bottom: 1rem;
 	}
 	.description {
 		font-size: 1rem;
-		color: ${COLOR.gray};
+		color: ${COLOR.darkgray};
 		margin-bottom: 0.5rem;
 	}
 	.tagBox {
@@ -114,6 +124,7 @@ const Upper = styled.div`
 			margin: 0 0.1rem;
 			font-size: 1rem;
 			color: ${COLOR.green};
+			background-color: rgba(70, 88, 64, 0.2);
 			border: 0.2px solid ${COLOR.green};
 			border-radius: 30px;
 			width: 4rem;
