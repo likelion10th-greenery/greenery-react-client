@@ -13,7 +13,7 @@ function PlantInfo() {
 	const items = [
 		{
 			feed_title: '식물 판매합니다',
-			plant_name: '알보 몬스테라',
+			plant_name: '알보몬스테라',
 			category: 'flower',
 			price: 5000,
 			stock: 2,
@@ -85,7 +85,7 @@ function PlantInfo() {
 			))}
 			<Button>
 				<button className="Cart">
-					<span>장바구니</span>
+					<p>장바구니</p>
 				</button>
 				<button className="Buy">
 					<p>결제하기</p>
@@ -124,7 +124,7 @@ const Upper = styled.div`
 			margin: 0 0.1rem;
 			font-size: 1rem;
 			color: ${COLOR.green};
-			background-color: rgba(70, 88, 64, 0.2);
+			background-color: rgba(70, 88, 64, 0.35);
 			border: 0.2px solid ${COLOR.green};
 			border-radius: 30px;
 			width: 4rem;
@@ -150,6 +150,8 @@ const Button = styled.div`
 	margin: 2rem 3rem 3rem 3rem;
 
 	.Cart {
+		border-radius: 15px;
+		cursor: pointer;
 		display: block;
 		width: 180px;
 		height: 60px;
@@ -159,6 +161,8 @@ const Button = styled.div`
 		margin-right: 1rem;
 	}
 	.Buy {
+		border-radius: 15px;
+		cursor: pointer;
 		display: block;
 		width: 180px;
 		height: 60px;

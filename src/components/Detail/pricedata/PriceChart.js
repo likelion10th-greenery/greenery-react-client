@@ -63,7 +63,7 @@ export default function PriceChart() {
 
 const Wrapper = styled.div`
 	display: flex;
-	border: 1px solid ${COLOR.gray};
+	border: 0.5px solid ${COLOR.darkgray};
 	background-color: ${COLOR.white};
 	margin: 2rem 2rem;
 	justify-content: space-around;
