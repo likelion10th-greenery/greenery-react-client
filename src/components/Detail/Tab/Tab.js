@@ -7,13 +7,14 @@ const Wrapper = styled.div`
 `;
 
 const TabMenu = styled.ul`
-	background-color: ${COLOR.green};
-	color: ${COLOR.white};
+	background-color: ${COLOR.white};
+	color: ${COLOR.green};
 	font-weight: bold;
 	display: flex;
 	align-items: center;
 	list-style: none;
 	padding: 0;
+	margin: 0;
 
 	.submenu {
 		text-align: center;
@@ -26,21 +27,30 @@ const TabMenu = styled.ul`
 		padding: 10px;
 		font-size: 15px;
 		transition: 0.2s;
+		border: 0.5px solid ${COLOR.darkgray};
 	}
 
 	.focused {
 		//선택된 Tabmenu 에만 적용되는 CSS를 구현
-		background-color: ${COLOR.white};
-		color: ${COLOR.green};
+		background-color: ${COLOR.green};
+		color: ${COLOR.white};
 	}
 
 	& div.desc {
 		text-align: center;
+		position: relative;
+		top: 0;
 	}
 `;
 
 const Desc = styled.div`
 	background-color: ${COLOR.white};
+	.description {
+		height: 500px;
+		border-right: 0.5px solid ${COLOR.darkgray};
+		border-left: 0.5px solid ${COLOR.darkgray};
+		border-bottom: 0.5px solid ${COLOR.darkgray};
+	}
 `;
 export const Tab = () => {
 	// Tab Menu 중 현재 어떤 Tab이 선택되어 있는지 확인하기 위한 currentTab 상태와 currentTab을 갱신하는 함수가 존재해야 하고, 초기값은 0.
@@ -72,7 +82,7 @@ export const Tab = () => {
 				))}
 			</TabMenu>
 			<Desc>
-				<p>{menuArr[currentTab].content}</p>
+				<div className="description">{menuArr[currentTab].content}</div>
 			</Desc>
 		</Wrapper>
 	);

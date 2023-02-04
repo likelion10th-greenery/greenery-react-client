@@ -3,20 +3,20 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 
-import Category from 'components/Salespost/CategoryInput';
+import Category from 'components/salespost/CategoryInput';
 import {
 	PostTitle,
 	PlantName,
 	PlantPrice,
 	PlantStock,
 	Pot,
-} from 'components/Salespost/MainInfoInput';
-import { imageFiles } from 'components/Salespost/atoms';
-import ImageInput from 'components/Salespost/ImageInput';
-import { Origin } from 'components/Salespost/OriginInput';
-import { Size } from 'components/Salespost/SizeInput';
-import { Delivery } from 'components/Salespost/DeliveryInput';
-import Description from 'components/Salespost/DescriptionInput';
+} from 'components/salespost/MainInfoInput';
+import { imageFiles } from 'components/salespost/atoms';
+import ImageInput from 'components/salespost/ImageInput';
+import { Origin } from 'components/salespost/OriginInput';
+import { Size } from 'components/salespost/SizeInput';
+import { Delivery } from 'components/salespost/DeliveryInput';
+import Description from 'components/salespost/DescriptionInput';
 
 import axios from 'axios';
 import styled from 'styled-components';

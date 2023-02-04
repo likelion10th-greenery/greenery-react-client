@@ -8,13 +8,15 @@ import styled from 'styled-components';
 import { COLOR } from 'constants/color';
 
 const Container = styled.section`
-	background-color: ${COLOR.grayishGreen};
 	width: 100%;
 	height: 100%;
 `;
 
 const Category = styled.div`
-	border-bottom: 0.5px solid ${COLOR.darkgray};
+	width : 100%;
+	margin 0 1rem;	
+	border-top: .5px solid ${COLOR.darkgray};
+	border-bottom: .5px solid ${COLOR.darkgray};
 	p {
 		padding-left: 10rem;
 	}
@@ -22,20 +24,16 @@ const Category = styled.div`
 
 const Infomation = styled.div`
 	width: 100%;
-	border-bottom: 0.5px solid ${COLOR.darkgray};
 	.Box {
 		display: flex;
 		margin: 0 auto;
 		width: 80%;
 	}
 	.MainCarousel {
-		border-left: 0.5px solid ${COLOR.darkgray};
 		width: 50%;
 		text-align: center;
 	}
 	.PlantData {
-		border-right: 0.5px solid ${COLOR.darkgray};
-		border-left: 0.5px solid ${COLOR.darkgray};
 		padding: 3rem 3rem;
 		width: 50%;
 	}
@@ -44,12 +42,12 @@ const Infomation = styled.div`
 const AddInfo = styled.div`
 	width: 80%;
 	margin: 0 auto;
-	border-left: 0.5px solid ${COLOR.darkgray};
-	border-right: 0.5px solid ${COLOR.darkgray};
 
 	.Charts {
 		.title {
+			margin: 0;
 			font-size: 2rem;
+			padding-top: 1rem;
 			padding-left: 2rem;
 		}
 	}
@@ -58,9 +56,10 @@ const AddInfo = styled.div`
 			font-size: 2rem;
 			padding-left: 2rem;
 		}
-		.cover {
+		.Cover {
+			border: 0.5px solid ${COLOR.darkgray};
 			margin: 2rem 2rem;
-			padding: 3rem 3rem;
+			padding: 2rem 3rem;
 			background-color: ${COLOR.white};
 		}
 	}
@@ -90,8 +89,8 @@ const Detail = () => {
 					<PriceChart />
 				</div>
 				<div className="SimilarPlant">
-					<p className="title">알보 몬스테라와 유사한 식물</p>
-					<div className="cover">
+					<p className="title">이런 상품은 어떠세요?</p>
+					<div className="Cover">
 						<LongCarousel />
 					</div>
 				</div>
