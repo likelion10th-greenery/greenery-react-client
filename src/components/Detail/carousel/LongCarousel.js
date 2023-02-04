@@ -9,6 +9,7 @@ import 'swiper/css/scrollbar';
 
 // import required modules
 import { FreeMode, Navigation, Scrollbar } from 'swiper';
+import styled from 'styled-components';
 
 export default function LongCarousel() {
 	return (
@@ -18,7 +19,7 @@ export default function LongCarousel() {
 			spaceBetween={30}
 			freeMode={true}
 			modules={[FreeMode, Navigation, Scrollbar]}
-			scrollbar={{ draggable: true, hide: true }}
+			scrollbar={{ draggable: true, hide: false }}
 			className="mySwiper"
 		>
 			<SwiperSlide>

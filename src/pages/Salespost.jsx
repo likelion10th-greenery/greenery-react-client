@@ -1,9 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 
-import Category from 'components/Salespost/CategoryInput';
+import Category from 'components/salespost/CategoryInput';
 import {
 	PostTitle,
 	PlantName,
@@ -17,6 +17,7 @@ import { Origin } from 'components/Salespost/OriginInput';
 import { Size } from 'components/Salespost/SizeInput';
 import { Delivery } from 'components/Salespost/DeliveryInput';
 import Description from 'components/Salespost/DescriptionInput';
+import Tags from 'components/Salespost/TagInput';
 
 import axios from 'axios';
 import styled from 'styled-components';
@@ -149,13 +150,27 @@ export const Button = styled.button`
 const Salespost = () => {
 	const API_KEY = 'hu8nfu3m325us5grhquqzn0vsvf8stfwc214ef8x70fwvc7z';
 	const navigate = useNavigate();
-	const imgFiles = useRecoilValue(imageFiles);
+	const [imgFiles, setImgFiles] = useRecoilState(imageFiles);
+	useEffect(() => {
+		setImgFiles([]);
+	}, []);
 
 	const postData = async input => {
 		try {
 			const res = await axios.post(`http://127.0.0.1:8000/shop/register/`, input);
 			console.log(res);
-			//window.location.reload();
+
+			for (let img of imgFiles) {
+				const id = res.data.id;
+				const imgres = await axios.post(`http://127.0.0.1:8000/shop/img/shopimage/`, {
+					plant: id,
+					image: img.objUrl,
+				});
+				//URL.revokeObjectURL(img.objUrl); // blob url 해제
+				console.log(imgres);
+			}
+
+			alert('상품 등록이 완료되었습니다.');
 			navigate('/shop/shop-list/view-all');
 		} catch (err) {
 			console.log(err);
@@ -186,12 +201,6 @@ const Salespost = () => {
 			address: 'none', // 배송 방법 'courier' 선택 시에도 default로 문자열 들어가도록 설정
 			...data,
 			plant_detail: detail,
-			plant_images: imgFiles.map((img, idx) => {
-				const plant_images = { image_url: img.objUrl, image_number: idx };
-
-				return plant_images;
-			}),
-
 			plant_height: Number(data.plant_height),
 			price: Number(data.price),
 			stock: Number(data.stock),
@@ -200,10 +209,6 @@ const Salespost = () => {
 			// address: `${data.address1}, ${data.address2}, ${data.address3}`,
 		};
 		// console.log(parsedData);
-
-		// multipart data 전송하는 게 아니라면 formData 쓸 필요는 없는 것 같아요
-		//const formData = new FormData();
-		//formData.append('file', parsedData);
 
 		postData(parsedData);
 	};
@@ -226,6 +231,7 @@ const Salespost = () => {
 						<PlantPrice register={register} errors={errors} />
 						<PlantStock register={register} errors={errors} />
 						<ImageInput register={register} />
+						<Tags />
 						<InputBox>
 							<label>상품 주요 정보</label>
 							<InputDetailWrapper>

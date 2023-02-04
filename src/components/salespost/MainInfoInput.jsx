@@ -7,7 +7,7 @@ export const PostTitle = ({ register, errors }) => {
 		<InputBox>
 			<label>제목</label>
 			<input
-				{...register('feed_Stock', {
+				{...register('feed_title', {
 					required: '필수 입력 값입니다.',
 					maxLength: {
 						value: 20,
@@ -16,7 +16,7 @@ export const PostTitle = ({ register, errors }) => {
 				})}
 				type="text"
 			/>
-			{errors.feed_Stock !== undefined && <ErrorMsg>{errors.feed_Stock.message}</ErrorMsg>}
+			{errors.feed_title !== undefined && <ErrorMsg>{errors.feed_title.message}</ErrorMsg>}
 		</InputBox>
 	);
 };
@@ -26,13 +26,13 @@ export const PlantName = ({ register, errors }) => {
 		<InputBox>
 			<label>상품명</label>
 			<input
-				{...register('plant_type', {
+				{...register('plant_name', {
 					required: '필수 입력 값입니다.',
 					pattern: { value: /^[^\s]+$/, message: '띄어쓰기는 불가합니다.' },
 				})}
 				type="text"
 			/>
-			{errors.plant_type !== undefined && <ErrorMsg>{errors.plant_type.message}</ErrorMsg>}
+			{errors.plant_name !== undefined && <ErrorMsg>{errors.plant_name.message}</ErrorMsg>}
 		</InputBox>
 	);
 };

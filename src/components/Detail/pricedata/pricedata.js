@@ -2,7 +2,7 @@ export const pricedata = [
 	{
 		month: '03',
 		date: '15',
-		price: '150000',
+		price: '100000',
 	},
 	{
 		month: '04',

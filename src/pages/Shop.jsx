@@ -1,4 +1,4 @@
-import Category from 'components/Shop/Category';
+import Category from 'components/shop/Category';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -141,7 +141,7 @@ const Shop = () => {
 	useEffect(() => {
 		const getPlants = async () => {
 			try {
-				const { data } = await axios.get(`http://127.0.0.1:8000/shop/${category}`);
+				const { data } = await axios.get(`http://127.0.0.1:8000/shop`);
 				setData(data);
 			} catch (err) {
 				new Error(err);
@@ -152,11 +152,14 @@ const Shop = () => {
 	}, [category]);
 
 	return (
-		<FlexBox column justify-content="center" align-items="cneter">
+		<FlexBox column justify-content="center" align-items="center">
 			<Category />
 			<DataList>
-				{items.map(item => (
-					<Item key={item.id} onClick={() => navigate(`/shop/shop-list/${category}/detail`)}>
+				{data.map(item => (
+					<Item
+						key={item.id}
+						onClick={() => navigate(`/shop/shop-list/${category}/detail?id=${item.id}`)}
+					>
 						<ItemImg src={item.img_url} />
 						<FlexBox column justifyContent="center" alignItems="flex-start" gap="0.5rem">
 							<PlantType>{item.plant_type}</PlantType>
